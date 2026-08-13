@@ -1,0 +1,129 @@
+---
+name: mtg-guide
+description: Build a verified, clickable HTML strategy guide for any Magic: The Gathering set — limited (draft/sealed/prerelease) or constructed (Standard BO1/BO3, Pioneer, Modern). Use for draft guides, sealed kits, metagame reports, and Arena-importable decklists — draft & sealed, mechanics, 5 archetypes, prerelease kit, pick orders. Use when user asks for "MTG draft guide", "sealed guide", "prerelease guide", "limited strategy", or names a set like "The Hobbit" or "Lorwyn Eclipsed".
+version: 0.2.0
+author: dweebikus
+license: MIT
+metadata:
+  hermes:
+    tags: [mtg, magic, limited, draft, sealed, prerelease]
+    related_skills: []
+---
+
+# MTG Limited Guide Builder — First Pass
+
+Reusable skill that started with the Hobbit limited build (2026-08-12) and the Standard BO1 report (2026-08-13). Produces single-file offline HTML guides under `~/projects/mtg-<slug>-guide/` or `~/projects/mtg-standard-bo1-report/` + `STATUS.md` checkpoint. Supports both limited and constructed outputs in the same repo.
+
+## When to use
+- User names an MTG set + wants draft and/or sealed strategy
+- User says "strategy guide", "prerelease guide", "limited guide" for any Universes Beyond or Standard set
+- Re-run after 17Lands matures to upgrade provisional tiers → verified
+
+## Workflow (do this every time)
+
+### 1) Resolve the set
+- Slug the set: `the-hobbit` → `mtg-hobbit-guide`, `lorwyn-eclipsed` → `mtg-lorwyn-eclipsed-guide`
+- Target dir: `~/projects/mtg-<slug>-guide/`
+- If `STATUS.md` exists, read it — respect the pause/resume checkpoint.
+
+### 2) Deep research (required — don't fake mechanics)
+Run `hermes_research` tier `deep` with `auto` routing. Signals: breadth 2, browserIntensity 2, sourceDifficulty 2, synthesis 2.
+
+**Query template:**
+```
+Do deep research on Magic: The Gathering — <Set Name> (code <CODE> if known). Find all available prerelease, preview season, spoiler, and early release information through today.
+
+Needed:
+- Official name, code, size (draft vs total), format legality, dates (debut, gallery, prerelease, Arena/MTGO, tabletop, Gift Bundle), products
+- Confirmed mechanics with official reminder text (headline vs supporting), especially new keywords
+- Real draft archetypes (HOB was 5, not 10) with signposts + hybrid commons/uncommons + typal lands
+- Limited environment: speed, curve, color depth, early consensus rankings (flag provisional pre-17Lands)
+- Sealed/prerelease guidance (Wizards baseline + expert synthesis)
+- Bombs / premium removal / breakout commons-uncommons / tricks to play around
+- Links: Wizards Mechanics/Release Notes/Prerelease/Collecting, Scryfall, MTGGoldfish, MythicSpoiler, Draftsim, LR/Lords of Limited, Reddit megathreads
+
+Cite every product/mechanic/archetype claim with primary sources. Call out contradictions and thin samples explicitly.
+Title: MTG <Set> Limited Strategy Research
+```
+
+Wait for the job — don't scaffold tiers as truth before it returns. If you must scaffold, mark tiers/mechanics as PLACEHOLDER and list the job ID in the HTML.
+
+### 3a) Build the verified LIMITED HTML (draft/sealed)
+Single-file `index.html` (no build step, works offline, printable). Required sections (9):
+
+1. **Overview** — verified set identity table (code, size, legality, dates), Pick-Two vs Pick-One, booster size, fixing level, speed
+2. **Mechanics** — each mechanic as expandable detail with: official reminder text → limited translation → deckbuilding tip. Flag "does not return" (e.g., Ring tempts you for HOB).
+3. **Archetypes** — only the real supported pairs (check Wizards prerelease guide). Each: color pips, signposts (gold/hybrid/land), plan, risk/combo note, tier tag. Include fixing callout + off-archetype disclaimer.
+4. **Draft** — tabbed P1 Stay Open / P2 Commit / P3 Fix & Cut / Signals. BREAD tuned to set, curve table (Wizards suggested 1/7-8/5-6/3-4/2-3/17 lands), creature counts, Pick-Two nuance if applicable.
+5. **Sealed** — Sort / Build / Mana / Sideboard tabs. Rule-of-7, bombs>synergy, 23/17 skeleton, splash math (single-pip only).
+6. **Prerelease Kit** — what's in the box (check Collecting article vs prerelease guide — note discrepancies), 50-minute clock, interactive checklist that writes to localStorage.
+7. **Cards & Removal** — provisional table (mark provisional until ~3-4 days post-Arena). Tiers S/A/B with source cards, removal hierarchy, tricks to play around (Settle, Adventure protection, etc.).
+8. **Traps** — 5+ traps + pro tips + cheat-sheet table (mulligan, splash, stalled board, Army vs exile).
+9. **Sources** — dates timeline, products list, research job ID, link farm, file path, "revisit after 17Lands matures" note.
+
+**Chrome (copy from Hobbit build):**
+- Sticky topbar with set code + live status (AWAITING → VERIFIED + date)
+- Hero with set dates + 3 KPIs + path toggle (Both/Draft/Sealed dims non-path) + search (`/` focuses)
+- Left TOC with scroll spy, progress bar wired to checklist `data-prog`
+- Search filters mechanics/arch + cards, pill filters for archetype speed
+- Print button + Reset
+
+Write via python (the `write` tool can be flaky — prefer `python3 << 'PY'` heredoc). Verify with `wc -c` and `xdg-open` check.
+
+
+### 3b) Build the verified CONSTRUCTED HTML (Standard BO1/BO3, etc.)
+If user asks for metagame/constructed:
+
+- Pull live metagame (MTGGoldfish metagame/*, MTGO Challenges, Untapped/Aetherhub if available). Record scrape date + IDs.
+- Include: tier table with shares, format legality + rotation, BO1 vs BO3 notes (hand smoother, no sideboard)
+- Per deck: colors, share, source link + event, game plan, good vs / bad vs, mulligan line, clean Arena `Deck` block (4 Card Name), Copy button via `navigator.clipboard.writeText`.
+- Brew section for up-and-comers / HOB spice.
+- Flag thin samples (e.g., 2 days post-set) as provisional.
+- Same chrome as limited (topbar, hero, Copy buttons, print).
+
+### 3c) Repo layout (not limited-specific)
+Target repo is `mtg-guides` (not `mtg-limited-guides`):
+```
+mtg-guides/
+  README.md
+  docs/hobbit/index.html          # limited
+  docs/standard-bo1-2026-08-13/index.html  # constructed
+  skills/mtg-guide/SKILL.md      # skill
+  scripts/...
+```
+Local mirrors: `~/projects/mtg-hobbit-guide/`, `~/projects/mtg-standard-bo1-report/` are build dirs; repo `docs/` is publish dir for Pages.
+
+### 4) Checkpoint
+Write `STATUS.md` in the guide dir:
+- file + size + open command
+- backup name if you rotated
+- what was verified vs provisional
+- research job ID
+- next steps (pull 17Lands after Arena+3d, add Scryfall hovers, Pages hosting)
+
+### 5) Tell the user where to open it
+Always report:
+```
+file:///home/<user>/projects/mtg-<slug>-guide/index.html
+xdg-open ~/projects/mtg-<slug>-guide/index.html
+```
+
+## Provenance — Hobbit reference build
+- Scaffold: 53,269 bytes placeholder (10 fake archetypes)
+- Research: `msqe3uhv-znc85i7` (deep, gpt-5.6-sol) — returned Aug 12, verified HOB 193/321, HOC, Standard-legal, 5 archetypes, Storied/Recruit/Hone + Adventure/Amass Goblins/Landfall
+- Verified: 45,582 bytes → `~/projects/mtg-hobbit-guide/index.html` + `STATUS.md` + backup `index.bak.202608121102.html`
+
+## Common pitfalls (limited + constructed)
+- Don't invent 10 archetypes — check how many Wizards actually supports (HOB was 5)
+- Don't treat early Reddit 3-0s as rankings — mark provisional until 17Lands n≥5000
+- Legendary artifact counts as 1 for storied-like thresholds
+- Double-pip removal is not a splash
+- No Commander precons is a real product signal — mention it
+
+## Verification checklist
+- [ ] deep research job ID cited in guide + STATUS.md
+- [ ] mechanics have official reminder text + source link
+- [ ] archetype count matches Wizards prerelease guide
+- [ ] provisional tiers explicitly flagged with revisit date
+- [ ] single file opens offline, prints cleanly, search works
+- [ ] STATUS.md written

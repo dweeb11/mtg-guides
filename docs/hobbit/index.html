@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>MTG: The Hobbit — Limited Strategy Guide | Draft &amp; Sealed</title>
+<meta name="description" content="Verified strategy guide for Magic: The Gathering — The Hobbit (HOB) limited: draft & sealed, 5 archetypes, Storied/Recruit/Hone mechanics, prerelease kit tips."/>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;800&family=Cinzel+Decorative:wght@700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#0f1410;--panel:#1a2218;--parchment:#f5ecd3;--gold:#c8a24a;--gold2:#e6c87a;--ink:#2b2416;--shadow:0 12px 40px rgba(0,0,0,.45)}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--parchment);font-family:Inter,system-ui,sans-serif;line-height:1.6}
+a{color:var(--gold2)}
+.topbar{position:sticky;top:0;z-index:50;background:rgba(15,20,16,.92);backdrop-filter:blur(10px);border-bottom:1px solid rgba(200,162,74,.25)}
+.topbar-inner{max-width:1280px;margin:0 auto;display:flex;align-items:center;gap:14px;padding:10px 16px}
+.brand{display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--parchment)}
+.rune{width:40px;height:40px;border-radius:10px;background:linear-gradient(145deg,#1e2f21,#0f1a11);border:1px solid rgba(200,162,74,.45);display:grid;place-items:center;font-family:Cinzel Decorative,serif;font-size:20px;color:var(--gold2)}
+.brand h1{margin:0;font-family:Cinzel,serif;font-weight:800;font-size:14px;letter-spacing:.06em;line-height:1}
+.brand h1 span{display:block;font-size:10px;letter-spacing:.18em;color:var(--gold);margin-top:3px}
+.nav{display:flex;gap:6px;margin-left:auto;flex-wrap:wrap}
+.nav button{appearance:none;border:1px solid rgba(200,162,74,.25);background:rgba(255,255,255,.04);color:var(--parchment);padding:6px 10px;border-radius:999px;font-size:11px;letter-spacing:.08em;text-transform:uppercase;font-weight:600;cursor:pointer}
+.nav button:hover{background:var(--gold);color:var(--ink)}
+.badge-live{font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--gold);border:1px dashed rgba(200,162,74,.35);padding:5px 9px;border-radius:999px;white-space:nowrap}
+.hero{max-width:1280px;margin:0 auto;padding:22px 16px 10px;display:grid;grid-template-columns:1.35fr .85fr;gap:18px}
+@media(max-width:900px){.hero{grid-template-columns:1fr}}
+.hero-card{background:linear-gradient(180deg,rgba(255,255,255,.06),rgba(255,255,255,.01)),var(--panel);border:1px solid rgba(200,162,74,.22);border-radius:18px;overflow:hidden;box-shadow:var(--shadow)}
+.hero-media{padding:22px;text-align:center;background:radial-gradient(600px 300px at 20% 0%,rgba(200,162,74,.18),transparent 60%),radial-gradient(700px 400px at 90% 30%,rgba(78,163,106,.14),transparent 60%),linear-gradient(180deg,#1e2f22,#121a13)}
+.hero-media h2{font-family:Cinzel Decorative,serif;font-size:28px;line-height:1.1;margin:8px 0;color:var(--parchment)}
+.kpis{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+.kpi{background:rgba(255,255,255,.04);border:1px solid rgba(200,162,74,.15);border-radius:12px;padding:10px;text-align:center}
+.kpi b{display:block;font-family:Cinzel,serif;color:var(--gold2)}
+.shell{max-width:1280px;margin:0 auto;padding:10px 16px 40px;display:grid;grid-template-columns:250px 1fr;gap:16px}
+@media(max-width:980px){.shell{grid-template-columns:1fr}}
+.toc{position:sticky;top:62px;align-self:start;background:var(--panel);border:1px solid rgba(200,162,74,.18);border-radius:14px;overflow:hidden}
+.toc h3{margin:0;padding:12px 12px 8px;font-family:Cinzel,serif;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--gold)}
+.toc a{display:flex;align-items:center;gap:8px;padding:8px 12px;font-size:13px;color:#d6c9a8;text-decoration:none;border-top:1px solid rgba(200,162,74,.08)}
+.toc a.active{background:linear-gradient(90deg,rgba(200,162,74,.18),transparent);color:var(--gold2);border-left:3px solid var(--gold)}
+.card{background:linear-gradient(180deg,rgba(255,255,255,.05),rgba(255,255,255,.01)),var(--panel);border:1px solid rgba(200,162,74,.18);border-radius:16px;box-shadow:var(--shadow);overflow:hidden;margin-bottom:14px}
+.card-head{padding:14px 16px 10px;border-bottom:1px solid rgba(200,162,74,.12);display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.card-head h2{margin:0;font-family:Cinzel,serif;font-size:16px}
+.badge{font-size:10px;letter-spacing:.12em;text-transform:uppercase;font-weight:800;padding:5px 8px;border-radius:999px;background:rgba(200,162,74,.14);color:var(--gold2);border:1px solid rgba(200,162,74,.25)}
+.card-body{padding:14px 16px}
+.prose{color:#e6dbbf;font-size:13.5px;line-height:1.65}
+.prose h3{font-family:Cinzel,serif;color:var(--gold2);margin:16px 0 6px;font-size:14px}
+.callout{border-left:3px solid var(--gold);background:rgba(200,162,74,.08);padding:9px 11px;border-radius:10px;margin:10px 0;font-size:13px;color:#e8dcb8}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+@media(max-width:760px){.grid2{grid-template-columns:1fr}}
+.pill{font-size:10px;padding:4px 8px;border-radius:999px;border:1px solid rgba(200,162,74,.22);background:rgba(255,255,255,.04);color:var(--gold2);font-weight:700;letter-spacing:.06em;text-transform:uppercase}
+.mana{width:22px;height:22px;border-radius:999px;display:inline-grid;place-items:center;font-weight:800;font-size:11px;color:#111;border:1px solid rgba(0,0,0,.2);vertical-align:middle}
+.mana.W{background:#f0e6b8}.mana.U{background:#7fb6d6}.mana.B{background:#8a7a8a;color:#fff}.mana.R{background:#d96a4a}.mana.G{background:#7ab07a}
+.arche{border:1px solid rgba(200,162,74,.14);background:rgba(255,255,255,.03);border-radius:12px;padding:11px}
+.table-wrap{overflow:auto;border:1px solid rgba(200,162,74,.14);border-radius:10px}
+table{width:100%;border-collapse:collapse;font-size:13px;min-width:560px}
+th{text-align:left;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--gold);background:rgba(200,162,74,.08);padding:8px 10px}
+td{padding:8px 10px;border-top:1px solid rgba(200,162,74,.1);color:#e6dbbf;vertical-align:top}
+tr:hover td{background:rgba(200,162,74,.05)}
+.tier{display:inline-block;padding:2px 7px;border-radius:999px;font-weight:800;font-size:11px}
+.tier.S{background:#c8a24a;color:#111}.tier.A{background:#4ea36a;color:#fff}.tier.B{background:#7fb6d6;color:#111}
+.tabs{display:flex;gap:6px;flex-wrap:wrap}
+.tab{appearance:none;border:1px solid rgba(200,162,74,.2);background:rgba(255,255,255,.04);color:#d6c9a8;padding:7px 11px;border-radius:999px;font-weight:700;font-size:11px;cursor:pointer}
+.tab.active{background:var(--gold);color:var(--ink)}
+.pane{display:none}.pane.active{display:block}
+.checklist{display:grid;gap:7px}
+.check{display:flex;gap:8px;align-items:flex-start;background:rgba(255,255,255,.03);border:1px solid rgba(200,162,74,.1);border-radius:10px;padding:8px 10px;font-size:13px}
+.check input{margin-top:3px;accent-color:var(--gold)}
+.detail{border:1px solid rgba(200,162,74,.14);background:rgba(255,255,255,.03);border-radius:10px;padding:10px}
+.detail summary{cursor:pointer;font-weight:700;color:var(--gold2);font-family:Cinzel,serif;font-size:12px}
+.search{flex:1;min-width:180px;display:flex;align-items:center;gap:6px;background:rgba(255,255,255,.06);border:1px solid rgba(200,162,74,.18);border-radius:999px;padding:6px 10px}
+.search input{flex:1;background:transparent;border:0;outline:0;color:var(--parchment);font-size:13px}
+kbd{font-family:JetBrains Mono,monospace;background:#0f1410;border:1px solid rgba(200,162,74,.22);border-bottom-width:2px;padding:1px 5px;border-radius:5px;color:var(--gold2);font-size:10px}
+.foot{max-width:1280px;margin:0 auto;padding:16px;color:#8e8370;font-size:10px;letter-spacing:.06em;text-transform:uppercase;text-align:center;border-top:1px solid rgba(200,162,74,.12)}
+</style>
+</head>
+<body>
+<header class="topbar"><div class="topbar-inner">
+<a class="brand" href="#top"><div class="rune">ᛟ</div><h1>MTG: THE HOBBIT<span>LIMITED STRATEGY GUIDE — HOB • VERIFIED AUG 12 2026</span></h1></a>
+<div class="nav"><button onclick="go('mechanics')">Mechanics</button><button onclick="go('archetypes')">Archetypes</button><button onclick="go('draft')">Draft</button><button onclick="go('sealed')">Sealed</button><button onclick="go('cards')">Cards</button></div>
+<div class="badge-live">● VERIFIED • PRERELEASE WEEK</div>
+</div></header>
+
+<div class="hero" id="top">
+<div class="hero-card"><div class="hero-media">
+<div style="font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--gold2);font-weight:700">Universes Beyond • HOB 193 cards • Standard-legal • Aug 14 tabletop</div>
+<h2>There &amp; Back Again:<br>Draft &amp; Sealed Mastery</h2>
+<p style="max-width:46ch;margin:8px auto 0;color:#d8cbb0;font-size:13px">Now verified against the full HOB gallery (Jul 31), Wizards mechanics &amp; release notes, and prerelease consensus. Five real archetypes, three new mechanics, and a 50-minute sealed plan.</p>
+<div style="margin-top:10px;display:flex;gap:8px;justify-content:center;flex-wrap:wrap">
+<button onclick="go('draft')" style="appearance:none;border:0;padding:9px 14px;border-radius:999px;font-weight:700;font-size:12px;cursor:pointer;background:linear-gradient(180deg,var(--gold2),var(--gold));color:var(--ink)">Start Draft Walkthrough →</button>
+<button onclick="go('sealed')" style="appearance:none;border:1px solid rgba(200,162,74,.35);background:transparent;color:var(--parchment);padding:9px 14px;border-radius:999px;font-weight:700;font-size:12px;cursor:pointer">I’m playing Sealed</button>
+</div>
+</div>
+<div style="padding:14px">
+<div class="kpis"><div class="kpi"><b>5</b><span style="font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:#b9ad90">Real archetypes</span></div><div class="kpi"><b>HOB/HOC</b><span style="font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:#b9ad90">Standard+</span></div><div class="kpi"><b>17</b><span style="font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:#b9ad90">Lands default</span></div></div>
+<div class="grid2" style="margin-top:10px">
+<div class="arche" onclick="go('mechanics')"><b style="font-family:Cinzel,serif;color:var(--gold2);font-size:12px">⚙️ Mechanics</b><p style="margin:4px 0 0;font-size:11px;color:#c9bda0">Storied, Recruit, Hone + Adventure, Amass Goblins, Landfall — with real reminder text.</p></div>
+<div class="arche" onclick="go('archetypes')"><b style="font-family:Cinzel,serif;color:var(--gold2);font-size:12px">🎨 Archetypes</b><p style="margin:4px 0 0;font-size:11px;color:#c9bda0">WU Humans, BR Goblins, BG Wolves, RW Dwarves, GU Elves — signposts & lands.</p></div>
+</div>
+</div></div>
+<div class="hero-card" style="padding:14px;display:flex;flex-direction:column;gap:10px">
+<div style="display:flex;align-items:center;gap:8px"><h3 style="margin:0;font-family:Cinzel,serif;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--gold)">Choose your path</h3><span class="pill">click-through</span></div>
+<div class="tabs"><button class="tab active" data-path="both" onclick="setPath('both')">Both</button><button class="tab" data-path="draft" onclick="setPath('draft')">Draft Night</button><button class="tab" data-path="sealed" onclick="setPath('sealed')">Prerelease Sealed</button></div>
+<div class="search"><span style="color:var(--gold)">⌕</span><input id="q" placeholder="Search cards, mechanics…" oninput="filterAll(this.value)"/><kbd>/</kbd></div>
+<div style="font-size:11px;color:#c9bda0;line-height:1.5"><b style="color:var(--gold2)">How to use:</b> Left rail to jump. Each archetype expands. Progress saves. Use sealed path at prerelease to dim draft-only signaling noise.</div>
+<div class="callout" style="margin:0">✅ Verified Aug 12: deep research complete (HOB 193, Arena Aug 11, prerelease Aug 7–13). Provisional tiering flagged where Arena sample is still thin — check 17Lands after Aug 15.</div>
+<div style="display:flex;gap:8px"><button onclick="window.print()" style="flex:1;appearance:none;border:1px solid rgba(200,162,74,.25);background:rgba(255,255,255,.04);color:var(--parchment);padding:8px;border-radius:999px;font-weight:700;font-size:11px;cursor:pointer">Print / Save PDF</button><button onclick="resetProg()" style="appearance:none;border:1px solid rgba(200,162,74,.25);background:transparent;color:var(--parchment);padding:8px 12px;border-radius:999px;font-weight:700;font-size:11px;cursor:pointer">Reset</button></div>
+</div>
+</div>
+
+<div class="shell">
+<nav class="toc" id="toc"><h3>The Journey</h3>
+<a href="#overview" data-sec="overview">1 · Overview</a>
+<a href="#mechanics" data-sec="mechanics">2 · Mechanics</a>
+<a href="#archetypes" data-sec="archetypes">3 · Archetypes</a>
+<a href="#draft" data-sec="draft">4 · Draft</a>
+<a href="#sealed" data-sec="sealed">5 · Sealed</a>
+<a href="#prerelease" data-sec="prerelease">6 · Prerelease Kit</a>
+<a href="#cards" data-sec="cards">7 · Cards &amp; Removal</a>
+<a href="#mistakes" data-sec="mistakes">8 · Traps</a>
+<a href="#appendix" data-sec="appendix">9 · Sources</a>
+</nav>
+<main style="min-width:0">
+
+<section class="card" id="overview"><div class="card-head"><h2>1 · Overview — What HOB actually is</h2><span class="badge">Start here • 3 min</span></div><div class="card-body prose">
+<p><b>Magic: The Gathering | The Hobbit™ (HOB)</b> — medium, 5-archetype Standard-legal Universes Beyond set. 193 draft cards (321 numbered with variants). Companion code <b>HOC</b> is eternal-only. First Tolkien set legal in Standard (unlike LTR). Preview debut Jul 18, full gallery Jul 31, GenCon pre-prerelease Jul 30–Aug 2, store prerelease <b>Aug 7–13</b>, Arena/MTGO <b>Aug 11</b>, tabletop <b>Aug 14</b>, Gift Bundle Sep 4.</p>
+<div class="grid2">
+<div class="detail" open><div style="font-family:Cinzel,serif;color:var(--gold2);font-size:11px;letter-spacing:.08em;text-transform:uppercase">At a glance</div>
+<ul><li><b>Boosters:</b> 14-card Play Boosters (Draft = 3, Sealed = 6)</li><li><b>Format:</b> 40 cards, 23 spells / 17 lands, BO3 with sideboard</li><li><b>Draft mode:</b> Designed for <b>Pick-Two</b> (4 players); Arena also Pick-One Premier/Traditional</li><li><b>Speed:</b> Assertive / curve-sensitive — need a 2-drop, but boards stall ~turn 4–5 (little flying, big ground)</li><li><b>Fixing:</b> Typal duals + Hobbit Hole (Evolving Wilds) + Treasure — splash one single-pip, not double-pip</li></ul></div>
+<div class="detail" open><div style="font-family:Cinzel,serif;color:var(--gold2);font-size:11px;letter-spacing:.08em;text-transform:uppercase">How to use this guide</div>
+<ol style="margin:8px 0 0 18px"><li>Read <b>Mechanics</b> — real reminder text so you know what cards do.</li><li>Pick path top-right — highlights your lane.</li><li>At table, open <b>Prerelease Kit</b> checklist on phone.</li><li>During draft, keep <b>Cards &amp; Removal</b> open for pick-order ties.</li></ol><p style="font-size:11px;color:#9e9378;margin-top:8px">Press <kbd>/</kbd> to search. Click any archetype to expand. Progress auto-saves.</p></div>
+</div>
+<div class="callout"><b>What makes HOB different from LTR:</b> No “Ring tempts you” (too complex / external tracker). Instead Storied/Hone/Recruit + returning Adventure/Amass Goblins/Landfall. Typal is soft — mechanics matter more than “only Dwarves” tribal. Products: Play &amp; Collector Boosters, Prerelease Packs, Bundle/Gift Bundle, Draft Night kit, two Scene Boxes, Welcome Decks, Box Toppers — <i>no traditional Commander precons</i>.</div>
+</div></section>
+
+<section class="card" id="mechanics"><div class="card-head"><h2>2 · Mechanics — Real rules, limited translation</h2><span class="badge">Verified vs. release notes</span><div class="search" style="max-width:220px;margin-left:auto"><span>⌕</span><input placeholder="Filter…" oninput="filterMech(this.value)"/></div></div><div class="card-body prose">
+<p>Headline mechanics from <i>The Hobbit Mechanics</i> + <i>Release Notes</i>. “What it means” = pick / play advice.</p>
+<div class="grid2" id="mechGrid">
+<details class="detail" open data-name="storied enduring story"><summary>📖 Storied — new keyword ability</summary>
+<p><b>Reminder:</b> <i>“If you control three or more artifacts, legendaries, and/or Sagas, you have an enduring story for rest of game.”</i></p><ul><li>Need a permanent with storied while threshold met. Counts artifacts + legendary permanents + Sagas (multi-qualifier counts once).</li><li>Once gained, <b>enduring story sticks forever</b> — not a counter/emblem, losing board doesn’t remove it.</li><li>Payoff lives on other cards — storied itself does nothing alone.</li></ul><p><b>Limited:</b> Concentrated in <b>RW Dwarves</b> — legendary Dwarves + Equipment + Treasure + Sagas make 3 easy. Count <i>cards</i> not labels: legendary artifact = 1. Tokens that are Treasure/Axe count. Don’t force storied outside RW.</p></details>
+<details class="detail" open data-name="recruit draw discard soldier"><summary>🪖 Recruit — new keyword action</summary>
+<p><b>To recruit:</b> Draw a card, discard a card, if discarded card was nonland create a 1/1 white Human Soldier token.</p><ul><li>Land discard = filter only, no token. Draw triggers “second card drawn” payoffs.</li><li>Flashback / graveyard cards soften cost. Multiple recruits resolve independently. Unlike connive, no +1/+1 counter.</li></ul><p><b>Limited:</b> Backbone of <b>WU Humans</b> (draw-two + go-wide). Recruit nonlands when body matters or discard is useful (Flashback, Adventure). Don’t recruit away your only removal to make a 1/1.</p></details>
+<details class="detail" data-name="hone counters equipment"><summary>🔨 Hone counters — new counter type</summary>
+<p>Each hone counter on Equipment gives equipped creature <b>+1/+0</b>.</p><ul><li>Stays on Equipment when unattached; does nothing while unattached. Moving Equipment transfers benefit (counters on Equipment, not creature).</li></ul><p><b>Limited:</b> RW Equipment deck snowballs — every hone stick makes later creatures bigger. Auto-attach Equipment wants you attacking, not durdling.</p></details>
+<details class="detail" data-name="adventure exile instant sorcery"><summary>📜 Adventure — returning</summary>
+<p>Cast either half from hand. If Adventure resolves, exile card; later cast permanent from exile. Countered Adventure → graveyard, not exile. While on stack as Adventure, card elsewhere has only permanent’s characteristics.</p><p><b>Limited:</b> Card economy king — Bofur // Concerted Care (hexproof+indestructible trick → lifelink body), Smaug the Great Calamity // Spew Flame etc. Adventure = effectively 2-for-1; prioritize over vanilla 3-drops.</p></details>
+<details class="detail" data-name="amass goblins army counters"><summary>👺 Amass Goblins N — returning (Goblin)</summary>
+<p>If no Army, make 0/0 black Goblin Army token, then put N +1/+1 counters on Army you control. Existing Army just grows; with multiples you choose.</p><p><b>Limited:</b> Core of <b>BR Goblins</b> with sacrifice/death payoffs (e.g., Bolg of the North). Army = one big threat that dodges edict-style removal but hates bounce/exile. Don’t over-sac the Army itself.</p></details>
+<details class="detail" data-name="landfall elves green blue"><summary>🌿 Landfall — returning theme</summary><p>Triggers when land enters under your control. Central to <b>GU Elves</b> (e.g., Silvan Reveler). Ramp/rebuy lands to trigger repeatedly.</p><p><b>Limited:</b> GU is slowest archetype — needs actual landfall/Elf engines, not just “good green-blue cards”.</p></details>
+<details class="detail" data-name="ferocious power 4 wolves bg"><summary>🐺 Power 4+ (ferocious-style)</summary><p>Not a keyword here — BG Wolves / Mirkwood animals reward controlling power ≥4. Think rate + fight tricks.</p><p><b>Limited:</b> Play efficient bodies; Quarrel-style punch spells are premium because deathtouch + power-matters synergize.</p></details>
+<details class="detail" data-name="saga lore counters treasure flashback equipment"><summary>✨ Sagas / Treasure / Flashback / Cycling / Equipment / Ward</summary><p>Sagas get lore counter after draw step, trigger chapter, sac after last. Treasure {T}, sac: add one mana of any color. Flashback, landcycling/typal cycling, Equipment, ward all recur — esp. RW.</p><p><b>Limited:</b> Pinecone Strike / Burn, Burn, Tree and Fern can pop Equipment/Axe/Treasure for extra value. White’s removal is more conditional than black’s.</p></details>
+</div>
+<p style="font-size:11px;color:#9e9378">Sources: Wizards Mechanics &amp; Release Notes; Vision Design; MythicSpoiler. Ring tempts you &amp; historic do NOT return.</p>
+</div></section>
+
+<section class="card" id="archetypes"><div class="card-head"><h2>3 · Archetypes — The 5 Real Companies</h2><span class="badge">Not 10 — HOB is 5 pairs</span><span class="pill">Pick-Two draft</span></div><div class="card-body prose">
+<p>HOB supports <b>five</b> allied/enemy pairs (gold signpost + hybrid uncommon/common + typal dual each). Off-archetype UB/UR control is speculation; start with these.</p>
+<div style="display:flex;gap:6px;flex-wrap:wrap;margin-bottom:8px"><span style="font-size:11px;color:#9e9378">Filter:</span><button class="pill" onclick="filtArch('all')">All</button><button class="pill" onclick="filtArch('aggro')">Aggro</button><button class="pill" onclick="filtArch('tempo')">Tempo</button><button class="pill" onclick="filtArch('mid')">Midrange</button><button class="pill" onclick="filtArch('control')">Control</button></div>
+<div class="grid2" id="archGrid">
+<details class="detail" open data-tags="tempo" data-name="WU humans recruit draw tokens"><summary><span class="mana W">W</span> <span class="mana U">U</span> — WU Humans: Recruit / Draw-Two / Tokens</summary>
+<p><b>Signposts:</b> Bard the Bowman (gold) · Eagle’s Rescue (hybrid uncommon) · Patient Instructor (hybrid common) · Land: Lake-town (tapped W/U, sac 4 mana → two +1/+1 on Human)</p><p><b>Plan:</b> Recruit repeatedly, trigger second-card-draw payoffs, convert Soldier tokens via counters/Equipment/team pumps.</p><p><b>Caveat:</b> Potentially powerful but structurally risky — white common removal shallow, blue creatures uneven. Needs repeatable recruit, not just one trick.</p></details>
+<details class="detail" open data-tags="mid tempo aggro" data-name="BR goblins amass sacrifice"><summary><span class="mana B">B</span> <span class="mana R">R</span> — BR Goblins: Amass &amp; Sacrifice</summary>
+<p><b>Signposts:</b> Bolg of the North · Fearsome Goblin Pair · Goblin Plate Mail · Land: Goblin-town</p><p><b>Plan:</b> Build one big Goblin Army, sac expendable creatures/artifacts, grind with death triggers + best-in-set black removal.</p><p><b>Take:</b> Best early consensus = <b>safest draft lane</b> + deep removal. Versatile — can aggro or grind.</p></details>
+<details class="detail" data-tags="mid" data-name="BG wolves power 4 ferocious"><summary><span class="mana B">B</span> <span class="mana G">G</span> — BG Wolves: Power 4+ Matters</summary>
+<p><b>Signposts:</b> The Chief Warg · Large Bear · Duskwatch Hunter · Land: Mirkwood</p><p><b>Plan:</b> Play independently good bodies, enable ferocious-style bonuses, fight through board.</p><p><b>Strength:</b> Straightforward + black removal; good card-quality deck when synergies miss.</p></details>
+<details class="detail" data-tags="aggro" data-name="RW dwarves storied equipment"><summary><span class="mana R">R</span> <span class="mana W">W</span> — RW Dwarves: Storied &amp; Equipment</summary>
+<p><b>Signposts:</b> Thorin Oakenshield · Bifur, Melodic Rider · Nori, Teller of Tales · Land: Iron Hills</p><p><b>Plan:</b> Curve legendary Dwarves + artifact makers + auto-attach Equipment → hit enduring story fast, attack.</p><p><b>Speed:</b> <b>Fastest deck</b> — deepest two-drop roster (1-drop into 2-drop matters). Don’t durdle with late Equipment engines; density + early storied wins.</p></details>
+<details class="detail" data-tags="mid control" data-name="GU elves landfall ramp"><summary><span class="mana G">G</span> <span class="mana U">U</span> — GU Elves: Landfall</summary>
+<p><b>Signposts:</b> Silvan Reveler · Thranduil, Sindarin Liege · Mirkwood Nurturer · Land: Elvenking’s Halls</p><p><b>Plan:</b> Ramp/rebuy lands, repeated landfall growth, Elf engines take over long game.</p><p><b>Risk:</b> Slowest &amp; most demanding — needs real landfall/Elf engines, generic GU may fail. Often ranked lowest early.</p></details>
+</div>
+<div class="callout"><b>Fixing:</b> All five typal duals ETB tapped, tap for either color, sac for 4 mana to put two counters on matching type. Hobbit Hole = Evolving Wilds. Supports single-pip splashes, not 5-color. Off-archetype UB/UR value is <i>hypothesis</i> from Lords of Limited, not solved meta.</div>
+<div class="callout"><b>Pivot advice:</b> Pick-Two means you draft 2 cards per pack — signals move faster. After 2–3 picks, count playables; if your pair is contested, neighboring pair with shared color is cheap pivot thanks to treasures/duals.</div>
+</div></section>
+
+<section class="card" id="draft"><div class="card-head"><h2>4 · Draft — Pick-Two, Curve-Sensitive</h2><span class="badge">3×14 • 40 cards</span><span class="pill">17 lands default</span></div><div class="card-body prose">
+<div class="tabs"><button class="tab active" onclick="pane('draft','p1')">P1: Stay Open</button><button class="tab" onclick="pane('draft','p2')">P2: Commit</button><button class="tab" onclick="pane('draft','p3')">P3: Fix &amp; Cut</button><button class="tab" onclick="pane('draft','sig')">Signals</button></div>
+<div style="margin-top:10px">
+<div class="pane active" id="draft-p1">
+<h3>Pack 1 — BREAD but Hobbit-tuned</h3>
+<div class="table-wrap"><table><thead><tr><th>Priority</th><th>What</th><th>Why here</th></tr></thead><tbody>
+<tr><td><span class="tier S">S</span> Bomb rare</td><td>Beorn, Arkenstone, Eagles, Smaug</td><td>Wins alone; treasure can splash</td></tr>
+<tr><td><span class="tier A">A</span> Premium removal</td><td>Bilbo’s Deadly Slice, Pinecone Strike, Stone by Sunlight</td><td>Scarce; take over solid creature — white’s removal conditional</td></tr>
+<tr><td><span class="tier A">A</span> Top common engine</td><td>Crude Bent Blade (breakout), Quarrel, 2-drop amass/landfall enabler</td><td>Contextual bombs at common</td></tr>
+<tr><td><span class="tier B">B</span> Signpost / efficient threat</td><td>2/1 Army maker, 2/3 Burglar-like</td><td>Signals archetype</td></tr>
+</tbody></table></div>
+<div class="callout"><b>P1P1:</b> Best card that keeps you in one color — avoid double-pip gold unless bomb. Early consensus: <b>black > red > green > white/blue</b> at common (provisional — before 17Lands matures).</div>
+<h3>Curve math (Wizards + experts)</h3>
+<ul><li>Suggested curve: 1 mana 1–2, <b>2 mana 7–8</b>, 3 mana 5–6, 4 mana 3–4, 5 mana 2–3, 6+ 0–1, 17 lands</li><li>Need 2-drop on turn 2 — RW/BR punish stumbles. Keep total creatures 13–16.</li><li>Pick-Two: you see more cards, commit slightly faster than normal draft.</li></ul>
+</div>
+<div class="pane" id="draft-p2"><h3>Pack 2 — Find open lane</h3><ul><li>By P1P8: what’s wheeling? If zero good cards in your colors, pivot to neighbor sharing a color.</li><li>Take fixing (typal duals, treasure makers) once you have 8+ playables in pair.</li><li>Hate only bombs that beat you — not filler.</li></ul><div class="grid2"><div class="detail"><b style="color:var(--gold2)">Stay if</b><p>8+ playables across pair, signals agree, you’re passing gold of other pairs freely.</p></div><div class="detail"><b style="color:var(--gold2)">Pivot if</b><p>&lt;5 playables by pick 6 in a color, or late premium removal still wheeling elsewhere.</p></div></div></div>
+<div class="pane" id="draft-p3"><h3>Pack 3 — Fill holes &amp; cut</h3><ul><li>Need 2-drops? Take commons over medium rares.</li><li>17 lands default; 16 if curve &lt;2.8 + treasures; 18 if splash or 6+ five-drops.</li><li>Sideboard: duress, artifact hate, flying hate — important in BO3.</li></ul><div class="checklist"><label class="check"><input type="checkbox" data-prog> 23 playables in pair?</label><label class="check"><input type="checkbox" data-prog> Curve tops at 5–6 (max 1–2 sixes)</label><label class="check"><input type="checkbox" data-prog> 3+ removal pieces (aim 4–5 in draft)</label><label class="check"><input type="checkbox" data-prog> 6+ sources for splash only if single-pip</label></div></div>
+<div class="pane" id="draft-sig"><h3>Signals in Pick-Two</h3><p>Signals = what you’re passed. Late premium = open. Pick-Two doubles info per pack — late cards are stronger signal.</p><div class="table-wrap"><table><thead><tr><th>You see</th><th>Means</th><th>Do</th></tr></thead><tbody><tr><td>4th pick 2/2 flier still there</td><td>WU open</td><td>Move to blue</td></tr><tr><td>Removal wheeling</td><td>Color underdrafted</td><td>Take door</td></tr><tr><td>All gold gone</td><td>Table on your pair</td><td>Consider neighbor</td></tr></tbody></table></div></div>
+</div>
+</div></section>
+
+<section class="card" id="sealed"><div class="card-head"><h2>5 · Sealed — Build from Chaos</h2><span class="badge">6×14 • 40 cards</span></div><div class="card-body prose">
+<div class="tabs"><button class="tab active" onclick="pane('sealed','s1')">Sort</button><button class="tab" onclick="pane('sealed','s2')">Build</button><button class="tab" onclick="pane('sealed','s3')">Mana</button><button class="tab" onclick="pane('sealed','s4')">Sideboard</button></div>
+<div style="margin-top:10px">
+<div class="pane active" id="sealed-s1"><h3>Sort in 5 minutes</h3><ol><li>Lay 84 cards by color (WUBRG + multi + artifact/land). Bombs face-up.</li><li>Count playables ≥C per color. Ignore filler.</li><li>Count fixing: typal duals, Hobbit Hole, Treasure makers.</li><li>Find two deepest colors + best single-pip splash.</li></ol><div class="callout">Rule: need ~14 playables per pair to make 23. Best pair 17+ = clean 2-color. Else plan splash. Black is tiebreaker when pools close (Slice + value creatures).</div></div>
+<div class="pane" id="sealed-s2"><h3>Build the 40</h3><ul><li><b>Bombs > synergy:</b> Pool won’t give perfect synergies — lean bombs + removal + best commons.</li><li><b>Curve still king:</b> Wizards 1/7-8/5-6/3-4/2-3 curve applies to sealed too. Mediocre 2-drop > 4th 5-drop payoff.</li><li><b>Cut ruthlessly:</b> Last cuts hardest — cut high vanillas over tricks that save bombs.</li></ul><div class="table-wrap"><table><thead><tr><th>Slot</th><th>Count</th><th>Notes</th></tr></thead><tbody><tr><td>Creatures</td><td>13–16</td><td></td></tr><tr><td>Removal/tricks</td><td>4–7</td><td>Sagas count as creature+spell</td></tr><tr><td>Other (ramp/equip)</td><td>0–3</td><td>Treasure makers here</td></tr><tr><td>Lands</td><td>17</td><td>18 with splash / 6+ 5-drops</td></tr></tbody></table></div></div>
+<div class="pane" id="sealed-s3"><h3>Mana &amp; fixing</h3><p>Common duals + Hobbit Hole + Treasure = one single-pip splash reasonable. Double-pip (Bilbo’s Deadly Slice) is poor splash.</p><ul><li>2-color: 9/8 sources. + splash: 8/7/3-ish + treasures.</li><li>Don’t run 3 equal colors.</li><li>Treasure = fixing first, not ramp turn 2 (you get it later).</li></ul></div>
+<div class="pane" id="sealed-s4"><h3>Sideboard plans</h3><ul><li>Bring flyers vs RW, artifact interaction vs Treasure/Equipment, exile vs recursion/Flashback.</li><li>On draw, cut a 2-drop for extra removal/trick.</li><li>Artifacts matter: Pinecone Strike &amp; Burn, Burn get extra value popping Equipment/Axe.</li></ul></div>
+</div>
+</div></section>
+
+<section class="card" id="prerelease"><div class="card-head"><h2>6 · Prerelease Kit — 50-Minute Plan</h2><span class="badge">⏱ Timed</span></div><div class="card-body prose">
+<div class="grid2"><div><h3>In the box</h3><ul><li>6 HOB Play Boosters</li><li>1 foil rare/mythic promo</li><li>4 full-art seasonal Hobbit basics (per collecting article — prerelease guide omits but box has them)</li><li>Deck box + Spindown</li></ul><h3>Clock</h3><ol><li><b>0–5:</b> Open, sort by color, bombs/ removal face-up.</li><li><b>5–15:</b> Count playables per pair.</li><li><b>15–28:</b> Sleeve best 23 + 17 lands.</li><li><b>28–38:</b> Table-test curve.</li><li><b>38–50:</b> Sideboard stack + sleeves.</li></ol></div><div><h3>Checklist (taps to prog bar)</h3><div class="checklist"><label class="check"><input type="checkbox" data-prog> Sorted by color &amp; CMC</label><label class="check"><input type="checkbox" data-prog> Found 2 deepest colors (14+ playables)</label><label class="check"><input type="checkbox" data-prog> Counted fixing / Treasure</label><label class="check"><input type="checkbox" data-prog> Built 40 (17 lands or 18)</label><label class="check"><input type="checkbox" data-prog> Sideboard for flyers / bombs</label><label class="check"><input type="checkbox" data-prog> Promo checked (play if on-color)</label></div><div class="callout">Sanity: can you cast a 2-drop on 2 in 85% of hands? If not, cut double-pip 2-drops or adjust lands.</div></div></div>
+<h3>Prerelease meta</h3><p>Everyone learns — win by curving + holding instant tricks. New players tap out — hold Quarrel, Stone by Sunlight, Bofur trick, Settle the Wreckage (4 open white + all-in invite = punish). Bring dice, extra sleeves, water.</p>
+</div></section>
+
+<section class="card" id="cards"><div class="card-head"><h2>7 · Cards — Bombs, Removal, Role-Players</h2><span class="badge">Provisional • pre-17Lands</span><div class="search" style="max-width:200px;margin-left:auto"><span>⌕</span><input placeholder="Filter…" oninput="filterCards(this.value)"/></div></div><div class="card-body prose">
+<p>Not solved — Arena live only ~1 day as of Aug 12. Early consensus (Draftsim, Limited Level-Ups, Lords of Limited) favors below. Revisit after Aug 15 17Lands.</p>
+<div class="table-wrap"><table id="cardsTable"><thead><tr><th>Tier</th><th>Card</th><th>Why</th><th>Where</th></tr></thead><tbody>
+<tr data-name="beorn arkenstone eagles great gilded boat smaug"><td><span class="tier S">S</span></td><td>Beorn the Fierce · The Arkenstone · The Eagles Are Coming! · Great Gilded Boat · Smaug the Magnificent</td><td>Consensus bombs — size/card/token advantage or hasty flyer</td><td>Any / Treasure</td></tr>
+<tr data-name="bilbo deadly slice pinecone strike stone sunlight gnashing"><td><span class="tier A">A</span></td><td>Bilbo’s Deadly Slice (3-mana unconditional, BB) · Pinecone Strike · Stone by Sunlight · Gnashing of Teeth</td><td>Premium removal — black’s is best but double-pip hurts splash</td><td>All — prioritize early</td></tr>
+<tr data-name="desolation prowler iron hills blacksmith quarrel crude bent blade"><td><span class="tier A">A</span></td><td>Desolation Prowler (above many rares) · Crude Bent Blade (breakout) · Quarrel · Iron Hills Blacksmith</td><td>Commons/uncommons overperforming at prerelease</td><td>Black/Red/Green</td></tr>
+<tr data-name="bofur concerted care smaug great calamity spew flame quarrel"><td><span class="tier A">A</span></td><td>Bofur, Reliable Guardian // Concerted Care · Smaug, the Great Calamity // Spew Flame · Quarrel</td><td>Adventure punch/protection — instant 2-for-1s</td><td>W / R / G</td></tr>
+<tr data-name="burn tree fern celebrate mountain king"><td><span class="tier B">B+</span></td><td>Burn, Burn, Tree and Fern (6 dmg + artifact pop) · Celebrate the Mountain King (Banishing Light + recruit)</td><td>Removal + value — extra vs Equipment meta</td><td>R / W</td></tr>
+<tr data-name="thor mountain king gandalf goblins bane gollum riddlemaster"><td><span class="tier B">B+</span></td><td>Thorin, Mountain-king · Gandalf, Goblins’ Bane · Gollum, Riddle Master · Fíli the Pathfinder</td><td>Rares that play like bombs in right deck</td><td>RW / BR / etc</td></tr>
+<tr data-name="settle wreckage confusticate bebother"><td><span class="tier A">A*</span></td><td>Settle the Wreckage (rare) · Confusticate and Bebother</td><td>Stack tricks — Settle punishes overextension (4 white open)</td><td>Beware / Blue tempo</td></tr>
+<tr data-name="sting orcrist glamdring thranduil"><td><span class="tier B">B</span></td><td>Sting, Bilbo’s Sword · Orcrist · Glamdring · Thranduil, the Elvenking</td><td>Looks prestigious, middling Limited grades — tempo/deck cost</td><td>—</td></tr>
+</tbody></table></div>
+<h3>Removal hierarchy</h3><ul><li>Instant unconditional (Slice) > efficient damage+artifact hate (Pinecone) > modal protect/kill (Stone) > conditional/expensive (Thorin’s Last Stand, Magnificent End).</li><li>Need 4+ answers in sealed, 5+ in draft. Keep 1 artifact/enchantment answer in sideboard — maindeck dead G1, wins G2-3 vs Equipment.</li></ul>
+<h3>Tricks to play around</h3><ul><li><b>Bofur // Concerted Care:</b> hexproof+indestructible trick then lifelink body — don’t 2-for-1 yourself.</li><li><b>Stone by Sunlight:</b> protect OR kill large — keep mana open.</li><li><b>Eagles Are Coming!:</b> instant board transform.</li><li><b>Vow to Erebor</b> in Dwarf Equipment — blowout.</li></ul>
+</div></section>
+
+<section class="card" id="mistakes"><div class="card-head"><h2>8 · Traps — Don’t Die in Mirkwood</h2><span class="badge">Wisdom</span></div><div class="card-body prose">
+<div class="grid2"><div><h3>❌ Traps</h3><ul><li><b>Forcing typal:</b> Elves/Dwarves need density payoffs; Humans/Wolves/Goblins care more about mechanic than just type. Don’t play bad tribe member to hit count.</li><li><b>Greedy splash:</b> BB or RR splash with one Treasure = mulligans. Single-pip only.</li><li><b>Legendary artifact counts as 1:</b> For storied, multi-qualifier = 1. Don’t double-count.</li><li><b>Overvaluing Sagas/Equip:</b> Card advantage but slow — 2 Sagas max unless control. Ornate Equipment without cheap equip is tempo loss.</li><li><b>Recruit wrong:</b> Don’t toss premium spell for 1/1 — use flashback/Adventure discard or when token matters.</li></ul></div><div><h3>✅ Pro tips</h3><ul><li>Play first if RW/BR aggro; draw if recruit/control.</li><li>Bait removal with medium threat before bomb (storied payoff, Eagle).</li><li>Hold Treasure sac instant — bluff bargain/recruit.</li><li>Count to 3 for storied before committing synergy card.</li><li>Sideboard hard — flyers vs tempo, exile vs recursion, artifact hate vs hoard.</li></ul></div></div>
+<div class="table-wrap"><table><thead><tr><th>Situation</th><th>Do</th></tr></thead><tbody><tr><td>2 lands + 2-drop opener</td><td>Keep most decks</td></tr><tr><td>3 colors tempting</td><td>2 main + 1 splash max</td></tr><tr><td>Board stalled (little flying)</td><td>Crack treasures/food, hold trick, don’t overextend into Settle</td></tr><tr><td>Facing Army</td><td>Exile/bounce > damage; don’t edict</td></tr></tbody></table></div>
+</div></section>
+
+<section class="card" id="appendix"><div class="card-head"><h2>9 · Appendix — Sources &amp; Dates</h2><span class="badge">Living doc</span></div><div class="card-body prose">
+<p>This build is verified against deep research through Aug 12, 2026. Arena sample still thin — revisit 17Lands/Untapped after Aug 15 before treating tiers as truth.</p>
+<div style="background:rgba(255,255,255,.04);border:1px solid rgba(200,162,74,.14);border-radius:10px;padding:10px;font-size:12px;color:#c9bda0">
+<b>Key dates:</b> Announced Sep 2025 · Debut Jul 18 2026 · Full gallery Jul 31 · GenCon Jul 30–Aug 2 (Tom, Bert &amp; William promo) · Prerelease Aug 7–13 · Arena/MTGO Aug 11 · Tabletop Aug 14 · Gift Bundle Sep 4 · Battle of Five Armies coop 2027.<br><br>
+<b>Products:</b> Play/Collector Boosters &amp; displays, Prerelease Packs (6 boosters + foil promo + 4 seasonal basics + box/die), Bundle/Gift Bundle, Draft Night kit (12 Play + 1 Collector + lands), two Scene Boxes (Crack the Plates / Treasures of Smaug), Welcome Decks, Box Toppers — no Commander precons.<br><br>
+<b>Research covers:</b> Wizards Mechanics, Release Notes, Prerelease Guide, Collecting, Vision Design, Mark Rosewater article; Scryfall HOB, MTGGoldfish spoiler archive, MythicSpoiler, Draftsim, Limited Resources, Lords of Limited, Limited Level-Ups, Nizzahon, Reddit prerelease/lrcast, MTG Wiki. Job msqe3uhv-znc85i7 (deep).
+</div>
+<h3>Links</h3>
+<ul style="font-size:11px;word-break:break-all">
+<li><a href="https://magic.wizards.com/en/news/feature/the-hobbit-mechanics">Wizards — Mechanics</a> · <a href="https://magic.wizards.com/en/news/feature/the-hobbit-release-notes">Release Notes</a> · <a href="https://magic.wizards.com/en/news/feature/the-hobbit-prerelease-guide">Prerelease Guide</a> · <a href="https://magic.wizards.com/en/news/feature/collecting-the-hobbit">Collecting</a></li>
+<li><a href="https://scryfall.com/sets/hob">Scryfall HOB</a> · <a href="https://www.mtggoldfish.com/articles/the-hobbit-spoilers-july-31-last-rare-and-full-gallery">MTGGoldfish final gallery</a> · <a href="https://mythicspoiler.com/newspoilers.html">MythicSpoiler</a></li>
+<li><a href="https://draftsim.com/mtg-hob-sealed-guide/">Draftsim Sealed</a> · <a href="https://draftsim.com/mtg-hob-prerelease-impressions/">Prerelease Impressions</a> · <a href="https://draftsim.com/HOB-pick-order/">Pick Order</a></li>
+<li><a href="https://www.youtube.com/watch?v=G9bqewk4i4Y">LR Set Review</a> · <a href="https://www.youtube.com/watch?v=XLh9YSRvotE">Lords of Limited</a> · <a href="https://www.youtube.com/watch?v=nt-OvtlAGBY">Limited Level-Ups</a></li>
+</ul>
+<p style="font-size:11px;color:#9e9378">File: <code style="background:rgba(255,255,255,.07);padding:2px 6px;border-radius:5px;color:var(--gold2)">~/projects/mtg-hobbit-guide/index.html</code> — single file, offline, printable. Share or host on Pages.<br>“Never laugh at live dragons, Bilbo you fool!”</p>
+</div></section>
+
+</main></div>
+<footer class="foot">MTG: The Hobbit (HOB) Strategy Guide — Draft &amp; Sealed • Verified Aug 12 2026 • Fan content, not affiliated with Wizards • Provisional tiers — revisit after 17Lands matures</footer>
+<script>
+function go(id){document.getElementById(id)?.scrollIntoView({behavior:'smooth',block:'start'})}
+function setPath(p){
+  document.querySelectorAll('[data-path]').forEach(b=>b.classList.toggle('active', b.dataset.path===p));
+  const d=document.getElementById('draft'), s=document.getElementById('sealed');
+  if(p==='sealed'){d.style.opacity=.45;s.style.outline='2px solid var(--gold)';d.style.removeProperty('outline')}
+  else if(p==='draft'){s.style.opacity=.45;d.style.outline='2px solid var(--gold)';s.style.removeProperty('outline')}
+  else{d.style.opacity=1;s.style.opacity=1;d.style.removeProperty('outline');s.style.removeProperty('outline')}
+  localStorage.setItem('hobbit-path',p);
+}
+const sp=localStorage.getItem('hobbit-path'); if(sp) setPath(sp);
+function pane(g,p){document.querySelectorAll('#'+g+' .pane').forEach(e=>e.classList.remove('active'));document.getElementById(g+'-'+p)?.classList.add('active');document.querySelectorAll('#'+g+' .tab').forEach((t,i)=>t.classList.remove('active'));const m={p1:0,p2:1,p3:2,sig:3,s1:0,s2:1,s3:2,s4:3};document.querySelectorAll('#'+g+' .tab')[m[p]]?.classList.add('active')}
+function filterAll(q){q=(q||'').toLowerCase().trim();document.querySelectorAll('.detail').forEach(e=>{const n=(e.dataset.name||e.textContent).toLowerCase();e.style.display=!q||n.includes(q)?'':'none'});document.querySelectorAll('#cardsTable tbody tr').forEach(tr=>{tr.style.display=tr.textContent.toLowerCase().includes(q)?'':'none'})}
+function filterMech(q){q=(q||'').toLowerCase();document.querySelectorAll('#mechGrid .detail').forEach(e=>{const n=(e.dataset.name||'').toLowerCase();e.style.display=!q||n.includes(q)||e.textContent.toLowerCase().includes(q)?'':'none'})}
+function filtArch(tag){document.querySelectorAll('#archGrid .detail').forEach(e=>{if(tag==='all')e.style.display='';else e.style.display=(e.dataset.tags||'').includes(tag)?'':'none'})}
+function filterCards(q){q=(q||'').toLowerCase();document.querySelectorAll('#cardsTable tbody tr').forEach(tr=>{tr.style.display=!q||tr.dataset.name.includes(q)||tr.textContent.toLowerCase().includes(q)?'':'none'})}
+function resetProg(){document.querySelectorAll('input[data-prog]').forEach(c=>c.checked=false);localStorage.removeItem('hobbit-prog');}
+document.querySelectorAll('input[data-prog]').forEach(c=>c.addEventListener('change',()=>{const a=[...document.querySelectorAll('input[data-prog]')].map(x=>x.checked);localStorage.setItem('hobbit-prog',JSON.stringify(a))}));
+try{const a=JSON.parse(localStorage.getItem('hobbit-prog')||'null');if(a)document.querySelectorAll('input[data-prog]').forEach((c,i)=>c.checked=!!a[i])}catch(e){}
+const tocLinks=[...document.querySelectorAll('.toc a')], secs=tocLinks.map(a=>document.getElementById(a.dataset.sec)).filter(Boolean);
+const obs=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){tocLinks.forEach(l=>l.classList.remove('active'));document.querySelector(`.toc a[data-sec="${e.target.id}"]`)?.classList.add('active')}})},{rootMargin:'-45% 0px -45% 0px'});
+secs.forEach(s=>obs.observe(s));
+document.addEventListener('keydown',e=>{if(e.key==='/'&&document.activeElement.tagName!=='INPUT'){e.preventDefault();document.getElementById('q')?.focus()}});
+</script>
+</body>
+</html>
