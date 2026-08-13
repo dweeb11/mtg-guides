@@ -1,0 +1,42 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/><title>mtg-guides — dweeb11</title>
+<style>
+:root{--bg:#0f1410;--panel:#1b2218;--gold:#c8a24a;--gold2:#e6c87a;--parch:#f5ecd3}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--parch);font-family:Inter,system-ui,sans-serif;line-height:1.6}
+a{color:var(--gold2)} .wrap{max-width:900px;margin:0 auto;padding:24px}
+.card{background:linear-gradient(180deg,rgba(255,255,255,.05),rgba(255,255,255,.01)),var(--panel);border:1px solid rgba(200,162,74,.18);border-radius:14px;overflow:hidden;margin-bottom:16px}
+.head{padding:14px 16px;border-bottom:1px solid rgba(200,162,74,.12)}
+.body{padding:14px 16px;color:#e6dbbf;font-size:13px}
+.badge{font-size:10px;letter-spacing:.12em;text-transform:uppercase;font-weight:800;padding:5px 8px;border-radius:999px;background:rgba(200,162,74,.14);color:var(--gold2);border:1px solid rgba(200,162,74,.25)}
+.btn{display:inline-block;padding:8px 14px;border-radius:999px;background:var(--gold);color:#1a1406;font-weight:800;text-decoration:none;border:1px solid rgba(200,162,74,.25)}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}@media(max-width:700px){.grid{grid-template-columns:1fr}}
+</style></head><body>
+<div class="wrap">
+<div class="card"><div class="head"><b style="font-family:Cinzel,serif;font-size:18px">mtg-guides</b> <span class="badge">dweeb11/mtg-guides</span><span style="float:right;font-size:11px;color:#9e9378">Pages: main /docs</span></div>
+<div class="body">
+<p style="margin:0 0 8px">Verified, clickable HTML strategy guides — <b>limited + constructed</b>. No build step, offline-friendly, printable.</p>
+<p style="font-size:11px;color:#9e9378;margin:0">Fix: this <code>index.html</code> at <code>/docs/index.html</code> resolves <code>https://dweeb11.github.io/mtg-guides/</code> (was 404 at root; subfolders <code>/hobbit/</code> and <code>/standard-bo1-2026-08-13/</code> already 200). If you still see 404, hard-refresh (Ctrl+Shift+R).</p>
+</div></div>
+
+<div class="grid">
+<div class="card"><div class="head"><b style="font-family:Cinzel,serif">The Hobbit (HOB) — Draft & Sealed</b><span class="badge">Aug 12 2026</span></div>
+<div class="body">
+<p style="margin:0 0 6px">Verified limited guide: 5 archetypes (WU Humans / BR Goblins / BG Wolves / RW Dwarves / GU Elves), Storied/Recruit/Hone, curve 1/7-8/5-6/3-4/2-3, prerelease kit + pick orders.</p>
+<p style="font-size:11px;color:#9e9378;margin:0 0 10px">Source: deep research <code>msqe3uhv-znc85i7</code> (gpt-5.6-sol deep)</p>
+<a class="btn" href="./hobbit/">Open Hobbit guide →</a>
+<div style="margin-top:8px;font-size:11px;color:#9e9378"><a href="./hobbit/">/hobbit/</a> · <a href="https://github.com/dweeb11/mtg-guides/tree/main/docs/hobbit">source</a></div>
+</div></div>
+
+<div class="card"><div class="head"><b style="font-family:Cinzel,serif">Standard BO1 Meta — Verified</b><span class="badge">Aug 13 2026</span></div>
+<div class="body">
+<p style="margin:0 0 6px">Post-HOB (Arena Aug 11) + Aug 10 bans (Badgermole/Stormchaser/Gran-Gran) — 8 Arena-importable 60s, S/ A/ B+ tiers, BO1 tech.</p>
+<p style="font-size:11px;color:#9e9378;margin:0 0 10px">Source: deep <code>msrscmk9-5vx1l6d</code> (gpt-5.6-sol deep) + MTGO Challenges Aug 11/13, Untapped 110k, Wizards B&R</p>
+<a class="btn" href="./standard-bo1-2026-08-13/">Open Standard BO1 report →</a>
+<div style="margin-top:8px;font-size:11px;color:#9e9378"><a href="./standard-bo1-2026-08-13/">/standard-bo1-2026-08-13/</a> · <a href="https://github.com/dweeb11/mtg-guides/tree/main/docs/standard-bo1-2026-08-13">source</a></div>
+</div></div>
+</div>
+
+<div class="card"><div class="body" style="font-size:11px;color:#9e9378">
+<b>Skill:</b> <code>skills/mtg-guide/SKILL.md</code> v0.2.0 (generalized, not limited-specific) — builds both guides. Local: <code>~/.agents/skills/mtg-guide</code> + <code>~/.pi/agent/skills/mtg-guide</code> → <code>~/projects/mtg-*-guide/</code> / <code>~/projects/mtg-standard-bo1-report/</code> ⇒ <code>docs/</code> for Pages. · <a href="https://github.com/dweeb11/mtg-guides">github.com/dweeb11/mtg-guides</a> · Fan content, not affiliated with Wizards.
+</div></div>
+</div>
+</body></html>
