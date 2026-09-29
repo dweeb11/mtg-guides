@@ -5,69 +5,77 @@
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
 <title>MTG: Reality Fracture — Limited Strategy Guide | Draft &amp; Sealed</title>
 <meta name="description" content="Verified strategy guide for Magic: The Gathering — Reality Fracture (FRA) limited: draft & sealed, 10 archetypes, Empower Jace / Heartwood / Prepare mechanics, prerelease kit tips."/>
-<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;800&family=Cinzel+Decorative:wght@700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
-<style>
-:root{--bg:#0f1410;--panel:#1a2218;--parchment:#f5ecd3;--gold:#c8a24a;--gold2:#e6c87a;--ink:#2b2416;--shadow:0 12px 40px rgba(0,0,0,.45)}
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<style>:root{--fra-midnight:#0B1024;--fra-tower:#17171D;--fra-jace:#173F78;--fra-cyan:#22B9D1;--fra-violet:#6A55A5;--fra-silver:#CAD7DB;--fra-shard:#F4F7F2;--bg:var(--fra-midnight);--panel:color-mix(in srgb,var(--fra-jace) 24%,var(--fra-midnight));--panel2:color-mix(in srgb,var(--fra-jace) 14%,var(--fra-midnight));--parchment:var(--fra-silver);--gold:var(--fra-cyan);--gold2:var(--fra-shard);--ink:var(--fra-midnight);--dim:color-mix(in srgb,var(--fra-silver) 68%,var(--fra-midnight));--faint:color-mix(in srgb,var(--fra-silver) 46%,var(--fra-midnight));--cyargb:34,185,209;--violargb:106,85,165;--shadow:0 12px 40px rgba(0,0,0,.55)}
 *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--parchment);font-family:Inter,system-ui,sans-serif;line-height:1.6}
-a{color:var(--gold2)}
-.topbar{position:sticky;top:0;z-index:50;background:rgba(15,20,16,.92);backdrop-filter:blur(10px);border-bottom:1px solid rgba(200,162,74,.25)}
+::selection{background:rgba(var(--cyargb),.35)}
+a{color:var(--gold)}
+.topbar{position:sticky;top:0;z-index:50;background:rgba(11,16,36,.92);backdrop-filter:blur(10px);border-bottom:1px solid rgba(var(--cyargb),.3)}
 .topbar-inner{max-width:1280px;margin:0 auto;display:flex;align-items:center;gap:14px;padding:10px 16px}
 .brand{display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--parchment)}
-.rune{width:40px;height:40px;border-radius:10px;background:linear-gradient(145deg,#1e2f21,#0f1a11);border:1px solid rgba(200,162,74,.45);display:grid;place-items:center;font-family:Cinzel Decorative,serif;font-size:20px;color:var(--gold2)}
-.brand h1{margin:0;font-family:Cinzel,serif;font-weight:800;font-size:14px;letter-spacing:.06em;line-height:1}
+.rune{width:40px;height:40px;border-radius:8px;background:linear-gradient(145deg,var(--fra-jace),var(--fra-tower));display:grid;place-items:center;font-family:'Space Grotesk',sans-serif;font-size:22px;color:var(--fra-shard);border:1px solid rgba(var(--cyargb),.55);clip-path:polygon(50% 0,100% 22%,100% 78%,50% 100%,0 78%,0 22%)}
+.brand h1{margin:0;font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:14px;letter-spacing:.06em;line-height:1}
 .brand h1 span{display:block;font-size:10px;letter-spacing:.18em;color:var(--gold);margin-top:3px}
 .nav{display:flex;gap:6px;margin-left:auto;flex-wrap:wrap}
-.nav button{appearance:none;border:1px solid rgba(200,162,74,.25);background:rgba(255,255,255,.04);color:var(--parchment);padding:6px 10px;border-radius:999px;font-size:11px;letter-spacing:.08em;text-transform:uppercase;font-weight:600;cursor:pointer}
+.nav button{appearance:none;border:1px solid rgba(var(--cyargb),.3);background:rgba(var(--cyargb),.06);color:var(--parchment);padding:6px 10px;border-radius:6px;font-size:11px;letter-spacing:.08em;text-transform:uppercase;font-weight:600;cursor:pointer}
 .nav button:hover{background:var(--gold);color:var(--ink)}
-.badge-live{font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--gold);border:1px dashed rgba(200,162,74,.35);padding:5px 9px;border-radius:999px;white-space:nowrap}
+.badge-live{font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--gold);border:1px dashed rgba(var(--cyargb),.4);padding:5px 9px;border-radius:6px;white-space:nowrap}
 .hero{max-width:1280px;margin:0 auto;padding:22px 16px 10px;display:grid;grid-template-columns:1.35fr .85fr;gap:18px}
 @media(max-width:900px){.hero{grid-template-columns:1fr}}
-.hero-card{background:linear-gradient(180deg,rgba(255,255,255,.06),rgba(255,255,255,.01)),var(--panel);border:1px solid rgba(200,162,74,.22);border-radius:18px;overflow:hidden;box-shadow:var(--shadow)}
-.hero-media{padding:22px;text-align:center;background:radial-gradient(600px 300px at 20% 0%,rgba(200,162,74,.18),transparent 60%),radial-gradient(700px 400px at 90% 30%,rgba(78,163,106,.14),transparent 60%),linear-gradient(180deg,#1e2f22,#121a13)}
-.hero-media h2{font-family:Cinzel Decorative,serif;font-size:28px;line-height:1.1;margin:8px 0;color:var(--parchment)}
+.hero-card{background:var(--panel);border:1px solid rgba(var(--cyargb),.25);border-radius:12px;overflow:hidden;box-shadow:var(--shadow)}
+.hero-media{padding:22px;text-align:center;background:radial-gradient(600px 300px at 20% 0%,rgba(var(--cyargb),.2),transparent 60%),radial-gradient(700px 400px at 90% 30%,rgba(var(--violargb),.22),transparent 60%),repeating-linear-gradient(115deg,transparent 0 46px,rgba(244,247,242,.045) 46px 47px,transparent 47px 96px),linear-gradient(180deg,color-mix(in srgb,var(--fra-jace) 55%,var(--fra-midnight)),var(--fra-midnight))}
+.hero-media h2{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:30px;line-height:1.08;letter-spacing:-.01em;margin:8px 0;color:var(--fra-shard)}
+.hero-media h2 .frac{color:var(--gold)}
 .kpis{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
-.kpi{background:rgba(255,255,255,.04);border:1px solid rgba(200,162,74,.15);border-radius:12px;padding:10px;text-align:center}
-.kpi b{display:block;font-family:Cinzel,serif;color:var(--gold2)}
+.kpi{background:rgba(var(--cyargb),.05);border:1px solid rgba(var(--cyargb),.18);border-radius:8px;padding:10px;text-align:center}
+.kpi b{display:block;font-family:'Space Grotesk',sans-serif;color:var(--gold2)}
+.towerbar{height:6px;background:linear-gradient(90deg,var(--fra-cyan),var(--fra-violet),var(--fra-silver),var(--fra-violet),var(--fra-cyan))}
 .shell{max-width:1280px;margin:0 auto;padding:10px 16px 40px;display:grid;grid-template-columns:250px 1fr;gap:16px}
 @media(max-width:980px){.shell{grid-template-columns:1fr}}
-.toc{position:sticky;top:62px;align-self:start;background:var(--panel);border:1px solid rgba(200,162,74,.18);border-radius:14px;overflow:hidden}
-.toc h3{margin:0;padding:12px 12px 8px;font-family:Cinzel,serif;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--gold)}
-.toc a{display:flex;align-items:center;gap:8px;padding:8px 12px;font-size:13px;color:#d6c9a8;text-decoration:none;border-top:1px solid rgba(200,162,74,.08)}
-.toc a.active{background:linear-gradient(90deg,rgba(200,162,74,.18),transparent);color:var(--gold2);border-left:3px solid var(--gold)}
-.card{background:linear-gradient(180deg,rgba(255,255,255,.05),rgba(255,255,255,.01)),var(--panel);border:1px solid rgba(200,162,74,.18);border-radius:16px;box-shadow:var(--shadow);overflow:hidden;margin-bottom:14px}
-.card-head{padding:14px 16px 10px;border-bottom:1px solid rgba(200,162,74,.12);display:flex;align-items:center;gap:10px;flex-wrap:wrap}
-.card-head h2{margin:0;font-family:Cinzel,serif;font-size:16px}
-.badge{font-size:10px;letter-spacing:.12em;text-transform:uppercase;font-weight:800;padding:5px 8px;border-radius:999px;background:rgba(200,162,74,.14);color:var(--gold2);border:1px solid rgba(200,162,74,.25)}
+.toc{position:sticky;top:62px;align-self:start;background:var(--panel);border:1px solid rgba(var(--cyargb),.2);border-left:3px solid var(--gold);border-radius:8px;overflow:hidden}
+.toc h3{margin:0;padding:12px 12px 8px;font-family:'Space Grotesk',sans-serif;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--gold)}
+.toc a{display:flex;align-items:center;gap:8px;padding:8px 12px;font-size:13px;color:var(--parchment);text-decoration:none;border-top:1px solid rgba(var(--cyargb),.1)}
+.toc a.active{background:linear-gradient(90deg,rgba(var(--cyargb),.2),transparent);color:var(--gold2);border-left:3px solid var(--gold)}
+.card{background:var(--panel);border:1px solid rgba(var(--cyargb),.2);border-radius:12px;box-shadow:var(--shadow);overflow:hidden;margin-bottom:14px}
+.card-head{padding:14px 16px 10px;border-bottom:1px solid rgba(var(--cyargb),.15);display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.card-head h2{margin:0;font-family:'Space Grotesk',sans-serif;font-size:16px;color:var(--fra-shard)}
+.card-head h2::before{content:"◆ ";color:var(--gold)}
+.badge{font-size:10px;letter-spacing:.12em;text-transform:uppercase;font-weight:800;padding:5px 8px;border-radius:4px;background:rgba(var(--cyargb),.14);color:var(--gold2);border:1px solid rgba(var(--cyargb),.3)}
 .card-body{padding:14px 16px}
-.prose{color:#e6dbbf;font-size:13.5px;line-height:1.65}
-.prose h3{font-family:Cinzel,serif;color:var(--gold2);margin:16px 0 6px;font-size:14px}
-.callout{border-left:3px solid var(--gold);background:rgba(200,162,74,.08);padding:9px 11px;border-radius:10px;margin:10px 0;font-size:13px;color:#e8dcb8}
+.prose{color:var(--parchment);font-size:13.5px;line-height:1.65}
+.prose h3{font-family:'Space Grotesk',sans-serif;color:var(--gold2);margin:16px 0 6px;font-size:14px}
+.callout{border-left:3px solid var(--gold);background:rgba(var(--cyargb),.08);padding:9px 11px;border-radius:8px;margin:10px 0;font-size:13px;color:var(--fra-shard)}
+.callout.viol{border-left-color:var(--fra-violet);background:rgba(var(--violargb),.1)}
 .grid2{display:grid;grid-template-columns:1fr 1fr;gap:10px}
 @media(max-width:760px){.grid2{grid-template-columns:1fr}}
-.pill{font-size:10px;padding:4px 8px;border-radius:999px;border:1px solid rgba(200,162,74,.22);background:rgba(255,255,255,.04);color:var(--gold2);font-weight:700;letter-spacing:.06em;text-transform:uppercase}
+.archgroup{grid-column:1/-1;font-family:'Space Grotesk',sans-serif;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);border-bottom:1px solid rgba(var(--cyargb),.25);padding:8px 2px 4px;margin-top:6px}
+.archgroup small{color:var(--dim);letter-spacing:.03em;text-transform:none;margin-left:6px}
+.pill{font-size:10px;padding:4px 8px;border-radius:4px;border:1px solid rgba(var(--cyargb),.25);background:rgba(var(--cyargb),.06);color:var(--gold2);font-weight:700;letter-spacing:.06em;text-transform:uppercase}
 .mana{width:22px;height:22px;border-radius:999px;display:inline-grid;place-items:center;font-weight:800;font-size:11px;color:#111;border:1px solid rgba(0,0,0,.2);vertical-align:middle}
 .mana.W{background:#f0e6b8}.mana.U{background:#7fb6d6}.mana.B{background:#8a7a8a;color:#fff}.mana.R{background:#d96a4a}.mana.G{background:#7ab07a}
-.arche{border:1px solid rgba(200,162,74,.14);background:rgba(255,255,255,.03);border-radius:12px;padding:11px}
-.table-wrap{overflow:auto;border:1px solid rgba(200,162,74,.14);border-radius:10px}
+.arche{border:1px solid rgba(var(--cyargb),.16);background:rgba(var(--cyargb),.04);border-radius:8px;padding:11px}
+.table-wrap{overflow:auto;border:1px solid rgba(var(--cyargb),.16);border-radius:8px}
 table{width:100%;border-collapse:collapse;font-size:13px;min-width:560px}
-th{text-align:left;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--gold);background:rgba(200,162,74,.08);padding:8px 10px}
-td{padding:8px 10px;border-top:1px solid rgba(200,162,74,.1);color:#e6dbbf;vertical-align:top}
-tr:hover td{background:rgba(200,162,74,.05)}
-.tier{display:inline-block;padding:2px 7px;border-radius:999px;font-weight:800;font-size:11px}
-.tier.S{background:#c8a24a;color:#111}.tier.A{background:#4ea36a;color:#fff}.tier.B{background:#7fb6d6;color:#111}
+th{text-align:left;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--gold);background:rgba(var(--cyargb),.1);padding:8px 10px}
+td{padding:8px 10px;border-top:1px solid rgba(var(--cyargb),.12);color:var(--parchment);vertical-align:top}
+tr:hover td{background:rgba(var(--cyargb),.06)}
+.tier{display:inline-block;padding:2px 7px;border-radius:4px;font-weight:800;font-size:11px}
+.tier.S{background:#22B9D1;color:#0B1024}.tier.A{background:#6A55A5;color:#F4F7F2}.tier.B{background:#CAD7DB;color:#0B1024}
 .tabs{display:flex;gap:6px;flex-wrap:wrap}
-.tab{appearance:none;border:1px solid rgba(200,162,74,.2);background:rgba(255,255,255,.04);color:#d6c9a8;padding:7px 11px;border-radius:999px;font-weight:700;font-size:11px;cursor:pointer}
+.tab{appearance:none;border:1px solid rgba(var(--cyargb),.22);background:rgba(var(--cyargb),.05);color:var(--parchment);padding:7px 11px;border-radius:6px;font-weight:700;font-size:11px;cursor:pointer}
 .tab.active{background:var(--gold);color:var(--ink)}
 .pane{display:none}.pane.active{display:block}
 .checklist{display:grid;gap:7px}
-.check{display:flex;gap:8px;align-items:flex-start;background:rgba(255,255,255,.03);border:1px solid rgba(200,162,74,.1);border-radius:10px;padding:8px 10px;font-size:13px}
+.check{display:flex;gap:8px;align-items:flex-start;background:rgba(var(--cyargb),.04);border:1px solid rgba(var(--cyargb),.12);border-radius:8px;padding:8px 10px;font-size:13px}
 .check input{margin-top:3px;accent-color:var(--gold)}
-.detail{border:1px solid rgba(200,162,74,.14);background:rgba(255,255,255,.03);border-radius:10px;padding:10px}
-.detail summary{cursor:pointer;font-weight:700;color:var(--gold2);font-family:Cinzel,serif;font-size:12px}
-.search{flex:1;min-width:180px;display:flex;align-items:center;gap:6px;background:rgba(255,255,255,.06);border:1px solid rgba(200,162,74,.18);border-radius:999px;padding:6px 10px}
+.detail{border:1px solid rgba(var(--cyargb),.16);background:rgba(var(--cyargb),.04);border-radius:8px;padding:10px}
+.detail summary{cursor:pointer;font-weight:700;color:var(--gold2);font-family:'Space Grotesk',sans-serif;font-size:12px}
+.detail.shard{border:1px solid transparent;background:linear-gradient(var(--panel),var(--panel)) padding-box,linear-gradient(135deg,var(--fra-cyan),var(--fra-violet),var(--fra-silver)) border-box}
+.search{flex:1;min-width:180px;display:flex;align-items:center;gap:6px;background:rgba(10,12,17,.6);border:1px solid rgba(var(--cyargb),.2);border-radius:6px;padding:6px 10px}
 .search input{flex:1;background:transparent;border:0;outline:0;color:var(--parchment);font-size:13px}
-kbd{font-family:JetBrains Mono,monospace;background:#0f1410;border:1px solid rgba(200,162,74,.22);border-bottom-width:2px;padding:1px 5px;border-radius:5px;color:var(--gold2);font-size:10px}
-.foot{max-width:1280px;margin:0 auto;padding:16px;color:#8e8370;font-size:10px;letter-spacing:.06em;text-transform:uppercase;text-align:center;border-top:1px solid rgba(200,162,74,.12)}
+kbd{font-family:JetBrains Mono,monospace;background:#17171D;border:1px solid rgba(var(--cyargb),.25);border-bottom-width:2px;padding:1px 5px;border-radius:4px;color:var(--gold2);font-size:10px}
+.foot{max-width:1280px;margin:0 auto;padding:16px;color:var(--faint);font-size:10px;letter-spacing:.06em;text-transform:uppercase;text-align:center;border-top:1px solid rgba(var(--cyargb),.15)}
+@media print{.topbar,.toc,.search,.nav,.tabs{display:none!important}body{background:#fff;color:#111}.hero,.shell{grid-template-columns:1fr}.hero-card,.card,.detail,.callout,.kpi,.arche{background:#fff!important;color:#111!important;border-color:#999!important;box-shadow:none!important}.prose,.prose h3,.card-head h2,.detail summary,td{color:#111!important}.hero-media{background:#fff!important}.hero-media h2{color:#111!important}a{color:#111}}
 </style>
 </head>
 <body>
@@ -80,26 +88,27 @@ kbd{font-family:JetBrains Mono,monospace;background:#0f1410;border:1px solid rgb
 <div class="hero" id="top">
 <div class="hero-card"><div class="hero-media">
 <div style="font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--gold2);font-weight:700">FRA 270 cards • All-formats legal • Arena Sep 29 / Tabletop Oct 2</div>
-<h2>Fracture the Multiverse:<br>Draft &amp; Sealed Mastery</h2>
+<h2>Fracture the Multiverse:<br><span class="frac">Draft &amp; Sealed Mastery</span></h2>
 <p style="max-width:46ch;margin:8px auto 0;color:#d8cbb0;font-size:13px">Verified against the full FRA gallery (Sep 18), Wizards mechanics &amp; release notes, prerelease guide, and early-access testing. Ten real archetypes, three headline mechanics, and a 50-minute sealed plan.</p>
 <div style="margin-top:10px;display:flex;gap:8px;justify-content:center;flex-wrap:wrap">
 <button onclick="go('draft')" style="appearance:none;border:0;padding:9px 14px;border-radius:999px;font-weight:700;font-size:12px;cursor:pointer;background:linear-gradient(180deg,var(--gold2),var(--gold));color:var(--ink)">Start Draft Walkthrough →</button>
 <button onclick="go('sealed')" style="appearance:none;border:1px solid rgba(200,162,74,.35);background:transparent;color:var(--parchment);padding:9px 14px;border-radius:999px;font-weight:700;font-size:12px;cursor:pointer">I’m playing Sealed</button>
 </div>
 </div>
+<div class="towerbar"></div>
 <div style="padding:14px">
 <div class="kpis"><div class="kpi"><b>10</b><span style="font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:#b9ad90">Real archetypes</span></div><div class="kpi"><b>FRA/FRC</b><span style="font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:#b9ad90">All formats</span></div><div class="kpi"><b>17</b><span style="font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:#b9ad90">Lands default</span></div></div>
 <div class="grid2" style="margin-top:10px">
-<div class="arche" onclick="go('mechanics')"><b style="font-family:Cinzel,serif;color:var(--gold2);font-size:12px">⚙️ Mechanics</b><p style="margin:4px 0 0;font-size:11px;color:#c9bda0">Empower Jace, Heartwood tokens, returning Prepare — with real reminder text — plus Way enchantments &amp; echoed pairs.</p></div>
-<div class="arche" onclick="go('archetypes')"><b style="font-family:Cinzel,serif;color:var(--gold2);font-size:12px">🎨 Archetypes</b><p style="margin:4px 0 0;font-size:11px;color:#c9bda0">5 Hexhaven schools (allied) + the Lorwyn Five (enemy) — signposts, hybrids, prepare spells &amp; lands.</p></div>
+<div class="arche" onclick="go('mechanics')"><b style="font-family:'Space Grotesk',sans-serif;color:var(--gold2);font-size:12px">◈ mechanics</b><p style="margin:4px 0 0;font-size:11px;color:var(--dim)">Empower Jace, Heartwood tokens, returning Prepare — with real reminder text — plus Way enchantments &amp; echoed pairs.</p></div>
+<div class="arche" onclick="go('archetypes')"><b style="font-family:'Space Grotesk',sans-serif;color:var(--gold2);font-size:12px">◐ archetypes</b><p style="margin:4px 0 0;font-size:11px;color:var(--dim)">5 Hexhaven schools (allied) + the Lorwyn Five (enemy) — signposts, hybrids, prepare spells &amp; lands.</p></div>
 </div>
 </div></div>
 <div class="hero-card" style="padding:14px;display:flex;flex-direction:column;gap:10px">
-<div style="display:flex;align-items:center;gap:8px"><h3 style="margin:0;font-family:Cinzel,serif;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--gold)">Choose your path</h3><span class="pill">click-through</span></div>
+<div style="display:flex;align-items:center;gap:8px"><h3 style="margin:0;font-family:'Space Grotesk',sans-serif;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--gold)">Choose your path</h3><span class="pill">click-through</span></div>
 <div class="tabs"><button class="tab active" data-path="both" onclick="setPath('both')">Both</button><button class="tab" data-path="draft" onclick="setPath('draft')">Draft Night</button><button class="tab" data-path="sealed" onclick="setPath('sealed')">Prerelease Sealed</button></div>
 <div class="search"><span style="color:var(--gold)">⌕</span><input id="q" placeholder="Search cards, mechanics…" oninput="filterAll(this.value)"/><kbd>/</kbd></div>
-<div style="font-size:11px;color:#c9bda0;line-height:1.5"><b style="color:var(--gold2)">How to use:</b> Left rail to jump. Each archetype expands. Progress saves. Use sealed path at prerelease to dim draft-only signaling noise.</div>
-<div class="callout" style="margin:0">✅ Verified Sep 29: deep research complete (FRA 270, Arena Sep 29, prerelease Sep 25–Oct 1). Tiering is <b>provisional</b> — Arena sample is hours old. Revisit 17Lands after Oct 2–3 before treating rankings as truth.</div>
+<div style="font-size:11px;color:var(--dim);line-height:1.5"><b style="color:var(--gold2)">How to use:</b> Left rail to jump. Each archetype expands. Progress saves. Use sealed path at prerelease to dim draft-only signaling noise.</div>
+<div class="callout" style="margin:0">◆ verified Sep 29: deep research complete (FRA 270, Arena Sep 29, prerelease Sep 25–Oct 1). Tiering is <b>provisional</b> — Arena sample is hours old. Revisit 17Lands after Oct 2–3 before treating rankings as truth.</div>
 <div style="display:flex;gap:8px"><button onclick="window.print()" style="flex:1;appearance:none;border:1px solid rgba(200,162,74,.25);background:rgba(255,255,255,.04);color:var(--parchment);padding:8px;border-radius:999px;font-weight:700;font-size:11px;cursor:pointer">Print / Save PDF</button><button onclick="resetProg()" style="appearance:none;border:1px solid rgba(200,162,74,.25);background:transparent;color:var(--parchment);padding:8px 12px;border-radius:999px;font-weight:700;font-size:11px;cursor:pointer">Reset</button></div>
 </div>
 </div>
@@ -121,9 +130,9 @@ kbd{font-family:JetBrains Mono,monospace;background:#0f1410;border:1px solid rgb
 <section class="card" id="overview"><div class="card-head"><h2>1 · Overview — What FRA actually is</h2><span class="badge">Start here • 3 min</span></div><div class="card-body prose">
 <p><b>Magic: The Gathering — Reality Fracture (FRA)</b> — large, 10-archetype, all-formats-legal Echoverse set. <b>270</b> main-rarity cards (71 common / 109 uncommon / 64 rare / 26 mythic) + 10 common duals + 10 basics = <b>280 Draft cards</b> (collectors 1–280). Scryfall's 461 counts printings/treatments, not unique draftables. Companion codes: <b>FRC</b> (Commander) + <b>SPG</b> (Special Guests, eternal-only except reprints). Preview debut <b>Sep 8</b>, full gallery <b>Sep 18</b>, prerelease <b>Sep 25–Oct 1</b>, Arena <b>Sep 29</b>, tabletop <b>Oct 2</b>.</p>
 <div class="grid2">
-<div class="detail" open><div style="font-family:Cinzel,serif;color:var(--gold2);font-size:11px;letter-spacing:.08em;text-transform:uppercase">At a glance</div>
+<div class="detail" open><div style="font-family:'Space Grotesk',sans-serif;color:var(--gold2);font-size:11px;letter-spacing:.08em;text-transform:uppercase">At a glance</div>
 <ul><li><b>Boosters:</b> 14-card Play Boosters (Draft = 3, Sealed = 6)</li><li><b>Format:</b> 40 cards, 23 spells / 17 lands, BO3 with sideboard</li><li><b>Draft mode:</b> Designed for <b>Pick-Two</b> (4-player Draft Night kit); Arena also Pick-One Premier/Traditional</li><li><b>Speed:</b> Average curve, <b>long grindy games</b> — cheap interaction suppresses snowballing, then Jace + prepared spells fund 6–8 mana plays</li><li><b>Fixing:</b> 10 planeswalker-conditional duals + Room of Refuge + 5 basic landcyclers + Heartwood ramp — splash one single-pip, not double-pip</li></ul></div>
-<div class="detail" open><div style="font-family:Cinzel,serif;color:var(--gold2);font-size:11px;letter-spacing:.08em;text-transform:uppercase">How to use this guide</div>
+<div class="detail" open><div style="font-family:'Space Grotesk',sans-serif;color:var(--gold2);font-size:11px;letter-spacing:.08em;text-transform:uppercase">How to use this guide</div>
 <ol style="margin:8px 0 0 18px"><li>Read <b>Mechanics</b> — real reminder text so you know what cards do.</li><li>Pick path top-right — highlights your lane.</li><li>At table, open <b>Prerelease Kit</b> checklist on phone.</li><li>During draft, keep <b>Cards &amp; Removal</b> open for pick-order ties.</li></ol><p style="font-size:11px;color:#9e9378;margin-top:8px">Press <kbd>/</kbd> to search. Click any archetype to expand. Progress auto-saves.</p></div>
 </div>
 <div class="callout"><b>What makes FRA different:</b> Unusually <b>uncommon-heavy</b> (commons cut 81→71, uncommons up 100→109) plus <b>echoed-pair collation</b> — every Play Booster has a linked pair of legends (pushed into <i>different</i> decks) plus a third legend. Uncommons and legends punch above their usual weight. SPG cards opened in Play Boosters are legal in that Draft/Sealed pool. Note regional product delays (NZ prereleases rescheduled; Mexico stock early Oct) — availability varies.</div>
@@ -132,15 +141,15 @@ kbd{font-family:JetBrains Mono,monospace;background:#0f1410;border:1px solid rgb
 <section class="card" id="mechanics"><div class="card-head"><h2>2 · Mechanics — Real rules, limited translation</h2><span class="badge">Verified vs. release notes</span><div class="search" style="max-width:220px;margin-left:auto"><span>⌕</span><input placeholder="Filter…" oninput="filterMech(this.value)"/></div></div><div class="card-body prose">
 <p>Headline mechanics from <i>Reality Fracture Mechanics</i> + <i>Release Notes</i> + update bulletin. “Limited” = pick / play advice.</p>
 <div class="grid2" id="mechGrid">
-<details class="detail" open data-name="empower jace planeswalker token loyalty surveil draw"><summary>🔷 Empower Jace N — marquee mechanic</summary>
+<details class="detail" open data-name="empower jace planeswalker token loyalty surveil draw"><summary>◈ Empower Jace N — marquee mechanic</summary>
 <p><b>Reminder:</b> <i>“Put N loyalty counters on a Jace token you control. If you don't control one, first create a blue Jace planeswalker token with '−1: Surveil 1' and '−3: Draw a card.'”</i></p><ul><li>Only a <b>Jace planeswalker token</b> qualifies — a nontoken Jace doesn't count. Created at 0 loyalty, then counters added. Multiple Jaces? Choose one.</li><li>Empower never makes a second Jace while you control one. Token is blue, nonlegendary.</li></ul><p><b>Limited:</b> The set's shared engine — any deck can run it. Default line is <b>−3 to draw</b>; save loyalty only for a Way payoff, repeated empower, or tactical need. <b>−1 surveil</b> finds lands/answers or banks value before Jace dies. Pressure <i>low-loyalty</i> enemy Jaces early, then prioritize life total + board once attacks get inefficient.</p></details>
-<details class="detail" open data-name="heartwood token artifact ramp red green"><summary>🌲 Heartwood tokens — artifact mana</summary>
+<details class="detail" open data-name="heartwood token artifact ramp red green"><summary>⬢ Heartwood tokens — artifact mana</summary>
 <p><b>Definition:</b> Red and green artifact token with <i>“{T}: Add {R} or {G}.”</i> (Some physical printings use a colorless frame — rules/reminder text make them red-green.)</p><p><b>Limited:</b> Persistent ramp + artifact count. Core of <b>RG Konstrari</b> (Soul Tether makes them) but splashable fixing anywhere green/red-adjacent. Enables the format's big 6–8 mana plays.</p></details>
-<details class="detail" open data-name="prepare exile copy cast unprepared"><summary>📜 Prepare — returning mechanic</summary>
+<details class="detail" open data-name="prepare exile copy cast unprepared"><summary>⧉ Prepare — returning mechanic</summary>
 <p><b>Operation:</b> A permanent that becomes prepared creates a copy of its associated spell in exile; controller may cast the copy (pay costs, choose targets). Casting makes it unprepared. Copy vanishes if the permanent leaves or becomes unprepared. Already-prepared can't re-prepare. New controller of a prepared permanent may cast the copy.</p><p><b>Limited:</b> Delayed card advantage, not free spells — mana must still be paid, and <b>killing the preparer deletes the exiled copy</b>. Each allied school repeats one prepare spell across its common + uncommon preparers (see Archetypes). Treat as synergy/value pieces, not standalone bombs. Remove prepared creatures <i>before</i> the spell is cast when tempo allows.</p></details>
-<details class="detail" data-name="way enchantment legendary planeswalker loyalty abilities"><summary>✨ Way of the… — uncommon legendary enchantments</summary><p>Ten uncommons (one per pair) that grant abilities to planeswalkers — materially raising Jace loyalty value. Significantly <b>overperformed</b> in early access; prioritize them once in a lane.</p><p><b>Limited:</b> A Way + any empower source turns every Jace into a repeat engine. Sideboard enchantment removal more readily than usual (Ways + Memory Trap).</p></details>
-<details class="detail" data-name="echoed pairs legends booster collation"><summary>🪞 Echoed pairs — collation structure, not a keyword</summary><p>Every Play Booster contains a linked pair of legends + a third legend; paired cards intentionally support <b>different</b> decks so adjacent drafters aren't pushed into the same lane. Sealed pools can concentrate uncommon/rare power.</p><p><b>Limited:</b> Don't read a pack's legend pair as “my lane is X” — they're designed to split. In sealed, expect spiky pools.</p></details>
-<details class="detail" data-name="surveil threshold prowess flashback landfall landcycling lifegain counters graveyard"><summary>🧰 Supporting themes</summary><p>Surveil, threshold (7 cards), prowess, flashback, landfall, <b>basic landcycling</b>, lifegain, +1/+1 counters, graveyard recursion, artifact payoffs — each anchors 1–2 archetypes rather than floating free.</p><p><b>Limited:</b> Five large commons have basic landcycling (Hexhaven Battalion, Undulating Witness, Apex Witchstalker, Awaken the Inferno, Vinelasher Adept) — far better in <b>Sealed</b> (fix early, threaten late) than Draft.</p></details>
+<details class="detail" data-name="way enchantment legendary planeswalker loyalty abilities"><summary>✦ Way of the… — uncommon legendary enchantments</summary><p>Ten uncommons (one per pair) that grant abilities to planeswalkers — materially raising Jace loyalty value. Significantly <b>overperformed</b> in early access; prioritize them once in a lane.</p><p><b>Limited:</b> A Way + any empower source turns every Jace into a repeat engine. Sideboard enchantment removal more readily than usual (Ways + Memory Trap).</p></details>
+<details class="detail" data-name="echoed pairs legends booster collation"><summary>◐ Echoed pairs — collation structure, not a keyword</summary><p>Every Play Booster contains a linked pair of legends + a third legend; paired cards intentionally support <b>different</b> decks so adjacent drafters aren't pushed into the same lane. Sealed pools can concentrate uncommon/rare power.</p><p><b>Limited:</b> Don't read a pack's legend pair as “my lane is X” — they're designed to split. In sealed, expect spiky pools.</p></details>
+<details class="detail" data-name="surveil threshold prowess flashback landfall landcycling lifegain counters graveyard"><summary>▤ Supporting themes</summary><p>Surveil, threshold (7 cards), prowess, flashback, landfall, <b>basic landcycling</b>, lifegain, +1/+1 counters, graveyard recursion, artifact payoffs — each anchors 1–2 archetypes rather than floating free.</p><p><b>Limited:</b> Five large commons have basic landcycling (Hexhaven Battalion, Undulating Witness, Apex Witchstalker, Awaken the Inferno, Vinelasher Adept) — far better in <b>Sealed</b> (fix early, threaten late) than Draft.</p></details>
 </div>
 <p style="font-size:11px;color:#9e9378">Sources: Wizards Mechanics, Release Notes, update bulletin, prerelease guide, design articles (Echoverse + Reality Check pt.2).</p>
 </div></section>
@@ -149,6 +158,7 @@ kbd{font-family:JetBrains Mono,monospace;background:#0f1410;border:1px solid rgb
 <p>Wizards confirms <b>ten</b> supported pairs: five allied = <b>Hexhaven schools</b>, five enemy = the <b>Lorwyn Five</b>. Each allied school repeats one prepare spell; each pair has a common hybrid + a planeswalker-conditional dual (tapped unless you control a planeswalker — a Jace token turns later copies on).</p>
 <div style="display:flex;gap:6px;flex-wrap:wrap;margin-bottom:8px"><span style="font-size:11px;color:#9e9378">Filter:</span><button class="pill" onclick="filtArch('all')">All</button><button class="pill" onclick="filtArch('aggro')">Aggro</button><button class="pill" onclick="filtArch('tempo')">Tempo</button><button class="pill" onclick="filtArch('mid')">Midrange</button><button class="pill" onclick="filtArch('control')">Control</button></div>
 <div class="grid2" id="archGrid">
+<div class="archgroup">◈ hexhaven schools <small>allied pairs · military-academy register</small></div>
 <details class="detail" open data-tags="tempo aggro" data-name="WU fatehold surveil aggro desperate futurescribe"><summary><span class="mana W">W</span> <span class="mana U">U</span> — WU Fatehold: Surveil Aggro</summary>
 <p><b>Signpost:</b> Desperate Futurescribe · <b>Hybrid:</b> Fatehold Chronologist · <b>Prepare:</b> Peer Review (2/2 Cadet + surveil 1) via Chronologist / Prudent Fateseer · <b>Land:</b> Fatehold Annex</p><p><b>Plan:</b> Scry/surveil, then grow evasive attackers. Chronologist doubles as flexible early pickup for either color.</p></details>
 <details class="detail" open data-tags="control mid" data-name="UB theorix graveyard threshold mill recursive recruitment"><summary><span class="mana U">U</span> <span class="mana B">B</span> — UB Theorix: Graveyard Math</summary>
@@ -159,6 +169,7 @@ kbd{font-family:JetBrains Mono,monospace;background:#0f1410;border:1px solid rgb
 <p><b>Signpost:</b> Craftwork Crusher · <b>Hybrid:</b> Konstrari Improviser · <b>Prepare:</b> Soul Tether (make a Heartwood) via Improviser / Woodwork Prodigy · <b>Land:</b> Konstrari Annex</p><p><b>Plan:</b> Heartwood/artifact ramp into large threats. Self-contained engine; green improved sharply after prerelease play.</p></details>
 <details class="detail" data-tags="mid aggro" data-name="GW vigorbloom lifegain counters bloombrute"><summary><span class="mana G">G</span> <span class="mana W">W</span> — GW Vigorbloom: Life Gain</summary>
 <p><b>Signpost:</b> Bloombrute · <b>Hybrid:</b> Emergency Phytomedic · <b>Prepare:</b> Seed Suture (+1/+1 counter, gain 1) via Phytomedic / Vigorbloom Vanguard · <b>Land:</b> Vigorbloom Annex</p><p><b>Plan:</b> Lifegain plus +1/+1 counters — grindy board growth that goes over the top.</p></details>
+<div class="archgroup">◐ the lorwyn five <small>enemy pairs · character-led counterpart spreads</small></div>
 <details class="detail" data-tags="mid control" data-name="WB liliana attrition sacrifice recursion twisted fates"><summary><span class="mana W">W</span> <span class="mana B">B</span> — WB Liliana's Attrition</summary>
 <p><b>Signpost:</b> Twisted Fates · <b>Hybrid:</b> Blessed Ghoul · <b>Land:</b> Meticulous Commons</p><p><b>Plan:</b> Small creatures, sacrifice, recursion — bleed the opponent out. Enemy pair: needs its uncommons, not just on-theme commons.</p></details>
 <details class="detail" data-tags="tempo" data-name="UR chandra prowess spells clash elements"><summary><span class="mana U">U</span> <span class="mana R">R</span> — UR Chandra's Prowess</summary>
@@ -171,7 +182,7 @@ kbd{font-family:JetBrains Mono,monospace;background:#0f1410;border:1px solid rgb
 <p><b>Signpost:</b> Mind Meanderer · <b>Hybrid:</b> Tam's Resistance · <b>Land:</b> Transformative Commons</p><p><b>Plan:</b> Empower Jace + granted loyalty abilities (Ways). Highest ceiling, highest demand — <b>requires uncommon hooks</b>, not just on-theme commons. Don't force without payoffs.</p></details>
 </div>
 <div class="callout"><b>Fixing:</b> All ten duals enter tapped unless you control a planeswalker — make a Jace token and later copies come in untapped. Room of Refuge is a bonus common 5-color fixer + late counter source. Supports single-pip splashes, not 5-color. Draft is harder to splash than Sealed (many premiums are double-pipped).</div>
-<div class="callout"><b>Pivot advice:</b> Start with powerful rares, uncommons, flexible removal, and good bodies — <b>not</b> an early common forcing a school. Common hybrids + planeswalker-duals let you settle into the actually-open lane. BR, UB, and RG have the clearest self-contained engines if you need a default.</div>
+<div class="callout viol"><b>Pivot advice — original / echoverse:</b> Start with powerful rares, uncommons, flexible removal, and good bodies — <b>not</b> an early common forcing a school. Common hybrids + planeswalker-duals let you settle into the actually-open lane. BR, UB, and RG have the clearest self-contained engines if you need a default.</div>
 </div></section>
 
 <section class="card" id="draft"><div class="card-head"><h2>4 · Draft — Stay Open, Then Commit</h2><span class="badge">3×14 • 40 cards</span><span class="pill">17 lands default</span></div><div class="card-body prose">
@@ -224,13 +235,13 @@ kbd{font-family:JetBrains Mono,monospace;background:#0f1410;border:1px solid rgb
 </div></section>
 
 <section class="card" id="mistakes"><div class="card-head"><h2>8 · Traps — Don't Crack the Multiverse</h2><span class="badge">Wisdom</span></div><div class="card-body prose">
-<div class="grid2"><div><h3>❌ Traps</h3><ul><li><b>Forcing a school P1:</b> ten lanes + echoed-pair splitting means early commons lie. Start with rares/uncommons/removal/bodies, settle via hybrids + duals.</li><li><b>Greedy double-pip splash in draft:</b> single-pip only — BB/RR splashes with one Heartwood = mulligans.</li><li><b>Treating prepared spells as free:</b> the mana must still be paid, and killing the preparer deletes the copy. Cast-or-lose timing matters.</li><li><b>Auto-attacking every Jace forever:</b> pressure low-loyalty Jaces early, then develop — throwing attacks into a stabilized board loses races.</li><li><b>Command the Stage goggles:</b> build-around and Voxmancer-as-reason-to-enter both graded down in early access. Take the engine, not the dream.</li><li><b>No enchantment removal post-board:</b> Ways overperformed + Memory Trap is premium — board answers G2.</li></ul></div><div><h3>✅ Pro tips</h3><ul><li>Default Jace line: <b>−3 draw now</b>. Bank loyalty only for a Way, repeated empower, or a tactical turn.</li><li>−1 surveil to find land #4, dig for an answer, enable surveil payoffs, or extract value before Jace dies.</li><li>Remove prepared creatures <i>before</i> the exiled spell is cast when tempo permits.</li><li>Landcyclers: pass in draft, snap in sealed (fix early, threaten late).</li><li>Sideboard hard — enchantment removal, walker answers, flying hate.</li></ul></div></div>
+<div class="grid2"><div><h3>✕ traps</h3><ul><li><b>Forcing a school P1:</b> ten lanes + echoed-pair splitting means early commons lie. Start with rares/uncommons/removal/bodies, settle via hybrids + duals.</li><li><b>Greedy double-pip splash in draft:</b> single-pip only — BB/RR splashes with one Heartwood = mulligans.</li><li><b>Treating prepared spells as free:</b> the mana must still be paid, and killing the preparer deletes the copy. Cast-or-lose timing matters.</li><li><b>Auto-attacking every Jace forever:</b> pressure low-loyalty Jaces early, then develop — throwing attacks into a stabilized board loses races.</li><li><b>Command the Stage goggles:</b> build-around and Voxmancer-as-reason-to-enter both graded down in early access. Take the engine, not the dream.</li><li><b>No enchantment removal post-board:</b> Ways overperformed + Memory Trap is premium — board answers G2.</li></ul></div><div><h3>◆ pro tips</h3><ul><li>Default Jace line: <b>−3 draw now</b>. Bank loyalty only for a Way, repeated empower, or a tactical turn.</li><li>−1 surveil to find land #4, dig for an answer, enable surveil payoffs, or extract value before Jace dies.</li><li>Remove prepared creatures <i>before</i> the exiled spell is cast when tempo permits.</li><li>Landcyclers: pass in draft, snap in sealed (fix early, threaten late).</li><li>Sideboard hard — enchantment removal, walker answers, flying hate.</li></ul></div></div>
 <div class="table-wrap"><table><thead><tr><th>Situation</th><th>Do</th></tr></thead><tbody><tr><td>2 lands + 2-drop opener</td><td>Keep most decks</td></tr><tr><td>3 colors tempting</td><td>2 main + 1 single-pip splash max</td></tr><tr><td>Enemy Jace at 1–2 loyalty, your board is small</td><td>Attack Jace — deny the −3</td></tr><tr><td>Enemy Jace stabilized behind blockers</td><td>Hit life total, develop board — don't donate attacks</td></tr><tr><td>4+ mana open, opponent passing</td><td>Respect Wrath / Fatehold Charm / Prophesied End — don't overextend into it</td></tr></tbody></table></div>
 </div></section>
 
 <section class="card" id="appendix"><div class="card-head"><h2>9 · Appendix — Sources &amp; Dates</h2><span class="badge">Living doc</span></div><div class="card-body prose">
 <p>Verified against deep research through Sep 29, 2026 (Arena launch day). Tiers provisional — revisit 17Lands/Untapped after Oct 2–3 before treating rankings as truth.</p>
-<div style="background:rgba(255,255,255,.04);border:1px solid rgba(200,162,74,.14);border-radius:10px;padding:10px;font-size:12px;color:#c9bda0">
+<div style="background:rgba(255,255,255,.04);border:1px solid rgba(200,162,74,.14);border-radius:10px;padding:10px;font-size:12px;color:var(--dim)">
 <b>Key dates:</b> First look Jul 17 · Debut Sep 8 · Commander previews Sep 16 · Full gallery Sep 18 · Prerelease Sep 25–Oct 1 · Arena Sep 29 · Tabletop Oct 2.<br><br>
 <b>Products:</b> Play/Collector Boosters &amp; displays (30/12), Prerelease Packs (6 boosters + foil promo + box/die), Bundle (9 boosters + 30 basics), Secret Lair Bundle, Draft Night kit (12 Play + 1 Collector, 4-player Pick-Two), Multiverse Reforged 4-color Jace FRC deck (16 new cards), 5 Foundations Commander decks alongside. Regional delays: NZ rescheduled, Mexico early Oct.<br><br>
 <b>Research covers:</b> Wizards Mechanics, Release Notes, Prerelease Guide, Collecting, preview schedule, product page, gallery, design articles, delay notice; Scryfall FRA; MTGGoldfish spoiler archive; Draftsim (archetypes, set review, sealed, commons/uncommons); Limited Resources 872; Lords of Limited (prerelease + early-format); limitedmtg.com; Reddit threads. Jobs mun4njsd-hhdg14j (identity) + mun4q9xn-uktepn7 (deep).

@@ -25,3 +25,9 @@
 - [ ] Consider Standard BO1 report once meta settles (~1 week post-release)
 
 To resume: just say "continue" — I'll pick up from this checkpoint.
+
+## Restyle (Sep 29, 2026 — v0.3.0 per-set default)
+- Visual research: `mun534sf-9sfjzgq` (standard, terra). Skin spec from official art direction, no Wizards art inlined.
+- Skin: Jace-blue psychic architecture — midnight #0B1024 / Jace #173F78 / cyan #22B9D1 / violet #6A55A5 / silver #CAD7DB / shard #F4F7F2 / tower #17171D. Display: Space Grotesk (Inter body, JetBrains Mono code).
+- Motifs: fractured-tower gradient hero + prismatic towerbar divider, ◆ section marks, shard-glyph mechanism headers, Hexhaven-schools vs Lorwyn-Five archetype group headers, viol pivot callout (original/echoverse). Emoji removed. Print fallback added.
+- Behavior unchanged (TOC/search/tabs/checklists); localStorage already namespaced (fracture-*).
