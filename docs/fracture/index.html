@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>MTG: Reality Fracture — Limited Strategy Guide | Draft &amp; Sealed</title>
+<meta name="description" content="Verified strategy guide for Magic: The Gathering — Reality Fracture (FRA) limited: draft & sealed, 10 archetypes, Empower Jace / Heartwood / Prepare mechanics, prerelease kit tips."/>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;800&family=Cinzel+Decorative:wght@700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#0f1410;--panel:#1a2218;--parchment:#f5ecd3;--gold:#c8a24a;--gold2:#e6c87a;--ink:#2b2416;--shadow:0 12px 40px rgba(0,0,0,.45)}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--parchment);font-family:Inter,system-ui,sans-serif;line-height:1.6}
+a{color:var(--gold2)}
+.topbar{position:sticky;top:0;z-index:50;background:rgba(15,20,16,.92);backdrop-filter:blur(10px);border-bottom:1px solid rgba(200,162,74,.25)}
+.topbar-inner{max-width:1280px;margin:0 auto;display:flex;align-items:center;gap:14px;padding:10px 16px}
+.brand{display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--parchment)}
+.rune{width:40px;height:40px;border-radius:10px;background:linear-gradient(145deg,#1e2f21,#0f1a11);border:1px solid rgba(200,162,74,.45);display:grid;place-items:center;font-family:Cinzel Decorative,serif;font-size:20px;color:var(--gold2)}
+.brand h1{margin:0;font-family:Cinzel,serif;font-weight:800;font-size:14px;letter-spacing:.06em;line-height:1}
+.brand h1 span{display:block;font-size:10px;letter-spacing:.18em;color:var(--gold);margin-top:3px}
+.nav{display:flex;gap:6px;margin-left:auto;flex-wrap:wrap}
+.nav button{appearance:none;border:1px solid rgba(200,162,74,.25);background:rgba(255,255,255,.04);color:var(--parchment);padding:6px 10px;border-radius:999px;font-size:11px;letter-spacing:.08em;text-transform:uppercase;font-weight:600;cursor:pointer}
+.nav button:hover{background:var(--gold);color:var(--ink)}
+.badge-live{font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--gold);border:1px dashed rgba(200,162,74,.35);padding:5px 9px;border-radius:999px;white-space:nowrap}
+.hero{max-width:1280px;margin:0 auto;padding:22px 16px 10px;display:grid;grid-template-columns:1.35fr .85fr;gap:18px}
+@media(max-width:900px){.hero{grid-template-columns:1fr}}
+.hero-card{background:linear-gradient(180deg,rgba(255,255,255,.06),rgba(255,255,255,.01)),var(--panel);border:1px solid rgba(200,162,74,.22);border-radius:18px;overflow:hidden;box-shadow:var(--shadow)}
+.hero-media{padding:22px;text-align:center;background:radial-gradient(600px 300px at 20% 0%,rgba(200,162,74,.18),transparent 60%),radial-gradient(700px 400px at 90% 30%,rgba(78,163,106,.14),transparent 60%),linear-gradient(180deg,#1e2f22,#121a13)}
+.hero-media h2{font-family:Cinzel Decorative,serif;font-size:28px;line-height:1.1;margin:8px 0;color:var(--parchment)}
+.kpis{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+.kpi{background:rgba(255,255,255,.04);border:1px solid rgba(200,162,74,.15);border-radius:12px;padding:10px;text-align:center}
+.kpi b{display:block;font-family:Cinzel,serif;color:var(--gold2)}
+.shell{max-width:1280px;margin:0 auto;padding:10px 16px 40px;display:grid;grid-template-columns:250px 1fr;gap:16px}
+@media(max-width:980px){.shell{grid-template-columns:1fr}}
+.toc{position:sticky;top:62px;align-self:start;background:var(--panel);border:1px solid rgba(200,162,74,.18);border-radius:14px;overflow:hidden}
+.toc h3{margin:0;padding:12px 12px 8px;font-family:Cinzel,serif;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--gold)}
+.toc a{display:flex;align-items:center;gap:8px;padding:8px 12px;font-size:13px;color:#d6c9a8;text-decoration:none;border-top:1px solid rgba(200,162,74,.08)}
+.toc a.active{background:linear-gradient(90deg,rgba(200,162,74,.18),transparent);color:var(--gold2);border-left:3px solid var(--gold)}
+.card{background:linear-gradient(180deg,rgba(255,255,255,.05),rgba(255,255,255,.01)),var(--panel);border:1px solid rgba(200,162,74,.18);border-radius:16px;box-shadow:var(--shadow);overflow:hidden;margin-bottom:14px}
+.card-head{padding:14px 16px 10px;border-bottom:1px solid rgba(200,162,74,.12);display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.card-head h2{margin:0;font-family:Cinzel,serif;font-size:16px}
+.badge{font-size:10px;letter-spacing:.12em;text-transform:uppercase;font-weight:800;padding:5px 8px;border-radius:999px;background:rgba(200,162,74,.14);color:var(--gold2);border:1px solid rgba(200,162,74,.25)}
+.card-body{padding:14px 16px}
+.prose{color:#e6dbbf;font-size:13.5px;line-height:1.65}
+.prose h3{font-family:Cinzel,serif;color:var(--gold2);margin:16px 0 6px;font-size:14px}
+.callout{border-left:3px solid var(--gold);background:rgba(200,162,74,.08);padding:9px 11px;border-radius:10px;margin:10px 0;font-size:13px;color:#e8dcb8}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+@media(max-width:760px){.grid2{grid-template-columns:1fr}}
+.pill{font-size:10px;padding:4px 8px;border-radius:999px;border:1px solid rgba(200,162,74,.22);background:rgba(255,255,255,.04);color:var(--gold2);font-weight:700;letter-spacing:.06em;text-transform:uppercase}
+.mana{width:22px;height:22px;border-radius:999px;display:inline-grid;place-items:center;font-weight:800;font-size:11px;color:#111;border:1px solid rgba(0,0,0,.2);vertical-align:middle}
+.mana.W{background:#f0e6b8}.mana.U{background:#7fb6d6}.mana.B{background:#8a7a8a;color:#fff}.mana.R{background:#d96a4a}.mana.G{background:#7ab07a}
+.arche{border:1px solid rgba(200,162,74,.14);background:rgba(255,255,255,.03);border-radius:12px;padding:11px}
+.table-wrap{overflow:auto;border:1px solid rgba(200,162,74,.14);border-radius:10px}
+table{width:100%;border-collapse:collapse;font-size:13px;min-width:560px}
+th{text-align:left;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--gold);background:rgba(200,162,74,.08);padding:8px 10px}
+td{padding:8px 10px;border-top:1px solid rgba(200,162,74,.1);color:#e6dbbf;vertical-align:top}
+tr:hover td{background:rgba(200,162,74,.05)}
+.tier{display:inline-block;padding:2px 7px;border-radius:999px;font-weight:800;font-size:11px}
+.tier.S{background:#c8a24a;color:#111}.tier.A{background:#4ea36a;color:#fff}.tier.B{background:#7fb6d6;color:#111}
+.tabs{display:flex;gap:6px;flex-wrap:wrap}
+.tab{appearance:none;border:1px solid rgba(200,162,74,.2);background:rgba(255,255,255,.04);color:#d6c9a8;padding:7px 11px;border-radius:999px;font-weight:700;font-size:11px;cursor:pointer}
+.tab.active{background:var(--gold);color:var(--ink)}
+.pane{display:none}.pane.active{display:block}
+.checklist{display:grid;gap:7px}
+.check{display:flex;gap:8px;align-items:flex-start;background:rgba(255,255,255,.03);border:1px solid rgba(200,162,74,.1);border-radius:10px;padding:8px 10px;font-size:13px}
+.check input{margin-top:3px;accent-color:var(--gold)}
+.detail{border:1px solid rgba(200,162,74,.14);background:rgba(255,255,255,.03);border-radius:10px;padding:10px}
+.detail summary{cursor:pointer;font-weight:700;color:var(--gold2);font-family:Cinzel,serif;font-size:12px}
+.search{flex:1;min-width:180px;display:flex;align-items:center;gap:6px;background:rgba(255,255,255,.06);border:1px solid rgba(200,162,74,.18);border-radius:999px;padding:6px 10px}
+.search input{flex:1;background:transparent;border:0;outline:0;color:var(--parchment);font-size:13px}
+kbd{font-family:JetBrains Mono,monospace;background:#0f1410;border:1px solid rgba(200,162,74,.22);border-bottom-width:2px;padding:1px 5px;border-radius:5px;color:var(--gold2);font-size:10px}
+.foot{max-width:1280px;margin:0 auto;padding:16px;color:#8e8370;font-size:10px;letter-spacing:.06em;text-transform:uppercase;text-align:center;border-top:1px solid rgba(200,162,74,.12)}
+</style>
+</head>
+<body>
+<header class="topbar"><div class="topbar-inner">
+<a class="brand" href="#top"><div class="rune">◈</div><h1>MTG: REALITY FRACTURE<span>LIMITED STRATEGY GUIDE — FRA • VERIFIED SEP 29 2026</span></h1></a>
+<div class="nav"><button onclick="go('mechanics')">Mechanics</button><button onclick="go('archetypes')">Archetypes</button><button onclick="go('draft')">Draft</button><button onclick="go('sealed')">Sealed</button><button onclick="go('cards')">Cards</button></div>
+<div class="badge-live">● VERIFIED • ARENA LAUNCH DAY</div>
+</div></header>
+
+<div class="hero" id="top">
+<div class="hero-card"><div class="hero-media">
+<div style="font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--gold2);font-weight:700">FRA 270 cards • All-formats legal • Arena Sep 29 / Tabletop Oct 2</div>
+<h2>Fracture the Multiverse:<br>Draft &amp; Sealed Mastery</h2>
+<p style="max-width:46ch;margin:8px auto 0;color:#d8cbb0;font-size:13px">Verified against the full FRA gallery (Sep 18), Wizards mechanics &amp; release notes, prerelease guide, and early-access testing. Ten real archetypes, three headline mechanics, and a 50-minute sealed plan.</p>
+<div style="margin-top:10px;display:flex;gap:8px;justify-content:center;flex-wrap:wrap">
+<button onclick="go('draft')" style="appearance:none;border:0;padding:9px 14px;border-radius:999px;font-weight:700;font-size:12px;cursor:pointer;background:linear-gradient(180deg,var(--gold2),var(--gold));color:var(--ink)">Start Draft Walkthrough →</button>
+<button onclick="go('sealed')" style="appearance:none;border:1px solid rgba(200,162,74,.35);background:transparent;color:var(--parchment);padding:9px 14px;border-radius:999px;font-weight:700;font-size:12px;cursor:pointer">I’m playing Sealed</button>
+</div>
+</div>
+<div style="padding:14px">
+<div class="kpis"><div class="kpi"><b>10</b><span style="font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:#b9ad90">Real archetypes</span></div><div class="kpi"><b>FRA/FRC</b><span style="font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:#b9ad90">All formats</span></div><div class="kpi"><b>17</b><span style="font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:#b9ad90">Lands default</span></div></div>
+<div class="grid2" style="margin-top:10px">
+<div class="arche" onclick="go('mechanics')"><b style="font-family:Cinzel,serif;color:var(--gold2);font-size:12px">⚙️ Mechanics</b><p style="margin:4px 0 0;font-size:11px;color:#c9bda0">Empower Jace, Heartwood tokens, returning Prepare — with real reminder text — plus Way enchantments &amp; echoed pairs.</p></div>
+<div class="arche" onclick="go('archetypes')"><b style="font-family:Cinzel,serif;color:var(--gold2);font-size:12px">🎨 Archetypes</b><p style="margin:4px 0 0;font-size:11px;color:#c9bda0">5 Hexhaven schools (allied) + the Lorwyn Five (enemy) — signposts, hybrids, prepare spells &amp; lands.</p></div>
+</div>
+</div></div>
+<div class="hero-card" style="padding:14px;display:flex;flex-direction:column;gap:10px">
+<div style="display:flex;align-items:center;gap:8px"><h3 style="margin:0;font-family:Cinzel,serif;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--gold)">Choose your path</h3><span class="pill">click-through</span></div>
+<div class="tabs"><button class="tab active" data-path="both" onclick="setPath('both')">Both</button><button class="tab" data-path="draft" onclick="setPath('draft')">Draft Night</button><button class="tab" data-path="sealed" onclick="setPath('sealed')">Prerelease Sealed</button></div>
+<div class="search"><span style="color:var(--gold)">⌕</span><input id="q" placeholder="Search cards, mechanics…" oninput="filterAll(this.value)"/><kbd>/</kbd></div>
+<div style="font-size:11px;color:#c9bda0;line-height:1.5"><b style="color:var(--gold2)">How to use:</b> Left rail to jump. Each archetype expands. Progress saves. Use sealed path at prerelease to dim draft-only signaling noise.</div>
+<div class="callout" style="margin:0">✅ Verified Sep 29: deep research complete (FRA 270, Arena Sep 29, prerelease Sep 25–Oct 1). Tiering is <b>provisional</b> — Arena sample is hours old. Revisit 17Lands after Oct 2–3 before treating rankings as truth.</div>
+<div style="display:flex;gap:8px"><button onclick="window.print()" style="flex:1;appearance:none;border:1px solid rgba(200,162,74,.25);background:rgba(255,255,255,.04);color:var(--parchment);padding:8px;border-radius:999px;font-weight:700;font-size:11px;cursor:pointer">Print / Save PDF</button><button onclick="resetProg()" style="appearance:none;border:1px solid rgba(200,162,74,.25);background:transparent;color:var(--parchment);padding:8px 12px;border-radius:999px;font-weight:700;font-size:11px;cursor:pointer">Reset</button></div>
+</div>
+</div>
+
+<div class="shell">
+<nav class="toc" id="toc"><h3>The Fracture</h3>
+<a href="#overview" data-sec="overview">1 · Overview</a>
+<a href="#mechanics" data-sec="mechanics">2 · Mechanics</a>
+<a href="#archetypes" data-sec="archetypes">3 · Archetypes</a>
+<a href="#draft" data-sec="draft">4 · Draft</a>
+<a href="#sealed" data-sec="sealed">5 · Sealed</a>
+<a href="#prerelease" data-sec="prerelease">6 · Prerelease Kit</a>
+<a href="#cards" data-sec="cards">7 · Cards &amp; Removal</a>
+<a href="#mistakes" data-sec="mistakes">8 · Traps</a>
+<a href="#appendix" data-sec="appendix">9 · Sources</a>
+</nav>
+<main style="min-width:0">
+
+<section class="card" id="overview"><div class="card-head"><h2>1 · Overview — What FRA actually is</h2><span class="badge">Start here • 3 min</span></div><div class="card-body prose">
+<p><b>Magic: The Gathering — Reality Fracture (FRA)</b> — large, 10-archetype, all-formats-legal Echoverse set. <b>270</b> main-rarity cards (71 common / 109 uncommon / 64 rare / 26 mythic) + 10 common duals + 10 basics = <b>280 Draft cards</b> (collectors 1–280). Scryfall's 461 counts printings/treatments, not unique draftables. Companion codes: <b>FRC</b> (Commander) + <b>SPG</b> (Special Guests, eternal-only except reprints). Preview debut <b>Sep 8</b>, full gallery <b>Sep 18</b>, prerelease <b>Sep 25–Oct 1</b>, Arena <b>Sep 29</b>, tabletop <b>Oct 2</b>.</p>
+<div class="grid2">
+<div class="detail" open><div style="font-family:Cinzel,serif;color:var(--gold2);font-size:11px;letter-spacing:.08em;text-transform:uppercase">At a glance</div>
+<ul><li><b>Boosters:</b> 14-card Play Boosters (Draft = 3, Sealed = 6)</li><li><b>Format:</b> 40 cards, 23 spells / 17 lands, BO3 with sideboard</li><li><b>Draft mode:</b> Designed for <b>Pick-Two</b> (4-player Draft Night kit); Arena also Pick-One Premier/Traditional</li><li><b>Speed:</b> Average curve, <b>long grindy games</b> — cheap interaction suppresses snowballing, then Jace + prepared spells fund 6–8 mana plays</li><li><b>Fixing:</b> 10 planeswalker-conditional duals + Room of Refuge + 5 basic landcyclers + Heartwood ramp — splash one single-pip, not double-pip</li></ul></div>
+<div class="detail" open><div style="font-family:Cinzel,serif;color:var(--gold2);font-size:11px;letter-spacing:.08em;text-transform:uppercase">How to use this guide</div>
+<ol style="margin:8px 0 0 18px"><li>Read <b>Mechanics</b> — real reminder text so you know what cards do.</li><li>Pick path top-right — highlights your lane.</li><li>At table, open <b>Prerelease Kit</b> checklist on phone.</li><li>During draft, keep <b>Cards &amp; Removal</b> open for pick-order ties.</li></ol><p style="font-size:11px;color:#9e9378;margin-top:8px">Press <kbd>/</kbd> to search. Click any archetype to expand. Progress auto-saves.</p></div>
+</div>
+<div class="callout"><b>What makes FRA different:</b> Unusually <b>uncommon-heavy</b> (commons cut 81→71, uncommons up 100→109) plus <b>echoed-pair collation</b> — every Play Booster has a linked pair of legends (pushed into <i>different</i> decks) plus a third legend. Uncommons and legends punch above their usual weight. SPG cards opened in Play Boosters are legal in that Draft/Sealed pool. Note regional product delays (NZ prereleases rescheduled; Mexico stock early Oct) — availability varies.</div>
+</div></section>
+
+<section class="card" id="mechanics"><div class="card-head"><h2>2 · Mechanics — Real rules, limited translation</h2><span class="badge">Verified vs. release notes</span><div class="search" style="max-width:220px;margin-left:auto"><span>⌕</span><input placeholder="Filter…" oninput="filterMech(this.value)"/></div></div><div class="card-body prose">
+<p>Headline mechanics from <i>Reality Fracture Mechanics</i> + <i>Release Notes</i> + update bulletin. “Limited” = pick / play advice.</p>
+<div class="grid2" id="mechGrid">
+<details class="detail" open data-name="empower jace planeswalker token loyalty surveil draw"><summary>🔷 Empower Jace N — marquee mechanic</summary>
+<p><b>Reminder:</b> <i>“Put N loyalty counters on a Jace token you control. If you don't control one, first create a blue Jace planeswalker token with '−1: Surveil 1' and '−3: Draw a card.'”</i></p><ul><li>Only a <b>Jace planeswalker token</b> qualifies — a nontoken Jace doesn't count. Created at 0 loyalty, then counters added. Multiple Jaces? Choose one.</li><li>Empower never makes a second Jace while you control one. Token is blue, nonlegendary.</li></ul><p><b>Limited:</b> The set's shared engine — any deck can run it. Default line is <b>−3 to draw</b>; save loyalty only for a Way payoff, repeated empower, or tactical need. <b>−1 surveil</b> finds lands/answers or banks value before Jace dies. Pressure <i>low-loyalty</i> enemy Jaces early, then prioritize life total + board once attacks get inefficient.</p></details>
+<details class="detail" open data-name="heartwood token artifact ramp red green"><summary>🌲 Heartwood tokens — artifact mana</summary>
+<p><b>Definition:</b> Red and green artifact token with <i>“{T}: Add {R} or {G}.”</i> (Some physical printings use a colorless frame — rules/reminder text make them red-green.)</p><p><b>Limited:</b> Persistent ramp + artifact count. Core of <b>RG Konstrari</b> (Soul Tether makes them) but splashable fixing anywhere green/red-adjacent. Enables the format's big 6–8 mana plays.</p></details>
+<details class="detail" open data-name="prepare exile copy cast unprepared"><summary>📜 Prepare — returning mechanic</summary>
+<p><b>Operation:</b> A permanent that becomes prepared creates a copy of its associated spell in exile; controller may cast the copy (pay costs, choose targets). Casting makes it unprepared. Copy vanishes if the permanent leaves or becomes unprepared. Already-prepared can't re-prepare. New controller of a prepared permanent may cast the copy.</p><p><b>Limited:</b> Delayed card advantage, not free spells — mana must still be paid, and <b>killing the preparer deletes the exiled copy</b>. Each allied school repeats one prepare spell across its common + uncommon preparers (see Archetypes). Treat as synergy/value pieces, not standalone bombs. Remove prepared creatures <i>before</i> the spell is cast when tempo allows.</p></details>
+<details class="detail" data-name="way enchantment legendary planeswalker loyalty abilities"><summary>✨ Way of the… — uncommon legendary enchantments</summary><p>Ten uncommons (one per pair) that grant abilities to planeswalkers — materially raising Jace loyalty value. Significantly <b>overperformed</b> in early access; prioritize them once in a lane.</p><p><b>Limited:</b> A Way + any empower source turns every Jace into a repeat engine. Sideboard enchantment removal more readily than usual (Ways + Memory Trap).</p></details>
+<details class="detail" data-name="echoed pairs legends booster collation"><summary>🪞 Echoed pairs — collation structure, not a keyword</summary><p>Every Play Booster contains a linked pair of legends + a third legend; paired cards intentionally support <b>different</b> decks so adjacent drafters aren't pushed into the same lane. Sealed pools can concentrate uncommon/rare power.</p><p><b>Limited:</b> Don't read a pack's legend pair as “my lane is X” — they're designed to split. In sealed, expect spiky pools.</p></details>
+<details class="detail" data-name="surveil threshold prowess flashback landfall landcycling lifegain counters graveyard"><summary>🧰 Supporting themes</summary><p>Surveil, threshold (7 cards), prowess, flashback, landfall, <b>basic landcycling</b>, lifegain, +1/+1 counters, graveyard recursion, artifact payoffs — each anchors 1–2 archetypes rather than floating free.</p><p><b>Limited:</b> Five large commons have basic landcycling (Hexhaven Battalion, Undulating Witness, Apex Witchstalker, Awaken the Inferno, Vinelasher Adept) — far better in <b>Sealed</b> (fix early, threaten late) than Draft.</p></details>
+</div>
+<p style="font-size:11px;color:#9e9378">Sources: Wizards Mechanics, Release Notes, update bulletin, prerelease guide, design articles (Echoverse + Reality Check pt.2).</p>
+</div></section>
+
+<section class="card" id="archetypes"><div class="card-head"><h2>3 · Archetypes — Ten Real Decks</h2><span class="badge">Wizards-confirmed • 5+5</span><span class="pill">Pick-Two draft</span></div><div class="card-body prose">
+<p>Wizards confirms <b>ten</b> supported pairs: five allied = <b>Hexhaven schools</b>, five enemy = the <b>Lorwyn Five</b>. Each allied school repeats one prepare spell; each pair has a common hybrid + a planeswalker-conditional dual (tapped unless you control a planeswalker — a Jace token turns later copies on).</p>
+<div style="display:flex;gap:6px;flex-wrap:wrap;margin-bottom:8px"><span style="font-size:11px;color:#9e9378">Filter:</span><button class="pill" onclick="filtArch('all')">All</button><button class="pill" onclick="filtArch('aggro')">Aggro</button><button class="pill" onclick="filtArch('tempo')">Tempo</button><button class="pill" onclick="filtArch('mid')">Midrange</button><button class="pill" onclick="filtArch('control')">Control</button></div>
+<div class="grid2" id="archGrid">
+<details class="detail" open data-tags="tempo aggro" data-name="WU fatehold surveil aggro desperate futurescribe"><summary><span class="mana W">W</span> <span class="mana U">U</span> — WU Fatehold: Surveil Aggro</summary>
+<p><b>Signpost:</b> Desperate Futurescribe · <b>Hybrid:</b> Fatehold Chronologist · <b>Prepare:</b> Peer Review (2/2 Cadet + surveil 1) via Chronologist / Prudent Fateseer · <b>Land:</b> Fatehold Annex</p><p><b>Plan:</b> Scry/surveil, then grow evasive attackers. Chronologist doubles as flexible early pickup for either color.</p></details>
+<details class="detail" open data-tags="control mid" data-name="UB theorix graveyard threshold mill recursive recruitment"><summary><span class="mana U">U</span> <span class="mana B">B</span> — UB Theorix: Graveyard Math</summary>
+<p><b>Signpost:</b> Recursive Recruitment · <b>Hybrid:</b> Theorix Metamage · <b>Prepare:</b> Omit Variables (mill 3) via Metamage / Paradox Shaper · <b>Land:</b> Theorix Annex</p><p><b>Plan:</b> Self-mill to 7-card threshold, then out-value. One of the clearest self-contained engines — safe early lane.</p></details>
+<details class="detail" open data-tags="aggro" data-name="BR stingerquill burn prowess grim repriser"><summary><span class="mana B">B</span> <span class="mana R">R</span> — BR Stingerquill: Face Burn</summary>
+<p><b>Signpost:</b> Grim Repriser · <b>Hybrid:</b> Whiplash Wordsmith · <b>Prepare:</b> Vicious Verse (1 to opponent) via Wordsmith / Stingerquill Voxmancer · <b>Land:</b> Stingerquill Annex</p><p><b>Plan:</b> Noncombat damage + prowess + recursion. Clear engine, but don't take Voxmancer as a <i>reason</i> to enter BR — it's support, not a bomb.</p></details>
+<details class="detail" open data-tags="mid" data-name="RG konstrari ramp heartwood craftwork crusher"><summary><span class="mana R">R</span> <span class="mana G">G</span> — RG Konstrari: Mana Ramp</summary>
+<p><b>Signpost:</b> Craftwork Crusher · <b>Hybrid:</b> Konstrari Improviser · <b>Prepare:</b> Soul Tether (make a Heartwood) via Improviser / Woodwork Prodigy · <b>Land:</b> Konstrari Annex</p><p><b>Plan:</b> Heartwood/artifact ramp into large threats. Self-contained engine; green improved sharply after prerelease play.</p></details>
+<details class="detail" data-tags="mid aggro" data-name="GW vigorbloom lifegain counters bloombrute"><summary><span class="mana G">G</span> <span class="mana W">W</span> — GW Vigorbloom: Life Gain</summary>
+<p><b>Signpost:</b> Bloombrute · <b>Hybrid:</b> Emergency Phytomedic · <b>Prepare:</b> Seed Suture (+1/+1 counter, gain 1) via Phytomedic / Vigorbloom Vanguard · <b>Land:</b> Vigorbloom Annex</p><p><b>Plan:</b> Lifegain plus +1/+1 counters — grindy board growth that goes over the top.</p></details>
+<details class="detail" data-tags="mid control" data-name="WB liliana attrition sacrifice recursion twisted fates"><summary><span class="mana W">W</span> <span class="mana B">B</span> — WB Liliana's Attrition</summary>
+<p><b>Signpost:</b> Twisted Fates · <b>Hybrid:</b> Blessed Ghoul · <b>Land:</b> Meticulous Commons</p><p><b>Plan:</b> Small creatures, sacrifice, recursion — bleed the opponent out. Enemy pair: needs its uncommons, not just on-theme commons.</p></details>
+<details class="detail" data-tags="tempo" data-name="UR chandra prowess spells clash elements"><summary><span class="mana U">U</span> <span class="mana R">R</span> — UR Chandra's Prowess</summary>
+<p><b>Signpost:</b> Clash of Elements · <b>Hybrid:</b> Twinned Vision (breakout common) · <b>Land:</b> Innovative Commons</p><p><b>Plan:</b> Noncreature spells + tempo/burn. Twinned Vision is a high-priority flexible pickup.</p></details>
+<details class="detail" data-tags="mid" data-name="BG garruk bestiary deathtouch trample primal witchstalker"><summary><span class="mana B">B</span> <span class="mana G">G</span> — BG Garruk's Bestiary</summary>
+<p><b>Signpost:</b> Primal Witchstalker · <b>Hybrid:</b> Ferocity of the Hunt (flash Aura) · <b>Land:</b> Formidable Commons</p><p><b>Plan:</b> Value creatures with deathtouch/trample + recursion. Straightforward card-quality deck when synergies miss.</p></details>
+<details class="detail" data-tags="aggro" data-name="RW ajani army cadet tokens counters warrior blades"><summary><span class="mana R">R</span> <span class="mana W">W</span> — RW Ajani's Army</summary>
+<p><b>Signpost:</b> Warrior's Blades · <b>Hybrid:</b> Charge the Sanctum · <b>Land:</b> Dedicated Commons</p><p><b>Plan:</b> Cadet tokens + counter aggro — go wide, pump, punish stumbles. Red's efficient removal is the format's most consistently praised strength.</p></details>
+<details class="detail" data-tags="control" data-name="GU jace mastery empower loyalty mind meanderer"><summary><span class="mana G">G</span> <span class="mana U">U</span> — GU Jace's Mastery</summary>
+<p><b>Signpost:</b> Mind Meanderer · <b>Hybrid:</b> Tam's Resistance · <b>Land:</b> Transformative Commons</p><p><b>Plan:</b> Empower Jace + granted loyalty abilities (Ways). Highest ceiling, highest demand — <b>requires uncommon hooks</b>, not just on-theme commons. Don't force without payoffs.</p></details>
+</div>
+<div class="callout"><b>Fixing:</b> All ten duals enter tapped unless you control a planeswalker — make a Jace token and later copies come in untapped. Room of Refuge is a bonus common 5-color fixer + late counter source. Supports single-pip splashes, not 5-color. Draft is harder to splash than Sealed (many premiums are double-pipped).</div>
+<div class="callout"><b>Pivot advice:</b> Start with powerful rares, uncommons, flexible removal, and good bodies — <b>not</b> an early common forcing a school. Common hybrids + planeswalker-duals let you settle into the actually-open lane. BR, UB, and RG have the clearest self-contained engines if you need a default.</div>
+</div></section>
+
+<section class="card" id="draft"><div class="card-head"><h2>4 · Draft — Stay Open, Then Commit</h2><span class="badge">3×14 • 40 cards</span><span class="pill">17 lands default</span></div><div class="card-body prose">
+<div class="tabs"><button class="tab active" onclick="pane('draft','p1')">P1: Stay Open</button><button class="tab" onclick="pane('draft','p2')">P2: Commit</button><button class="tab" onclick="pane('draft','p3')">P3: Fix &amp; Cut</button><button class="tab" onclick="pane('draft','sig')">Signals</button></div>
+<div style="margin-top:10px">
+<div class="pane active" id="draft-p1">
+<h3>Pack 1 — BREAD, Fracture-tuned</h3>
+<div class="table-wrap"><table><thead><tr><th>Priority</th><th>What</th><th>Why here</th></tr></thead><tbody>
+<tr><td><span class="tier S">S</span> Bomb rare/mythic</td><td>The Theorist Jace · Garruk Veiled Butcher · Chandra Torch of Defiance · Ajani Unrelenting · Seasoned Cryomancer</td><td>Wins alone; format rewards raw power</td></tr>
+<tr><td><span class="tier A">A</span> Premium removal</td><td>Wrath of the Bloodmane · Last Gasp · Memory Trap · Infinite Coursework · Compel Brutality</td><td>Cheap interaction is plentiful but premium answers go fast — take over solid creatures</td></tr>
+<tr><td><span class="tier A">A</span> Top common/uncommon engine</td><td>Campus Crier · Mindseeker Oculus · Skilled Battlecarver · Twinned Vision · Way enchantments (once in lane)</td><td>Contextual bombs; Ways overperformed</td></tr>
+<tr><td><span class="tier B">B</span> Signpost / flexible body</td><td>Hybrid commons, efficient 2–3 drops</td><td>Keeps two lanes open</td></tr>
+</tbody></table></div>
+<div class="callout"><b>P1P1:</b> Best card that keeps you in one color — avoid double-pip gold unless bomb. Early consensus: <b>red first, blue second, black last</b> pre-prerelease; post-early-access says <b>every color viable, green up sharply</b> (provisional — Arena launched today, no 17Lands yet).</div>
+<h3>Curve math (Wizards + data)</h3>
+<ul><li>Wizards curve: 1–2 one-drops, <b>7–8 two-drops</b>, 5–6 three-drops, 3–4 four-drops, 2–3 five-drops, 0–1 six-plus, 17 lands</li><li>~68% of spells cost ≤3, yet games reach 6–8 mana via Jace + prepared spells — don't cut all top end. 3 damage kills ~68% of creatures; 32% have toughness 4+.</li><li>Pick-Two: you see more cards, commit slightly faster than normal draft.</li></ul>
+</div>
+<div class="pane" id="draft-p2"><h3>Pack 2 — Find open lane</h3><ul><li>By P1P8: what's wheeling? Zero good cards in your colors → pivot to neighbor sharing a color (hybrids make this cheap).</li><li>Take fixing (duals, Heartwood makers, Room of Refuge) once you have 8+ playables in pair.</li><li>Enemy pairs (esp. GU) need <b>uncommon hooks</b> — don't commit on commons alone.</li><li>Hate only bombs that beat you — not filler.</li></ul><div class="grid2"><div class="detail"><b style="color:var(--gold2)">Stay if</b><p>8+ playables across pair, signals agree, you're passing other pairs' gold freely.</p></div><div class="detail"><b style="color:var(--gold2)">Pivot if</b><p>&lt;5 playables by pick 6 in a color, or late premium removal still wheeling elsewhere.</p></div></div></div>
+<div class="pane" id="draft-p3"><h3>Pack 3 — Fill holes &amp; cut</h3><ul><li>Need 2-drops? Take commons over medium rares. Landcyclers are mediocre here — leave them.</li><li>17 lands default; 16 if curve &lt;2.8 + Heartwood; 18 if splash or heavy top end.</li><li>Sideboard: enchantment removal (Ways, Memory Trap), planeswalker answers, flying hate — BO3 matters.</li></ul><div class="checklist"><label class="check"><input type="checkbox" data-prog> 23 playables in pair?</label><label class="check"><input type="checkbox" data-prog> Curve tops at 5–6 (max 1–2 six-plus backed by ramp/card flow)</label><label class="check"><input type="checkbox" data-prog> 3+ removal pieces (aim 4–5 in draft)</label><label class="check"><input type="checkbox" data-prog> Splash single-pip only (double-pip premiums stay home)</label></div></div>
+<div class="pane" id="draft-sig"><h3>Signals in Pick-Two</h3><p>Late premium = open lane. Pick-Two doubles info per pack — late cards are stronger signal. Remember echoed pairs split legends across decks: a pack's two legends pointing different ways is <i>normal</i>, not a signal.</p><div class="table-wrap"><table><thead><tr><th>You see</th><th>Means</th><th>Do</th></tr></thead><tbody><tr><td>4th-pick premium removal still there</td><td>Color underdrafted</td><td>Take the door</td></tr><tr><td>Way enchantment wheeling</td><td>Pair open</td><td>Move in if you have empower sources</td></tr><tr><td>All gold + hybrids gone</td><td>Table on your pair</td><td>Consider neighbor sharing a color</td></tr></tbody></table></div></div>
+</div>
+</div></section>
+
+<section class="card" id="sealed"><div class="card-head"><h2>5 · Sealed — Build from Chaos</h2><span class="badge">6×14 • 40 cards</span></div><div class="card-body prose">
+<div class="tabs"><button class="tab active" onclick="pane('sealed','s1')">Sort</button><button class="tab" onclick="pane('sealed','s2')">Build</button><button class="tab" onclick="pane('sealed','s3')">Mana</button><button class="tab" onclick="pane('sealed','s4')">Sideboard</button></div>
+<div style="margin-top:10px">
+<div class="pane active" id="sealed-s1"><h3>Sort in 5 minutes</h3><ol><li>Lay pool by color (WUBRG + multi + artifact/land). Bombs + evasive threats face-up.</li><li>Count playables ≥C per color. Ignore filler — small vanilla ground creatures underperform here.</li><li>Count fixing: duals, Room of Refuge, Heartwood makers, landcyclers.</li><li>Find two deepest colors + best single-pip splash. Watch for echoed-pair concentration (spiky uncommon/rare power).</li></ol><div class="callout">Rule: ~14 playables per pair to make 23. Best pair 17+ = clean 2-color. Else plan a careful splash. Don't force the printed archetype if raw cards point elsewhere.</div></div>
+<div class="pane" id="sealed-s2"><h3>Build the 40</h3><ul><li><b>Bombs > synergy:</b> Pools won't deliver perfect engines — lean bombs + removal + best commons.</li><li><b>Slower than the curve diagram implies:</b> strong 6–7 drops are playable, especially with landcycling or Heartwood. Mediocre 2-drop still beats 4th 5-drop payoff, though.</li><li><b>Count prepared spells as delayed cards, not free spells</b> — the mana must still be paid.</li><li><b>Cut ruthlessly:</b> last cuts hardest — cut high vanillas over tricks that save bombs.</li></ul><div class="table-wrap"><table><thead><tr><th>Slot</th><th>Count</th><th>Notes</th></tr></thead><tbody><tr><td>Creatures</td><td>13–16</td><td></td></tr><tr><td>Removal/tricks</td><td>4–7</td><td>Prioritize answers that hit planeswalkers too</td></tr><tr><td>Other (ramp/Ways)</td><td>0–3</td><td>Heartwood makers, Way enchantments</td></tr><tr><td>Lands</td><td>17</td><td>18 with splash / heavy top end</td></tr></tbody></table></div></div>
+<div class="pane" id="sealed-s3"><h3>Mana &amp; fixing</h3><p>Duals + Room of Refuge + landcyclers + Heartwood = one careful splash, or even 2 colors + splash over greedy 3-color. Expensive landcyclers are <b>much better in Sealed than Draft</b> (fix early, threaten late).</p><ul><li>2-color: 9/8 sources. + splash: 8/7/3-ish + Heartwood.</li><li>Don't run 3 equal colors. Double-pip splashes are mulligans waiting to happen.</li></ul></div>
+<div class="pane" id="sealed-s4"><h3>Sideboard plans</h3><ul><li>Bring <b>enchantment removal</b> more readily than usual — Memory Trap + powerful Ways.</li><li>Answers that hit planeswalkers pull double duty vs Jace tokens.</li><li>On draw, cut a 2-drop for extra removal/trick.</li></ul></div>
+</div>
+</div></section>
+
+<section class="card" id="prerelease"><div class="card-head"><h2>6 · Prerelease Kit — 50-Minute Plan</h2><span class="badge">⏱ Timed</span></div><div class="card-body prose">
+<div class="grid2"><div><h3>In the box</h3><ul><li>6 FRA Play Boosters</li><li>1 traditional-foil promo (play it if on-color)</li><li>Deck box + Spindown die</li><li>90 basics come from the store, not the box — ask early</li></ul><h3>Clock</h3><ol><li><b>0–5:</b> Open, sort by color, bombs/removal face-up.</li><li><b>5–15:</b> Count playables per pair; note echoed-pair spikes.</li><li><b>15–28:</b> Sleeve best 23 + 17 lands.</li><li><b>28–38:</b> Table-test curve; check 2-drop-on-2.</li><li><b>38–50:</b> Sideboard stack + sleeves.</li></ol></div><div><h3>Checklist (taps to prog bar)</h3><div class="checklist"><label class="check"><input type="checkbox" data-prog> Sorted by color &amp; CMC</label><label class="check"><input type="checkbox" data-prog> Found 2 deepest colors (14+ playables)</label><label class="check"><input type="checkbox" data-prog> Counted fixing / Heartwood / landcyclers</label><label class="check"><input type="checkbox" data-prog> Built 40 (17 lands or 18)</label><label class="check"><input type="checkbox" data-prog> Sideboard: enchantment removal + walker answers</label><label class="check"><input type="checkbox" data-prog> Promo checked (play if on-color)</label></div><div class="callout">Sanity: can you cast a 2-drop on 2 in 85% of hands? If not, cut double-pip 2-drops or adjust lands.</div></div></div>
+<h3>Prerelease meta</h3><p>Everyone learns — win by curving + holding instant tricks. New players tap out: hold Last Gasp, Wrath of the Bloodmane, Unsummon effects, and Charge the Sanctum. Bring dice, extra sleeves, water.</p>
+</div></section>
+
+<section class="card" id="cards"><div class="card-head"><h2>7 · Cards — Bombs, Removal, Role-Players</h2><span class="badge">Provisional • Arena day 1</span><div class="search" style="max-width:200px;margin-left:auto"><span>⌕</span><input placeholder="Filter…" oninput="filterCards(this.value)"/></div></div><div class="card-body prose">
+<p>Not solved — Arena launched <b>today</b> (Sep 29). Grades below are evaluator consensus (Draftsim, LR, Lords of Limited, limitedmtg), not game-in-hand win rates. Revisit after Oct 2–3 17Lands.</p>
+<div class="table-wrap"><table id="cardsTable"><thead><tr><th>Tier</th><th>Card</th><th>Why</th><th>Where</th></tr></thead><tbody>
+<tr data-name="seasoned cryomancer theorist jace garruk veiled butcher overwrite multiverse ajani unrelenting chandra torch defiance"><td><span class="tier S">S</span></td><td>Seasoned Cryomancer · The Theorist, Jace Beleren · Garruk, Veiled Butcher · Overwrite the Multiverse · Ajani Unrelenting · Chandra, Torch of Defiance · Garruk, Curse Breaker</td><td>Consensus bombs — planeswalker / board-warping power</td><td>Any — first-pick</td></tr>
+<tr data-name="memory trap surgical precision prophesied end infinite coursework unsummon icy reception last gasp extended absence wrath bloodmane no admittance compel brutality"><td><span class="tier A">A</span></td><td>Memory Trap · Surgical Precision · Infinite Coursework · Unsummon · Last Gasp · Extended Absence · Wrath of the Bloodmane · No Admittance · Compel Brutality · Icy Reception</td><td>Premium common interaction, by color (W/U/B/R/G) — prioritize early</td><td>All — removal first</td></tr>
+<tr data-name="campus crier mindseeker oculus skilled battlecarver heartstring puller bestial incursion arcane amphisbaena greenhouse propagator hexhaven battalion surveillance phantasm screeching soulbreaker"><td><span class="tier A">A</span></td><td>Campus Crier · Mindseeker Oculus · Skilled Battlecarver · Heartstring Puller · Bestial Incursion · Arcane Amphisbaena · Greenhouse Propagator · Surveillance Phantasm · Screeching Soulbreaker</td><td>Commons consistently praised across reviews + early access</td><td>Per color — high picks</td></tr>
+<tr data-name="twinned vision inspired tethermage kiora fire ash way enchantments your fate ends here break under pressure multiply zero stingerquill charm clash elements hapatra konstrari fatehold charm"><td><span class="tier B">B+</span></td><td>Twinned Vision (hybrid) · Inspired Tethermage · Kiora of Fire and Ashes · Way cycle · Your Fate Ends Here · Break Under Pressure · Multiply by Zero · Charms (Stingerquill/Konstrari/Fatehold) · Hapatra, the Desert Fang</td><td>Risers: early-access climbers + premium uncommon interaction</td><td>Lane-dependent</td></tr>
+<tr data-name="command stage voxmanancer small ground vanilla landcycler draft"><td><span class="tier B">B</span></td><td>Command the Stage (as build-around) · Stingerquill Voxmancer (as reason-to-enter) · Generic small ground vanillas · Most landcyclers in Draft</td><td>Early fallers — look prestigious, grade middling; landcyclers stay good in Sealed</td><td>Fade in draft</td></tr>
+</tbody></table></div>
+<h3>Removal hierarchy</h3><ul><li>Instant unconditional (Last Gasp) > efficient damage (Wrath of the Bloodmane) > modal/conditional (Memory Trap, Compel Brutality) > expensive/situational.</li><li>Need 4+ answers in sealed, 5+ in draft. Keep 1 enchantment answer in sideboard — dead G1, wins G2–3 vs Ways/Memory Trap.</li></ul>
+<h3>Tricks to play around (open-mana warnings)</h3><ul><li><b>White:</b> Prophesied End (cleanest vs attacker — else they draw) · Your Fate Ends Here · Academic Ascent</li><li><b>Blue:</b> Unsummon · Icy Reception · Perfected Theory · Countersculpt — don't expose two cards to bounce after an Aura/trick</li><li><b>Black:</b> Last Gasp (turns combat even when −3/−3 doesn't kill) · Essence Burn</li><li><b>Red:</b> Wrath of the Bloodmane · Blazing Crescendo</li><li><b>Green:</b> Tethermage's Advantage (untaps — tapped creature can still block!) · Compel Brutality · Flourishing Grapple</li><li><b>Multi/hybrid:</b> Fatehold Charm (bounces creature <i>or</i> spell) · Konstrari Charm · Charge the Sanctum · flash Aura Ferocity of the Hunt (deathtouch; returns creature tapped on death)</li></ul>
+</div></section>
+
+<section class="card" id="mistakes"><div class="card-head"><h2>8 · Traps — Don't Crack the Multiverse</h2><span class="badge">Wisdom</span></div><div class="card-body prose">
+<div class="grid2"><div><h3>❌ Traps</h3><ul><li><b>Forcing a school P1:</b> ten lanes + echoed-pair splitting means early commons lie. Start with rares/uncommons/removal/bodies, settle via hybrids + duals.</li><li><b>Greedy double-pip splash in draft:</b> single-pip only — BB/RR splashes with one Heartwood = mulligans.</li><li><b>Treating prepared spells as free:</b> the mana must still be paid, and killing the preparer deletes the copy. Cast-or-lose timing matters.</li><li><b>Auto-attacking every Jace forever:</b> pressure low-loyalty Jaces early, then develop — throwing attacks into a stabilized board loses races.</li><li><b>Command the Stage goggles:</b> build-around and Voxmancer-as-reason-to-enter both graded down in early access. Take the engine, not the dream.</li><li><b>No enchantment removal post-board:</b> Ways overperformed + Memory Trap is premium — board answers G2.</li></ul></div><div><h3>✅ Pro tips</h3><ul><li>Default Jace line: <b>−3 draw now</b>. Bank loyalty only for a Way, repeated empower, or a tactical turn.</li><li>−1 surveil to find land #4, dig for an answer, enable surveil payoffs, or extract value before Jace dies.</li><li>Remove prepared creatures <i>before</i> the exiled spell is cast when tempo permits.</li><li>Landcyclers: pass in draft, snap in sealed (fix early, threaten late).</li><li>Sideboard hard — enchantment removal, walker answers, flying hate.</li></ul></div></div>
+<div class="table-wrap"><table><thead><tr><th>Situation</th><th>Do</th></tr></thead><tbody><tr><td>2 lands + 2-drop opener</td><td>Keep most decks</td></tr><tr><td>3 colors tempting</td><td>2 main + 1 single-pip splash max</td></tr><tr><td>Enemy Jace at 1–2 loyalty, your board is small</td><td>Attack Jace — deny the −3</td></tr><tr><td>Enemy Jace stabilized behind blockers</td><td>Hit life total, develop board — don't donate attacks</td></tr><tr><td>4+ mana open, opponent passing</td><td>Respect Wrath / Fatehold Charm / Prophesied End — don't overextend into it</td></tr></tbody></table></div>
+</div></section>
+
+<section class="card" id="appendix"><div class="card-head"><h2>9 · Appendix — Sources &amp; Dates</h2><span class="badge">Living doc</span></div><div class="card-body prose">
+<p>Verified against deep research through Sep 29, 2026 (Arena launch day). Tiers provisional — revisit 17Lands/Untapped after Oct 2–3 before treating rankings as truth.</p>
+<div style="background:rgba(255,255,255,.04);border:1px solid rgba(200,162,74,.14);border-radius:10px;padding:10px;font-size:12px;color:#c9bda0">
+<b>Key dates:</b> First look Jul 17 · Debut Sep 8 · Commander previews Sep 16 · Full gallery Sep 18 · Prerelease Sep 25–Oct 1 · Arena Sep 29 · Tabletop Oct 2.<br><br>
+<b>Products:</b> Play/Collector Boosters &amp; displays (30/12), Prerelease Packs (6 boosters + foil promo + box/die), Bundle (9 boosters + 30 basics), Secret Lair Bundle, Draft Night kit (12 Play + 1 Collector, 4-player Pick-Two), Multiverse Reforged 4-color Jace FRC deck (16 new cards), 5 Foundations Commander decks alongside. Regional delays: NZ rescheduled, Mexico early Oct.<br><br>
+<b>Research covers:</b> Wizards Mechanics, Release Notes, Prerelease Guide, Collecting, preview schedule, product page, gallery, design articles, delay notice; Scryfall FRA; MTGGoldfish spoiler archive; Draftsim (archetypes, set review, sealed, commons/uncommons); Limited Resources 872; Lords of Limited (prerelease + early-format); limitedmtg.com; Reddit threads. Jobs mun4njsd-hhdg14j (identity) + mun4q9xn-uktepn7 (deep).
+</div>
+<h3>Links</h3>
+<ul style="font-size:11px;word-break:break-all">
+<li><a href="https://magic.wizards.com/en/news/feature/reality-fracture-mechanics">Wizards — Mechanics</a> · <a href="https://magic.wizards.com/en/news/feature/reality-fracture-release-notes">Release Notes</a> · <a href="https://magic.wizards.com/en/news/feature/reality-fracture-prerelease-guide">Prerelease Guide</a> · <a href="https://magic.wizards.com/en/news/feature/collecting-reality-fracture">Collecting</a></li>
+<li><a href="https://scryfall.com/sets/fra">Scryfall FRA</a> · <a href="https://www.mtggoldfish.com/spoilers/Reality+Fracture">MTGGoldfish spoilers</a> · <a href="https://draftsim.com/mtg-fra-draft-archetypes/">Draftsim Archetypes</a> · <a href="https://draftsim.com/mtg-fra-limited-set-review/">Draftsim Set Review</a> · <a href="https://draftsim.com/mtg-reality-fracture-sealed-guide/">Draftsim Sealed</a></li>
+<li><a href="https://limitedmtg.com/reality-fracture/">limitedmtg.com</a> · <a href="https://lrcast.com/limited-resources-872-reality-fracture-set-review-commons-and-uncommons/">LR 872</a> · <a href="https://magic.wizards.com/en/products/reality-fracture/card-image-gallery">Official Gallery</a></li>
+</ul>
+<p style="font-size:11px;color:#9e9378">File: <code style="background:rgba(255,255,255,.07);padding:2px 6px;border-radius:5px;color:var(--gold2)">~/projects/mtg-reality-fracture-guide/index.html</code> — single file, offline, printable. Share or host on Pages.<br>“Jace would doubtless crown himself anyway.”</p>
+</div></section>
+
+</main></div>
+<footer class="foot">MTG: Reality Fracture (FRA) Strategy Guide — Draft &amp; Sealed • Verified Sep 29 2026 • Fan content, not affiliated with Wizards • Provisional tiers — revisit after 17Lands matures (~Oct 2–3)</footer>
+<script>
+function go(id){document.getElementById(id)?.scrollIntoView({behavior:'smooth',block:'start'})}
+function setPath(p){
+  document.querySelectorAll('[data-path]').forEach(b=>b.classList.toggle('active', b.dataset.path===p));
+  const d=document.getElementById('draft'), s=document.getElementById('sealed');
+  if(p==='sealed'){d.style.opacity=.45;s.style.outline='2px solid var(--gold)';d.style.removeProperty('outline')}
+  else if(p==='draft'){s.style.opacity=.45;d.style.outline='2px solid var(--gold)';s.style.removeProperty('outline')}
+  else{d.style.opacity=1;s.style.opacity=1;d.style.removeProperty('outline');s.style.removeProperty('outline')}
+  localStorage.setItem('fracture-path',p);
+}
+const sp=localStorage.getItem('fracture-path'); if(sp) setPath(sp);
+function pane(g,p){document.querySelectorAll('#'+g+' .pane').forEach(e=>e.classList.remove('active'));document.getElementById(g+'-'+p)?.classList.add('active');document.querySelectorAll('#'+g+' .tab').forEach((t,i)=>t.classList.remove('active'));const m={p1:0,p2:1,p3:2,sig:3,s1:0,s2:1,s3:2,s4:3};document.querySelectorAll('#'+g+' .tab')[m[p]]?.classList.add('active')}
+function filterAll(q){q=(q||'').toLowerCase().trim();document.querySelectorAll('.detail').forEach(e=>{const n=(e.dataset.name||e.textContent).toLowerCase();e.style.display=!q||n.includes(q)?'':'none'});document.querySelectorAll('#cardsTable tbody tr').forEach(tr=>{tr.style.display=tr.textContent.toLowerCase().includes(q)?'':'none'})}
+function filterMech(q){q=(q||'').toLowerCase();document.querySelectorAll('#mechGrid .detail').forEach(e=>{const n=(e.dataset.name||'').toLowerCase();e.style.display=!q||n.includes(q)||e.textContent.toLowerCase().includes(q)?'':'none'})}
+function filtArch(tag){document.querySelectorAll('#archGrid .detail').forEach(e=>{if(tag==='all')e.style.display='';else e.style.display=(e.dataset.tags||'').includes(tag)?'':'none'})}
+function filterCards(q){q=(q||'').toLowerCase();document.querySelectorAll('#cardsTable tbody tr').forEach(tr=>{tr.style.display=!q||tr.dataset.name.includes(q)||tr.textContent.toLowerCase().includes(q)?'':'none'})}
+function resetProg(){document.querySelectorAll('input[data-prog]').forEach(c=>c.checked=false);localStorage.removeItem('fracture-prog');}
+document.querySelectorAll('input[data-prog]').forEach(c=>c.addEventListener('change',()=>{const a=[...document.querySelectorAll('input[data-prog]')].map(x=>x.checked);localStorage.setItem('fracture-prog',JSON.stringify(a))}));
+try{const a=JSON.parse(localStorage.getItem('fracture-prog')||'null');if(a)document.querySelectorAll('input[data-prog]').forEach((c,i)=>c.checked=!!a[i])}catch(e){}
+const tocLinks=[...document.querySelectorAll('.toc a')], secs=tocLinks.map(a=>document.getElementById(a.dataset.sec)).filter(Boolean);
+const obs=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){tocLinks.forEach(l=>l.classList.remove('active'));document.querySelector(`.toc a[data-sec="${e.target.id}"]`)?.classList.add('active')}})},{rootMargin:'-45% 0px -45% 0px'});
+secs.forEach(s=>obs.observe(s));
+document.addEventListener('keydown',e=>{if(e.key==='/'&&document.activeElement.tagName!=='INPUT'){e.preventDefault();document.getElementById('q')?.focus()}});
+</script>
+</body>
+</html>
