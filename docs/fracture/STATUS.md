@@ -31,3 +31,8 @@ To resume: just say "continue" — I'll pick up from this checkpoint.
 - Skin: Jace-blue psychic architecture — midnight #0B1024 / Jace #173F78 / cyan #22B9D1 / violet #6A55A5 / silver #CAD7DB / shard #F4F7F2 / tower #17171D. Display: Space Grotesk (Inter body, JetBrains Mono code).
 - Motifs: fractured-tower gradient hero + prismatic towerbar divider, ◆ section marks, shard-glyph mechanism headers, Hexhaven-schools vs Lorwyn-Five archetype group headers, viol pivot callout (original/echoverse). Emoji removed. Print fallback added.
 - Behavior unchanged (TOC/search/tabs/checklists); localStorage already namespaced (fracture-*).
+
+## Card hover previews (Sep 29, 2026)
+- All 90 named cards resolved via Scryfall API (set:fra, exact→fuzzy→search fallback); 134 mentions linked.
+- Hover/touch/focus shows small-size image in a fixed preview near cursor (lazy-preloaded via IntersectionObserver); click opens the Scryfall page. MDFC halves (Peer Review etc.) link to their parent card.
+- Images hotlink to cards.scryfall.io per Scryfall's hotlink-friendly image CDN (not Wizards art). Map: cardmap.json.
