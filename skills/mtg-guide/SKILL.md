@@ -1,7 +1,7 @@
 ---
 name: mtg-guide
 description: Build a verified, clickable HTML strategy guide for any Magic: The Gathering set — limited (draft/sealed/prerelease) or constructed (Standard BO1/BO3, Pioneer, Modern). Each guide wears its set's visual identity (palette/mood/motifs from official art direction); the repo landing page stays critterhaus-design. Use when user asks for "MTG draft guide", "sealed guide", "prerelease guide", "limited strategy", or names a set like "The Hobbit" or "Lorwyn Eclipsed".
-version: 0.3.0
+version: 0.3.1
 author: dweebikus
 license: MIT
 metadata:
@@ -63,7 +63,7 @@ Extract a skin spec, not a mood board:
 - treatment echoes: how card frames / foils / symbols translate to CSS (borders, dividers, badges) — evocation only.
 
 Rules:
-- Never hotlink or inline official Wizards art (fan content, copyright). CSS evocation only; link out to the official gallery.
+- Never hotlink or inline official Wizards art (fan content, copyright). CSS evocation only; link out to the official gallery. Card images are the exception: link card names to their Scryfall page with hover preview via Scryfall's image CDN (small for preview, normal on demand) — see Card links below.
 - Skin must keep the chrome usable: contrast for body text, printable (dark base with print-safe fallback unless the set identity is explicitly light), single-file offline.
 - The repo landing page (`docs/index.html`) ALWAYS stays critterhaus-design — set skins apply to guide pages only.
 
@@ -84,6 +84,11 @@ Single-file `index.html` (no build step, works offline, printable). Required sec
 - Behavior to keep: sticky topbar with set code + live status (AWAITING → VERIFIED + date); hero with set dates + 3 KPIs + path toggle (Both/Draft/Sealed dims non-path) + search (`/` focuses); left TOC with scroll spy, progress bar wired to checklist `data-prog`; search filters mechanics/arch + cards, pill filters for archetype speed; print button + Reset.
 - Skin from the §2b spec: CSS variables for bg/panel/text/accents, display font, motif details (dividers, badges, title treatments). Structure and JS stay identical; only the skin changes.
 - localStorage keys must be namespaced per set (e.g. `fracture-path`, `hobbit-prog`) so guides never share progress state.
+
+**Card links (do this every time):**
+- Resolve every named card via the Scryfall API (`/cards/named?exact=<name>&set=<CODE>`, headers `User-Agent` + `Accept: application/json`), falling back to `?fuzzy=` then `cards/search?q=set:<CODE> "<name>"`. MDFC/adventure halves (e.g. Peer Review) resolve to their parent card. Pace requests (~2–3/sec max) — back off on 429.
+- Wrap mentions in `<a class="c" href="<scryfall_uri>" data-small data-normal>` with a single fixed `#prev` tooltip (image + name), shown near cursor on hover/focus/touch, lazy-preloaded via IntersectionObserver. Click-through opens Scryfall in a new tab.
+- Save the name→uri/image map as `cardmap.json` in the build dir and note it in STATUS.md.
 
 Write via python (the `write` tool can be flaky — prefer `python3 << 'PY'` heredoc). Verify with `wc -c` and `xdg-open` check.
 
@@ -148,5 +153,6 @@ xdg-open ~/projects/mtg-<slug>-guide/index.html
 - [ ] archetype count matches Wizards prerelease guide
 - [ ] provisional tiers explicitly flagged with revisit date
 - [ ] single file opens offline, prints cleanly, search works
-- [ ] no official art hotlinked/inlined; no emoji; localStorage keys namespaced per set
+- [ ] no official art hotlinked/inlined except Scryfall card previews; no emoji; localStorage keys namespaced per set
+- [ ] every named card links to Scryfall with hover preview; `cardmap.json` saved + noted in STATUS.md
 - [ ] STATUS.md written
