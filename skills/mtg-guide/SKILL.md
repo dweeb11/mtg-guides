@@ -1,7 +1,7 @@
 ---
 name: mtg-guide
-description: Build a verified, clickable HTML strategy guide for any Magic: The Gathering set — limited (draft/sealed/prerelease) or constructed (Standard BO1/BO3, Pioneer, Modern). Use for draft guides, sealed kits, metagame reports, and Arena-importable decklists — draft & sealed, mechanics, 5 archetypes, prerelease kit, pick orders. Use when user asks for "MTG draft guide", "sealed guide", "prerelease guide", "limited strategy", or names a set like "The Hobbit" or "Lorwyn Eclipsed".
-version: 0.2.0
+description: Build a verified, clickable HTML strategy guide for any Magic: The Gathering set — limited (draft/sealed/prerelease) or constructed (Standard BO1/BO3, Pioneer, Modern). Each guide wears its set's visual identity (palette/mood/motifs from official art direction); the repo landing page stays critterhaus-design. Use when user asks for "MTG draft guide", "sealed guide", "prerelease guide", "limited strategy", or names a set like "The Hobbit" or "Lorwyn Eclipsed".
+version: 0.3.0
 author: dweebikus
 license: MIT
 metadata:
@@ -48,6 +48,25 @@ Title: MTG <Set> Limited Strategy Research
 
 Wait for the job — don't scaffold tiers as truth before it returns. If you must scaffold, mark tiers/mechanics as PLACEHOLDER and list the job ID in the HTML.
 
+### 2b) Visual identity (required — guides wear the set's style)
+Run a second `hermes_research` (tier `standard`: breadth 1, browserIntensity 2, sourceDifficulty 1, synthesis 0) alongside or right after the deep strategy job. It is cheap and blocks the skin, not the content.
+
+**Query template:**
+```
+Find the official visual/art style of Magic: The Gathering — <Set Name> (<CODE>, <dates>). Needed for a fan strategy guide restyle: key art description, color palette and mood, card frame treatments, set symbol, and any official style/art-direction notes from Wizards design/collecting articles. Links to official gallery, collecting page, design articles. Title: <Set> visual style.
+```
+
+Extract a skin spec, not a mood board:
+- palette: 3–5 hexes sampled from key art / treatments / symbol (sourced, never invented). Note bg / panel / text / accent roles.
+- mood + motifs: 2–3 visual ideas that survive as CSS (e.g. shattered-mirror dividers, school crests as glyphs, saga-chapter rules). No emoji, no stock imagery.
+- display font: one Google-Fonts pairing suggestion that echoes the set (body stays a highly-legible sans/mono with offline fallback). Hobbit used Cinzel; Fracture wants its own answer.
+- treatment echoes: how card frames / foils / symbols translate to CSS (borders, dividers, badges) — evocation only.
+
+Rules:
+- Never hotlink or inline official Wizards art (fan content, copyright). CSS evocation only; link out to the official gallery.
+- Skin must keep the chrome usable: contrast for body text, printable (dark base with print-safe fallback unless the set identity is explicitly light), single-file offline.
+- The repo landing page (`docs/index.html`) ALWAYS stays critterhaus-design — set skins apply to guide pages only.
+
 ### 3a) Build the verified LIMITED HTML (draft/sealed)
 Single-file `index.html` (no build step, works offline, printable). Required sections (9):
 
@@ -61,12 +80,10 @@ Single-file `index.html` (no build step, works offline, printable). Required sec
 8. **Traps** — 5+ traps + pro tips + cheat-sheet table (mulligan, splash, stalled board, Army vs exile).
 9. **Sources** — dates timeline, products list, research job ID, link farm, file path, "revisit after 17Lands matures" note.
 
-**Chrome (copy from Hobbit build):**
-- Sticky topbar with set code + live status (AWAITING → VERIFIED + date)
-- Hero with set dates + 3 KPIs + path toggle (Both/Draft/Sealed dims non-path) + search (`/` focuses)
-- Left TOC with scroll spy, progress bar wired to checklist `data-prog`
-- Search filters mechanics/arch + cards, pill filters for archetype speed
-- Print button + Reset
+**Chrome behavior (stable across sets) + skin (per-set, from §2b):**
+- Behavior to keep: sticky topbar with set code + live status (AWAITING → VERIFIED + date); hero with set dates + 3 KPIs + path toggle (Both/Draft/Sealed dims non-path) + search (`/` focuses); left TOC with scroll spy, progress bar wired to checklist `data-prog`; search filters mechanics/arch + cards, pill filters for archetype speed; print button + Reset.
+- Skin from the §2b spec: CSS variables for bg/panel/text/accents, display font, motif details (dividers, badges, title treatments). Structure and JS stay identical; only the skin changes.
+- localStorage keys must be namespaced per set (e.g. `fracture-path`, `hobbit-prog`) so guides never share progress state.
 
 Write via python (the `write` tool can be flaky — prefer `python3 << 'PY'` heredoc). Verify with `wc -c` and `xdg-open` check.
 
@@ -108,6 +125,9 @@ file:///home/<user>/projects/mtg-<slug>-guide/index.html
 xdg-open ~/projects/mtg-<slug>-guide/index.html
 ```
 
+## Provenance — reference builds
+- Fracture (2026-09-29): identity `mun4njsd-hhdg14j` + deep `mun4q9xn-uktepn7` → `~/projects/mtg-reality-fracture-guide/index.html` (50,604 bytes, 10 archetypes, Empower/Heartwood/Prepare) → `docs/fracture/`. Visual-style job `mun534sf-9sfjzgq` drove the first per-set restyle; landing page restyled to critterhaus-design separately (`e251aa4`) and stays house-styled by rule.
+
 ## Provenance — Hobbit reference build
 - Scaffold: 53,269 bytes placeholder (10 fake archetypes)
 - Research: `msqe3uhv-znc85i7` (deep, gpt-5.6-sol) — returned Aug 12, verified HOB 193/321, HOC, Standard-legal, 5 archetypes, Storied/Recruit/Hone + Adventure/Amass Goblins/Landfall
@@ -122,8 +142,11 @@ xdg-open ~/projects/mtg-<slug>-guide/index.html
 
 ## Verification checklist
 - [ ] deep research job ID cited in guide + STATUS.md
+- [ ] visual-identity job ID cited in STATUS.md; palette hexes trace to official art/treatments, none invented
+- [ ] guide wears the set skin; landing page (`docs/index.html`) untouched and still critterhaus-design
 - [ ] mechanics have official reminder text + source link
 - [ ] archetype count matches Wizards prerelease guide
 - [ ] provisional tiers explicitly flagged with revisit date
 - [ ] single file opens offline, prints cleanly, search works
+- [ ] no official art hotlinked/inlined; no emoji; localStorage keys namespaced per set
 - [ ] STATUS.md written
