@@ -1,7 +1,7 @@
 ---
 name: mtg-guide
 description: Build a verified, clickable HTML strategy guide for any Magic: The Gathering set — limited (draft/sealed/prerelease) or constructed (Standard BO1/BO3, Pioneer, Modern). Each guide wears its set's visual identity (palette/mood/motifs from official art direction); the repo landing page stays critterhaus-design. Use when user asks for "MTG draft guide", "sealed guide", "prerelease guide", "limited strategy", or names a set like "The Hobbit" or "Lorwyn Eclipsed".
-version: 0.3.2
+version: 0.3.3
 author: dweeb11
 license: MIT
 metadata:
@@ -10,9 +10,11 @@ metadata:
     related_skills: []
 ---
 
-# MTG Limited Guide Builder — First Pass
+# MTG Guide Builder
 
-Reusable skill that started with the Hobbit limited build (2026-08-12) and the Standard BO1 report (2026-08-13). Produces single-file offline HTML guides in ignored `.build/<slug>/` directories + `STATUS.md` checkpoint. Supports both limited and constructed outputs in the same repo.
+> **Reading this from the public repo?** This is the recipe the agent followed to build the guides at https://dweeb11.github.io/mtg-guides/. It is a reference, not a plug-and-play tool: it calls `hermes_research` (the author's own research tool) and the author's `critterhaus-design` house style. Swap in your own web-research tool and styling to adapt it.
+
+Reusable skill that started with the Hobbit limited build (2026-08-12) and the Standard BO1 report (2026-08-13). Produces single-file offline HTML guides in ignored `.build/<slug>/` directories + a `.private/<slug>/STATUS.md` checkpoint. Supports both limited and constructed outputs in the same repo.
 
 ## When to use
 - User names an MTG set + wants draft and/or sealed strategy
@@ -24,7 +26,7 @@ Reusable skill that started with the Hobbit limited build (2026-08-12) and the S
 ### 1) Resolve the set
 - Slug the set: `the-hobbit` → `hobbit`, `lorwyn-eclipsed` → `lorwyn-eclipsed`
 - Private build directory: `.build/<slug>/` inside the repository
-- If `STATUS.md` exists, read it — respect the pause/resume checkpoint.
+- If `.private/<slug>/STATUS.md` exists, read it — respect the pause/resume checkpoint.
 
 ### 2) Deep research (required — don't fake mechanics)
 Run `hermes_research` tier `deep` with `auto` routing. Signals: breadth 2, browserIntensity 2, sourceDifficulty 2, synthesis 2.
@@ -111,7 +113,6 @@ mtg-guides/
   docs/hobbit/index.html          # limited
   docs/standard-bo1-2026-08-13/index.html  # constructed
   skills/mtg-guide/SKILL.md      # skill
-  scripts/...
 ```
 Keep private build files in ignored `.build/<slug>/` directories; use `docs/<slug>/` for published guides.
 
@@ -121,8 +122,16 @@ Keep private build files in ignored `.build/<slug>/` directories; use `docs/<slu
 - Use the repository owner's GitHub `noreply` address for publishing commits. For this repository: `git config --local user.email "80615739+dweeb11@users.noreply.github.com"`.
 - Run Gitleaks on current files and Git history before publishing when available; the repository's Secret scan workflow checks pushes and pull requests.
 
+### 3e) Public copy
+Guides are read by strangers, not just the user. Write every label for them:
+- Say "researched <date>", never "verified" — the research is AI-assisted. Don't call archetypes or mechanics "real".
+- Absolute dates only ("written on Arena launch day, Sep 29"), never "today" or "hours old" — pages outlive the week they were written.
+- No build notes in the page: no job IDs, file paths, tool names, or notes to the agent. Label UI plainly ("Checklist", "Choose your path").
+- Footer carries the Wizards Fan Content Policy line: "Unofficial Fan Content permitted under the Fan Content Policy. Not approved/endorsed by Wizards. Portions of the materials used are property of Wizards of the Coast. ©Wizards of the Coast LLC." and links back to `../#how`.
+- On the landing page, add the new guide's card and mark older guides "archive"; add an archive callout to a guide once its tiers are stale and won't be updated.
+
 ### 4) Checkpoint
-Write `STATUS.md` in the guide dir:
+Write `.private/<slug>/STATUS.md` (ignored — never in `docs/`):
 - repository-relative published file + size
 - keep local open commands and backup names in ignored `.private/` notes
 - what was verified vs provisional
@@ -138,7 +147,7 @@ Report the published Pages URL and repository-relative HTML path. Keep machine-s
 ## Provenance — Hobbit reference build
 - Scaffold: 53,269 bytes placeholder (10 fake archetypes)
 - Research: deep source review — returned Aug 12, verified HOB 193/321, HOC, Standard-legal, 5 archetypes, Storied/Recruit/Hone + Adventure/Amass Goblins/Landfall
-- Verified: 45,582 bytes → `docs/hobbit/index.html` + `STATUS.md`; keep backups outside `docs/`
+- Verified: 45,582 bytes → `docs/hobbit/index.html` + `.private/hobbit/STATUS.md`; keep backups outside `docs/`
 
 ## Common pitfalls (limited + constructed)
 - Don't invent 10 archetypes — check how many Wizards actually supports (HOB was 5)
@@ -157,4 +166,5 @@ Report the published Pages URL and repository-relative HTML path. Keep machine-s
 - [ ] single file opens offline, prints cleanly, search works
 - [ ] no official art hotlinked/inlined except Scryfall card previews; no emoji; localStorage keys namespaced per set
 - [ ] every named card links to Scryfall with hover preview; `cardmap.json` saved + noted in STATUS.md
-- [ ] STATUS.md written
+- [ ] `.private/<slug>/STATUS.md` written; nothing under `docs/<slug>/` except `index.html`
+- [ ] public copy follows §3e
