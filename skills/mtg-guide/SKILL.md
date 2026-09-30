@@ -1,8 +1,8 @@
 ---
 name: mtg-guide
 description: Build a verified, clickable HTML strategy guide for any Magic: The Gathering set — limited (draft/sealed/prerelease) or constructed (Standard BO1/BO3, Pioneer, Modern). Each guide wears its set's visual identity (palette/mood/motifs from official art direction); the repo landing page stays critterhaus-design. Use when user asks for "MTG draft guide", "sealed guide", "prerelease guide", "limited strategy", or names a set like "The Hobbit" or "Lorwyn Eclipsed".
-version: 0.3.1
-author: dweebikus
+version: 0.3.2
+author: dweeb11
 license: MIT
 metadata:
   hermes:
@@ -12,7 +12,7 @@ metadata:
 
 # MTG Limited Guide Builder — First Pass
 
-Reusable skill that started with the Hobbit limited build (2026-08-12) and the Standard BO1 report (2026-08-13). Produces single-file offline HTML guides under `~/projects/mtg-<slug>-guide/` or `~/projects/mtg-standard-bo1-report/` + `STATUS.md` checkpoint. Supports both limited and constructed outputs in the same repo.
+Reusable skill that started with the Hobbit limited build (2026-08-12) and the Standard BO1 report (2026-08-13). Produces single-file offline HTML guides in ignored `.build/<slug>/` directories + `STATUS.md` checkpoint. Supports both limited and constructed outputs in the same repo.
 
 ## When to use
 - User names an MTG set + wants draft and/or sealed strategy
@@ -22,8 +22,8 @@ Reusable skill that started with the Hobbit limited build (2026-08-12) and the S
 ## Workflow (do this every time)
 
 ### 1) Resolve the set
-- Slug the set: `the-hobbit` → `mtg-hobbit-guide`, `lorwyn-eclipsed` → `mtg-lorwyn-eclipsed-guide`
-- Target dir: `~/projects/mtg-<slug>-guide/`
+- Slug the set: `the-hobbit` → `hobbit`, `lorwyn-eclipsed` → `lorwyn-eclipsed`
+- Private build directory: `.build/<slug>/` inside the repository
 - If `STATUS.md` exists, read it — respect the pause/resume checkpoint.
 
 ### 2) Deep research (required — don't fake mechanics)
@@ -46,7 +46,7 @@ Cite every product/mechanic/archetype claim with primary sources. Call out contr
 Title: MTG <Set> Limited Strategy Research
 ```
 
-Wait for the job — don't scaffold tiers as truth before it returns. If you must scaffold, mark tiers/mechanics as PLACEHOLDER and list the job ID in the HTML.
+Wait for the job — don't scaffold tiers as truth before it returns. If you must scaffold, mark tiers/mechanics as PLACEHOLDER and keep its job ID only in ignored `.private/` build notes.
 
 ### 2b) Visual identity (required — guides wear the set's style)
 Run a second `hermes_research` (tier `standard`: breadth 1, browserIntensity 2, sourceDifficulty 1, synthesis 0) alongside or right after the deep strategy job. It is cheap and blocks the skin, not the content.
@@ -78,7 +78,7 @@ Single-file `index.html` (no build step, works offline, printable). Required sec
 6. **Prerelease Kit** — what's in the box (check Collecting article vs prerelease guide — note discrepancies), 50-minute clock, interactive checklist that writes to localStorage.
 7. **Cards & Removal** — provisional table (mark provisional until ~3-4 days post-Arena). Tiers S/A/B with source cards, removal hierarchy, tricks to play around (Settle, Adventure protection, etc.).
 8. **Traps** — 5+ traps + pro tips + cheat-sheet table (mulligan, splash, stalled board, Army vs exile).
-9. **Sources** — dates timeline, products list, research job ID, link farm, file path, "revisit after 17Lands matures" note.
+9. **Sources** — dates timeline, products list, public source links and verification date, "revisit after 17Lands matures" note.
 
 **Chrome behavior (stable across sets) + skin (per-set, from §2b):**
 - Behavior to keep: sticky topbar with set code + live status (AWAITING → VERIFIED + date); hero with set dates + 3 KPIs + path toggle (Both/Draft/Sealed dims non-path) + search (`/` focuses); left TOC with scroll spy, progress bar wired to checklist `data-prog`; search filters mechanics/arch + cards, pill filters for archetype speed; print button + Reset.
@@ -113,30 +113,32 @@ mtg-guides/
   skills/mtg-guide/SKILL.md      # skill
   scripts/...
 ```
-Local mirrors: `~/projects/mtg-hobbit-guide/`, `~/projects/mtg-standard-bo1-report/` are build dirs; repo `docs/` is publish dir for Pages.
+Keep private build files in ignored `.build/<slug>/` directories; use `docs/<slug>/` for published guides.
+
+### 3d) Publish safely
+- Keep internal research job IDs, local usernames/absolute paths, raw research output, backups, and login/gateway diagnostics in an ignored `.private/` directory outside `docs/`.
+- Publish only public source links, verification dates, guide content, and repository-relative paths. Review the staged diff before committing.
+- Use the repository owner's GitHub `noreply` address for publishing commits. For this repository: `git config --local user.email "80615739+dweeb11@users.noreply.github.com"`.
+- Run Gitleaks on current files and Git history before publishing when available; the repository's Secret scan workflow checks pushes and pull requests.
 
 ### 4) Checkpoint
 Write `STATUS.md` in the guide dir:
-- file + size + open command
-- backup name if you rotated
+- repository-relative published file + size
+- keep local open commands and backup names in ignored `.private/` notes
 - what was verified vs provisional
-- research job ID
+- public research date and source links; keep job IDs in ignored `.private/` notes
 - next steps (pull 17Lands after Arena+3d, add Scryfall hovers, Pages hosting)
 
 ### 5) Tell the user where to open it
-Always report:
-```
-file:///home/<user>/projects/mtg-<slug>-guide/index.html
-xdg-open ~/projects/mtg-<slug>-guide/index.html
-```
+Report the published Pages URL and repository-relative HTML path. Keep machine-specific open commands in private build notes.
 
 ## Provenance — reference builds
-- Fracture (2026-09-29): identity `mun4njsd-hhdg14j` + deep `mun4q9xn-uktepn7` → `~/projects/mtg-reality-fracture-guide/index.html` (50,604 bytes, 10 archetypes, Empower/Heartwood/Prepare) → `docs/fracture/`. Visual-style job `mun534sf-9sfjzgq` drove the first per-set restyle; landing page restyled to critterhaus-design separately (`e251aa4`) and stays house-styled by rule.
+- Fracture (2026-09-29): official-source identity and strategy research → `docs/fracture/index.html` (50,604 bytes, 10 archetypes, Empower/Heartwood/Prepare) → `docs/fracture/`. Visual-style research drove the first per-set restyle; landing page restyled to critterhaus-design separately (`e251aa4`) and stays house-styled by rule.
 
 ## Provenance — Hobbit reference build
 - Scaffold: 53,269 bytes placeholder (10 fake archetypes)
-- Research: `msqe3uhv-znc85i7` (deep, gpt-5.6-sol) — returned Aug 12, verified HOB 193/321, HOC, Standard-legal, 5 archetypes, Storied/Recruit/Hone + Adventure/Amass Goblins/Landfall
-- Verified: 45,582 bytes → `~/projects/mtg-hobbit-guide/index.html` + `STATUS.md` + backup `index.bak.202608121102.html`
+- Research: deep source review — returned Aug 12, verified HOB 193/321, HOC, Standard-legal, 5 archetypes, Storied/Recruit/Hone + Adventure/Amass Goblins/Landfall
+- Verified: 45,582 bytes → `docs/hobbit/index.html` + `STATUS.md`; keep backups outside `docs/`
 
 ## Common pitfalls (limited + constructed)
 - Don't invent 10 archetypes — check how many Wizards actually supports (HOB was 5)
@@ -146,8 +148,8 @@ xdg-open ~/projects/mtg-<slug>-guide/index.html
 - No Commander precons is a real product signal — mention it
 
 ## Verification checklist
-- [ ] deep research job ID cited in guide + STATUS.md
-- [ ] visual-identity job ID cited in STATUS.md; palette hexes trace to official art/treatments, none invented
+- [ ] public sources and research date cited in guide + STATUS.md; no internal job IDs published
+- [ ] visual-identity source links cited in STATUS.md; palette hexes trace to official art/treatments, none invented
 - [ ] guide wears the set skin; landing page (`docs/index.html`) untouched and still critterhaus-design
 - [ ] mechanics have official reminder text + source link
 - [ ] archetype count matches Wizards prerelease guide
