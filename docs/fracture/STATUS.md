@@ -1,13 +1,12 @@
 # MTG: Reality Fracture Guide — Build Status (verified Sep 29, 2026)
 
 ## Where we're at: VERIFIED BUILD COMPLETE ✅
-- **File:** `~/projects/mtg-reality-fracture-guide/index.html` (50,604 bytes, single-file offline HTML)
-- **Open:** `xdg-open ~/projects/mtg-reality-fracture-guide/index.html` or `file:///home/dweebikus/projects/mtg-reality-fracture-guide/index.html`
-- **Published:** `~/projects/tools/mtg-guides/docs/fracture/index.html` → https://dweeb11.github.io/mtg-guides/fracture/
+- **File:** `docs/fracture/index.html` (103,399 bytes, single-file offline HTML)
+- **Published:** `docs/fracture/index.html` → https://dweeb11.github.io/mtg-guides/fracture/
 
 ## What was built
-1. **Identity research** — job `mun4njsd-hhdg14j` (standard, terra) confirmed Reality Fracture (FRA): Arena Sep 29, tabletop Oct 2, 270 main-rarity cards, Empower Jace / Heartwood / Prepare, 10 draft archetypes
-2. **Deep research** — job `mun4q9xn-uktepn7` (deep, sol) returned Sep 29 with full findings (24 sources)
+1. **Identity research** — confirmed Reality Fracture (FRA): Arena Sep 29, tabletop Oct 2, 270 main-rarity cards, Empower Jace / Heartwood / Prepare, 10 draft archetypes
+2. **Deep research** — completed Sep 29 with full findings (24 sources)
 3. **Rebuilt as VERIFIED** — same chrome as Hobbit build (topbar, hero, path toggle, search, TOC scroll-spy, print), all FRA content:
    - 10 real archetypes (5 Hexhaven schools + Lorwyn Five) with signposts, hybrids, prepare spells, duals
    - 3 headline mechanics with real reminder text: Empower Jace, Heartwood tokens, Prepare + Way enchantments + echoed pairs
@@ -27,7 +26,7 @@
 To resume: just say "continue" — I'll pick up from this checkpoint.
 
 ## Restyle (Sep 29, 2026 — v0.3.0 per-set default)
-- Visual research: `mun534sf-9sfjzgq` (standard, terra). Skin spec from official art direction, no Wizards art inlined.
+- Visual research: skin spec from official art direction, no Wizards art inlined.
 - Skin: Jace-blue psychic architecture — midnight #0B1024 / Jace #173F78 / cyan #22B9D1 / violet #6A55A5 / silver #CAD7DB / shard #F4F7F2 / tower #17171D. Display: Space Grotesk (Inter body, JetBrains Mono code).
 - Motifs: fractured-tower gradient hero + prismatic towerbar divider, ◆ section marks, shard-glyph mechanism headers, Hexhaven-schools vs Lorwyn-Five archetype group headers, viol pivot callout (original/echoverse). Emoji removed. Print fallback added.
 - Behavior unchanged (TOC/search/tabs/checklists); localStorage already namespaced (fracture-*).
@@ -35,4 +34,4 @@ To resume: just say "continue" — I'll pick up from this checkpoint.
 ## Card hover previews (Sep 29, 2026)
 - All 90 named cards resolved via Scryfall API (set:fra, exact→fuzzy→search fallback); 134 mentions linked.
 - Hover/touch/focus shows small-size image in a fixed preview near cursor (lazy-preloaded via IntersectionObserver); click opens the Scryfall page. MDFC halves (Peer Review etc.) link to their parent card.
-- Images hotlink to cards.scryfall.io per Scryfall's hotlink-friendly image CDN (not Wizards art). Map: cardmap.json.
+- Images hotlink to cards.scryfall.io per Scryfall's hotlink-friendly image CDN (not Wizards art). The card map remains a local build artifact.

@@ -1,2 +1,27 @@
 .DS_Store
 *.log
+
+# Credentials and local configuration (examples may be published).
+.env
+.env.*
+!.env.example
+!.env.*.example
+*.pem
+*.key
+*.p12
+*.pfx
+id_rsa*
+id_ed25519*
+credentials.json
+*-credentials.json
+
+# Private research, build scratch files, and editor backups.
+.private/
+.research/
+.build/
+.cache/
+tmp/
+*.bak
+*.bak.*
+*.backup
+*~
