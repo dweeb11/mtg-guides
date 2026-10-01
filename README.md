@@ -1,39 +1,29 @@
 # mtg-guides
 
-Verified, clickable HTML strategy guides for Magic: The Gathering — **limited and constructed**.
+Clickable, printable strategy guides for Magic: The Gathering sets, researched and built by an AI agent.
 
-- **Limited:** `docs/hobbit/` — The Hobbit (HOB) draft & sealed (5 archetypes, Storied/Recruit/Hone, prerelease kit) — Aug 12 2026 verified
-- **Constructed:** `docs/standard-bo1-2026-08-13/` — Standard Best-of-One meta, 8 Arena-importable decks (post-ban, S tier Mono-G/Spellementals) — Aug 13 2026 verified
-- **Skill:** `skills/mtg-guide/SKILL.md` — reusable Pi/Hermes skill that built both guides (v0.2.0, not limited-specific)
+I love playing Magic. As an experiment, I wanted to see whether an AI agent could be my set tutor: research a new set from real sources and turn it into the guide I'd want at the table. These are the results, plus the recipe it follows.
 
-## Browse — GitHub Pages
+**→ [dweeb11.github.io/mtg-guides](https://dweeb11.github.io/mtg-guides/)**
 
-- **Landing:** [https://dweeb11.github.io/mtg-guides/](https://dweeb11.github.io/mtg-guides/) (resolves root; was 404 before `docs/index.html`)
-- Hobbit guide: [https://dweeb11.github.io/mtg-guides/hobbit/](https://dweeb11.github.io/mtg-guides/hobbit/) — or [`docs/hobbit/index.html`](docs/hobbit/index.html)
-- Standard BO1 report: [https://dweeb11.github.io/mtg-guides/standard-bo1-2026-08-13/](https://dweeb11.github.io/mtg-guides/standard-bo1-2026-08-13/) — or [`docs/standard-bo1-2026-08-13/index.html`](docs/standard-bo1-2026-08-13/index.html)
-- Build status: `docs/hobbit/STATUS.md`, `docs/standard-bo1-2026-08-13/STATUS.md`
+| Guide | Format | As of |
+|---|---|---|
+| [Reality Fracture](https://dweeb11.github.io/mtg-guides/fracture/) | Draft & Sealed | Sep 29, 2026 |
+| [The Hobbit](https://dweeb11.github.io/mtg-guides/hobbit/) | Draft & Sealed | Aug 12, 2026 · archive |
+| [Standard Best-of-One](https://dweeb11.github.io/mtg-guides/standard-bo1-2026-08-13/) | Constructed | Aug 13, 2026 · archive |
 
-## Use the skill
+Each guide is a single HTML page: nothing to install, works offline, prints to PDF. Card names link to Scryfall with hover previews. Launch-week tier rankings are marked provisional until real win-rate data exists.
 
-```bash
-# Pi discovers it as mtg-guide; also aliased as mtg-limited-guide (deprecated stub)
-# Trigger: "build me a draft/sealed/standard BO1 guide for [set]"
-```
+## How they're made
 
-## Sources and maintenance
+An agent researches each set from Wizards' mechanics articles, release notes, and prerelease guide, plus community reviews (Draftsim, Limited Resources, Lords of Limited, 17Lands). It quotes mechanics from official reminder text, checks the archetype count against Wizards' own list, styles the page after the set's official art direction, and flags anything still unproven. Every guide lists its sources.
 
-The guides retain public source links, verification dates, and provisional-tier notes. Keep internal research job IDs, local paths, and account or gateway troubleshooting in an ignored `.private/` directory.
+The full recipe is [`skills/mtg-guide/SKILL.md`](skills/mtg-guide/SKILL.md). Treat it as a reference, not a plug-and-play tool: it relies on the author's own research tooling and house style.
 
-Before committing from a local clone of this repository, configure its private commit email:
+## License
 
-```bash
-git config --local user.email "80615739+dweeb11@users.noreply.github.com"
-```
+The skill and page code are [MIT](LICENSE). The guide writing is [CC BY 4.0](LICENSE-CONTENT): share and adapt it with credit. Neither covers Wizards of the Coast material.
 
-Repeat this once for each clone used to publish updates. Existing commit metadata is unchanged.
+---
 
-The **Secret scan** workflow checks current files and available Git history on pushes and pull requests using a pinned, checksum-verified Gitleaks release. Findings are redacted. This check detects problems after a push; GitHub push protection can prevent supported credentials from being pushed in the first place. Check repository **Settings → Security → Advanced Security** for secret scanning and push protection, and account **Settings → Emails** for **Keep my email addresses private** and **Block command line pushes that expose my email**.
-
-Do not publish credentials, private keys, local backups, raw research output, or gateway/login diagnostics. `.gitignore` helps prevent accidental additions; it does not protect already tracked files or explicitly forced additions.
-
-*Fan content, not affiliated with Wizards of the Coast.*
+Unofficial Fan Content permitted under the [Fan Content Policy](https://company.wizards.com/en/legal/fancontentpolicy). Not approved/endorsed by Wizards. Portions of the materials used are property of Wizards of the Coast. ©Wizards of the Coast LLC.

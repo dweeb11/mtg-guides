@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>mtg-guides — dweeb11</title>
-<meta name="description" content="Verified, clickable HTML strategy guides for Magic: The Gathering — limited and constructed."/>
+<title>mtg-guides</title>
+<meta name="description" content="Magic: The Gathering set guides researched and built by an AI agent from Wizards and community sources — draft, sealed, and Standard."/>
 <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,200..800;1,200..800&display=swap" rel="stylesheet">
 <style>
 :root {
@@ -91,46 +91,49 @@ h1 .amber{color:var(--amber)}
 .meta{font-size:11px;color:var(--fg-muted);margin:12px 0 16px}
 .meta code{background:var(--bg-sunken);padding:0 .4em;border-radius:2px;color:var(--fg-dim)}
 .card .btn{width:100%;justify-content:center;margin-top:4px}
-.note{margin-top:36px;background:var(--bg-pane);border:1px solid var(--border)}
-.note .titlebar{border-bottom:1px solid var(--border)}
-.note pre{margin:0;padding:18px 22px;line-height:1.6;color:var(--fg-dim);background:var(--bg-void);white-space:pre;overflow-x:auto;font-size:13px;font-family:var(--font-mono)}
-.note .c-amber{color:var(--amber)} .note .c-cyan{color:var(--cyan)} .note .c-dim{color:var(--fg-muted)} .note .c-lime{color:var(--lime)}
 .footer{border-top:1px solid var(--border);padding:36px 40px;max-width:1100px;margin:0 auto;display:flex;gap:24px;font-size:12px;color:var(--fg-muted);flex-wrap:wrap}
 .footer .logo{color:var(--fg)}
 .footer .logo .mark{color:var(--amber);margin-right:4px}
 .footer .spacer{flex:1}
 .footer a{color:var(--fg-muted);text-decoration:none;margin-left:18px}
 .footer a:hover{color:var(--fg)}
+.steps{list-style:none;margin:32px 0;padding:0;max-width:760px;border:1px solid var(--border);background:var(--bg-pane)}
+.steps li{display:flex;gap:18px;padding:16px 22px;border-top:1px solid var(--border-faint);color:var(--fg-dim);font-size:14px;line-height:1.6}
+.steps li:first-child{border-top:0}
+.steps .n{color:var(--amber);font-weight:700;flex:none}
+.steps b{color:var(--fg);font-weight:700}
+.footer .legal{max-width:640px}
+.footer .legal a{margin:0;color:var(--fg-dim)}
 </style>
 </head>
 <body>
 <div class="nav">
   <a class="logo" href="./"><span class="mark">◈</span> mtg-guides</a>
   <span class="spacer"></span>
-  <span class="pill"><span class="ok">●</span> pages: main /docs</span>
+  <span class="pill"><span class="ok">●</span> fan project · ai-assisted</span>
 </div>
 
 <div class="page">
   <div class="hero">
-    <span class="crumb"><span class="ok">●</span> verified · limited + constructed · offline-friendly · printable</span>
+    <span class="crumb"><span class="ok">●</span> draft · sealed · standard · works offline · prints cleanly</span>
     <h1>know the set<br/>before <span class="amber">you shuffle.</span></h1>
-    <p class="sub">Verified, clickable HTML strategy guides for Magic: The Gathering. No build step, works offline, prints cleanly. Each guide is built from deep research against Wizards sources and ships with provisional tiers honestly flagged.</p>
+    <p class="sub">I love playing Magic. As an experiment, I wanted to see whether an AI agent could be my set tutor: research a new set from real sources and turn it into the guide I'd want at the table. These are the results, plus the recipe it follows.</p>
     <div class="actions">
       <a class="btn primary" href="./fracture/">read the fracture guide →</a>
-      <a class="btn ghost" href="./hobbit/">the hobbit guide</a>
+      <a class="btn ghost" href="#how">how it works</a>
     </div>
     <div class="ascii"><span class="dim">╭─</span> guides <span class="dim">─────────────────────────────</span> status <span class="dim">─╮</span>
 <span class="prompt">$</span> ls docs/
-<span class="file">fracture/</span>      <span class="ok">verified sep 29</span> · 10 archetypes · empower jace / heartwood / prepare
-<span class="file">hobbit/</span>        <span class="ok">verified aug 12</span> · 5 archetypes · storied / recruit / hone
-<span class="file">standard-bo1-2026-08-13/</span>  <span class="ok">verified aug 13</span> · 8 arena decks · post-ban meta
+<span class="file">fracture/</span>      <span class="ok">current · sep 29</span> · 10 archetypes · empower jace / heartwood / prepare
+<span class="file">hobbit/</span>        <span class="dim">archive · aug 12</span> · 5 archetypes · storied / recruit / hone
+<span class="file">standard-bo1-2026-08-13/</span>  <span class="dim">archive · aug 13</span> · 8 arena decks · post-ban meta
 <span class="dim">╰──────────────────────────────────────────────────╯</span></div>
   </div>
 
   <div class="section">
     <div class="eyebrow">guides</div>
     <h2>pick your format.</h2>
-    <p class="lede">Limited guides cover draft, sealed, and the prerelease kit. Constructed reports ship Arena-importable decklists with matchup notes.</p>
+    <p class="lede">Limited guides cover draft, sealed, and the prerelease kit. Constructed reports ship Arena-importable decklists with matchup notes. Older guides stay up as snapshots of launch week.</p>
     <div class="grid">
       <div class="card feat" data-c="cyan">
         <div class="titlebar"><span>╭─ fracture ────</span><span class="st">new ●</span></div>
@@ -139,7 +142,7 @@ h1 .amber{color:var(--amber)}
           <div class="name">reality fracture · fra</div>
           <h3>draft &amp; sealed</h3>
           <p>Ten archetypes — five Hexhaven schools plus the Lorwyn Five. Empower Jace, Heartwood ramp, and returning Prepare in an uncommon-heavy Pick-Two format.</p>
-          <div class="meta">verified sep 29 · tiers provisional until ~oct 2–3</div>
+          <div class="meta">researched sep 29 · early tiers provisional</div>
           <a class="btn primary" href="./fracture/">open fracture guide →</a>
         </div>
       </div>
@@ -149,8 +152,8 @@ h1 .amber{color:var(--amber)}
           <div class="glyph">❖</div>
           <div class="name">the hobbit · hob</div>
           <h3>draft &amp; sealed</h3>
-          <p>Five companies — WU Humans, BR Goblins, BG Wolves, RW Dwarves, GU Elves. Storied, Recruit, and Hone counters, curve 1/7-8/5-6/3-4/2-3.</p>
-          <div class="meta">verified aug 12 · standard-legal universes beyond</div>
+          <p>Five companies — WU Humans, BR Goblins, BG Wolves, RW Dwarves, GU Elves. Storied, Recruit, and Hone, plus a 50-minute prerelease plan.</p>
+          <div class="meta">archive · researched aug 12, launch-week tiers</div>
           <a class="btn ghost" href="./hobbit/">open hobbit guide</a>
         </div>
       </div>
@@ -160,25 +163,32 @@ h1 .amber{color:var(--amber)}
           <div class="glyph">▤</div>
           <div class="name">standard best-of-one</div>
           <h3>meta report</h3>
-          <p>Post-HOB plus the aug 10 bans — eight Arena-importable 60s across S/A/B+ tiers with BO1 tech and mulligan lines.</p>
-          <div class="meta">verified aug 13 · post-ban</div>
+          <p>Best-of-one Standard two days after The Hobbit and the Aug 10 bans — eight decklists you can paste into Arena, with matchup and mulligan notes.</p>
+          <div class="meta">archive · snapshot of aug 13, the meta has moved on</div>
           <a class="btn ghost" href="./standard-bo1-2026-08-13/">open meta report</a>
         </div>
       </div>
     </div>
-    <div class="note">
-      <div class="titlebar"><span>╭─ how guides get built ────</span><span class="st">skill</span></div>
-      <pre><span class="c-amber">$</span> skill mtg-guide  <span class="c-dim"># trigger: "build me a draft/sealed/standard guide for [set]"</span>
-<span class="c-dim">  1.</span> <span class="c-cyan">deep research</span> — mechanics w/ reminder text, real archetype count, bombs/removal
-<span class="c-dim">  2.</span> <span class="c-cyan">verified html</span> — single-file, offline, printable → <span class="c-lime">docs/&lt;slug&gt;/</span>
-<span class="c-dim">  3.</span> <span class="c-cyan">publish</span> — copy to <span class="c-lime">docs/</span> for pages · checkpoint in <span class="c-lime">STATUS.md</span></pre>
-    </div>
+  </div>
+
+  <div class="section" id="how">
+    <div class="eyebrow">how it works</div>
+    <h2>how an agent builds a guide.</h2>
+    <p class="lede">Every guide comes from the same five-step recipe, run by an AI agent.</p>
+    <ol class="steps">
+      <li><span class="n">01</span><div><b>research</b> — a deep-research pass reads Wizards' mechanics articles, release notes, and prerelease guide, plus community reviews (Draftsim, Limited Resources, Lords of Limited, and 17Lands once it has data).</div></li>
+      <li><span class="n">02</span><div><b>check</b> — mechanics are quoted from official reminder text and the archetype count is matched to Wizards' own list. The first Hobbit draft, scaffolded before the research came back, guessed ten archetypes; the set has five. That's why this step exists.</div></li>
+      <li><span class="n">03</span><div><b>style</b> — a second pass reads the set's official art direction, so each guide wears its own palette and type. No Wizards art is copied.</div></li>
+      <li><span class="n">04</span><div><b>build</b> — one self-contained page with Draft and Sealed paths, search, a prerelease checklist, and every card linked to Scryfall with a hover preview.</div></li>
+      <li><span class="n">05</span><div><b>flag</b> — launch-week tier rankings are marked provisional until real win-rate data exists.</div></li>
+    </ol>
+    <p class="lede">It's AI-assisted, not AI-certified: every guide lists its sources so you can check the claims, and early tiers are educated guesses. The full recipe the agent follows is <a href="https://github.com/dweeb11/mtg-guides/blob/main/skills/mtg-guide/SKILL.md">skills/mtg-guide/SKILL.md</a> — read it as a reference, not a plug-and-play tool; it leans on my own research setup.</p>
   </div>
 </div>
 
 <div class="footer">
   <span class="logo"><span class="mark">◈</span>mtg-guides</span>
-  <span>fan content, not affiliated with wizards of the coast.</span>
+  <span class="legal">Unofficial Fan Content permitted under the <a href="https://company.wizards.com/en/legal/fancontentpolicy">Fan Content Policy</a>. Not approved/endorsed by Wizards. Portions of the materials used are property of Wizards of the Coast. ©Wizards of the Coast LLC.</span>
   <span class="spacer"></span>
   <a href="https://github.com/dweeb11/mtg-guides">github</a>
   <a href="https://github.com/dweeb11/mtg-guides/blob/main/README.md">readme</a>
