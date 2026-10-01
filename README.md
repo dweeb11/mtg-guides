@@ -20,6 +20,10 @@ An agent researches each set from Wizards' mechanics articles, release notes, an
 
 The full recipe is [`skills/mtg-guide/SKILL.md`](skills/mtg-guide/SKILL.md). Treat it as a reference, not a plug-and-play tool: it relies on the author's own research tooling and house style.
 
+## License
+
+The skill and page code are [MIT](LICENSE). The guide writing is [CC BY 4.0](LICENSE-CONTENT): share and adapt it with credit. Neither covers Wizards of the Coast material.
+
 ---
 
 Unofficial Fan Content permitted under the [Fan Content Policy](https://company.wizards.com/en/legal/fancontentpolicy). Not approved/endorsed by Wizards. Portions of the materials used are property of Wizards of the Coast. ©Wizards of the Coast LLC.

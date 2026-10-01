@@ -1,0 +1,20 @@
+Guide content license
+
+Copyright (c) 2026 David Paolone-Webb
+
+The written guide content in docs/ (strategy text, tier lists, tables, and
+notes) is licensed under the Creative Commons Attribution 4.0 International
+License (CC BY 4.0): https://creativecommons.org/licenses/by/4.0/
+
+You may share and adapt it for any purpose, including commercially, as long as
+you give credit, link to the license, and say if you made changes.
+
+The code in this repository (the skill in skills/ and the HTML, CSS, and
+JavaScript of the pages) is licensed separately under the MIT License; see
+LICENSE.
+
+Neither license covers material owned by others. Magic: The Gathering card
+names, card text, set names, symbols, and other game material are property of
+Wizards of the Coast. Card images shown on hover are served by Scryfall. This
+is unofficial Fan Content permitted under the Wizards of the Coast Fan Content
+Policy: https://company.wizards.com/en/legal/fancontentpolicy
