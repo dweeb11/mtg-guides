@@ -1,7 +1,7 @@
 ---
 name: mtg-guide
 description: Build a verified, clickable HTML strategy guide for any Magic: The Gathering set — limited (draft/sealed/prerelease) or constructed (Standard BO1/BO3, Pioneer, Modern). Each guide wears its set's visual identity (palette/mood/motifs from official art direction); the repo landing page stays critterhaus-design. Use when user asks for "MTG draft guide", "sealed guide", "prerelease guide", "limited strategy", or names a set like "The Hobbit" or "Lorwyn Eclipsed".
-version: 0.3.3
+version: 0.4.0
 author: dweeb11
 license: MIT
 metadata:
@@ -12,7 +12,7 @@ metadata:
 
 # MTG Guide Builder
 
-> **Reading this from the public repo?** This is the recipe the agent followed to build the guides at https://dweeb11.github.io/mtg-guides/. It is a reference, not a plug-and-play tool: it calls `hermes_research` (the author's own research tool) and the author's `critterhaus-design` house style. Swap in your own web-research tool and styling to adapt it.
+> **Reading this from the public repo?** This is the recipe the agent followed to build the guides at https://dweeb11.github.io/mtg-guides/. It is a reference, not a plug-and-play tool: it was written around `hermes_research` (the author's own research tool) and the author's `critterhaus-design` house style. Any agent with web search and page fetch can run it — see "Research tool" below.
 
 Reusable skill that started with the Hobbit limited build (2026-08-12) and the Standard BO1 report (2026-08-13). Produces single-file offline HTML guides in ignored `.build/<slug>/` directories + a `.private/<slug>/STATUS.md` checkpoint. Supports both limited and constructed outputs in the same repo.
 
@@ -20,6 +20,11 @@ Reusable skill that started with the Hobbit limited build (2026-08-12) and the S
 - User names an MTG set + wants draft and/or sealed strategy
 - User says "strategy guide", "prerelease guide", "limited guide" for any Universes Beyond or Standard set
 - Re-run after 17Lands matures to upgrade provisional tiers → verified
+
+## Research tool
+The research steps name `hermes_research`, but nothing depends on it. Without it, run the same query templates as a plain web-search-and-fetch pass (the Oct 7, 2026 refresh was built this way). Two rules replace what the tool did for you:
+- Fetch structured data raw, not through a summarizer: decklists, win rates, and card data come from `curl` against the source's own endpoint (17Lands JSON, MTGGoldfish `/deck/arena_download/<id>`, Scryfall API). Summarized pages mangle lists.
+- Keep raw research in ignored `.private/<slug>/` and write it to disk as you go.
 
 ## Workflow (do this every time)
 
@@ -95,10 +100,19 @@ Single-file `index.html` (no build step, works offline, printable). Required sec
 Write via python (the `write` tool can be flaky — prefer `python3 << 'PY'` heredoc). Verify with `wc -c` and `xdg-open` check.
 
 
+### 3a-refresh) Re-grade a limited guide once 17Lands has data
+About a week after Arena launch, replace reviewer grades with win rates. Rules, mechanics, and product sections stay as researched; only grades, archetype ranking, and pick-order advice change.
+- Cards: `https://www.17lands.com/card_ratings/data?expansion=<CODE>&format=PremierDraft&start_date=<YYYY-MM-DD>&end_date=<YYYY-MM-DD>` — grade on `ever_drawn_win_rate` (game-in-hand). 17Lands publishes no rate under ~500 games, so most mythics stay ungraded; say so rather than keeping them in a win-rate tier.
+- Pairs: `https://www.17lands.com/color_ratings/data?expansion=<CODE>&event_type=PremierDraft&start_date=…&end_date=…&combine_splash=true` (and `event_type=Sealed`).
+- Always print the baseline: 17Lands users average ~55–56%, so a 55% card is average, not good.
+- State the date range and game count on the page, name launch-week grades the data overturned, and change the status copy from "researched <date>" to "updated <date>".
+
 ### 3b) Build the verified CONSTRUCTED HTML (Standard BO1/BO3, etc.)
 If user asks for metagame/constructed:
 
-- Pull live metagame (MTGGoldfish metagame/*, MTGO Challenges, Untapped/Aetherhub if available). Record scrape date + IDs.
+- Pull live metagame (MTGGoldfish metagame/*, MTGO Challenges, Untapped/Aetherhub if available). Record scrape date + IDs. MTGGoldfish's metagame page is a 30-day window — right after a release, recount shares from individual events instead.
+- Keep BO1 ladder data and BO3 tournament data in separate columns; they describe different formats. Say which ranks the ladder data covers.
+- Publish only data a source offers on its free tier. Matchup notes give direction, not percentages, unless the source publishes the numbers openly.
 - Include: tier table with shares, format legality + rotation, BO1 vs BO3 notes (hand smoother, no sideboard)
 - Per deck: colors, share, source link + event, game plan, good vs / bad vs, mulligan line, clean Arena `Deck` block (4 Card Name), Copy button via `navigator.clipboard.writeText`.
 - Brew section for up-and-comers / HOB spice.
@@ -142,6 +156,7 @@ Write `.private/<slug>/STATUS.md` (ignored — never in `docs/`):
 Report the published Pages URL and repository-relative HTML path. Keep machine-specific open commands in private build notes.
 
 ## Provenance — reference builds
+- Oct 7, 2026 refresh (no `hermes_research`): Fracture re-graded on 17Lands Premier Draft data (294k games, Sep 29–Oct 7) → `docs/fracture/`; Standard BO1 report from Untapped free-tier ladder data (Bronze–Platinum) plus MTGO Challenges via MTGGoldfish → `docs/standard-bo1-2026-10-07/`, generated by a script that copies decklists from the research notes and asserts each sums to 60.
 - Fracture (2026-09-29): official-source identity and strategy research → `docs/fracture/index.html` (50,604 bytes, 10 archetypes, Empower/Heartwood/Prepare) → `docs/fracture/`. Visual-style research drove the first per-set restyle; landing page restyled to critterhaus-design separately (`e251aa4`) and stays house-styled by rule.
 
 ## Provenance — Hobbit reference build

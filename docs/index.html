@@ -73,7 +73,7 @@ h1 .amber{color:var(--amber)}
 .eyebrow{font-size:11px;text-transform:uppercase;letter-spacing:.14em;color:var(--amber)}
 .section h2{margin:14px 0 16px;font-size:44px;font-weight:800;letter-spacing:-0.02em;line-height:1.05;text-transform:lowercase}
 .lede{font-size:15px;line-height:1.65;color:var(--fg-dim);max-width:640px;margin:0}
-.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:40px}
+.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin-top:40px}
 @media(max-width:900px){.grid{grid-template-columns:1fr}}
 .card{background:var(--bg-pane);border:1px solid var(--border);padding:0}
 .card.feat{border-color:var(--amber);box-shadow:0 0 0 1px var(--amber-glow),0 0 40px -16px #f9b06a99}
@@ -120,11 +120,13 @@ h1 .amber{color:var(--amber)}
     <p class="sub">I love playing Magic. As an experiment, I wanted to see whether an AI agent could be my set tutor: research a new set from real sources and turn it into the guide I'd want at the table. These are the results, plus the recipe it follows.</p>
     <div class="actions">
       <a class="btn primary" href="./fracture/">read the fracture guide →</a>
+      <a class="btn ghost" href="./standard-bo1-2026-10-07/">standard meta report</a>
       <a class="btn ghost" href="#how">how it works</a>
     </div>
     <div class="ascii"><span class="dim">╭─</span> guides <span class="dim">─────────────────────────────</span> status <span class="dim">─╮</span>
 <span class="prompt">$</span> ls docs/
-<span class="file">fracture/</span>      <span class="ok">current · sep 29</span> · 10 archetypes · empower jace / heartwood / prepare
+<span class="file">fracture/</span>      <span class="ok">current · oct 7</span> · 10 archetypes · graded on 294k games of win-rate data
+<span class="file">standard-bo1-2026-10-07/</span>  <span class="ok">current · oct 7</span> · 24 arena decks · post-fracture meta
 <span class="file">hobbit/</span>        <span class="dim">archive · aug 12</span> · 5 archetypes · storied / recruit / hone
 <span class="file">standard-bo1-2026-08-13/</span>  <span class="dim">archive · aug 13</span> · 8 arena decks · post-ban meta
 <span class="dim">╰──────────────────────────────────────────────────╯</span></div>
@@ -136,14 +138,25 @@ h1 .amber{color:var(--amber)}
     <p class="lede">Limited guides cover draft, sealed, and the prerelease kit. Constructed reports ship Arena-importable decklists with matchup notes. Older guides stay up as snapshots of launch week.</p>
     <div class="grid">
       <div class="card feat" data-c="cyan">
-        <div class="titlebar"><span>╭─ fracture ────</span><span class="st">new ●</span></div>
+        <div class="titlebar"><span>╭─ fracture ────</span><span class="st">updated ●</span></div>
         <div class="cardbody">
           <div class="glyph">◈</div>
           <div class="name">reality fracture · fra</div>
           <h3>draft &amp; sealed</h3>
-          <p>Ten archetypes — five Hexhaven schools plus the Lorwyn Five. Empower Jace, Heartwood ramp, and returning Prepare in an uncommon-heavy Pick-Two format.</p>
-          <div class="meta">researched sep 29 · early tiers provisional</div>
+          <p>Ten archetypes — five Hexhaven schools plus the Lorwyn Five. Empower Jace, Heartwood ramp, and returning Prepare. Card and archetype grades now come from a week of 17Lands win rates.</p>
+          <div class="meta">researched sep 29 · updated oct 7 with win-rate data</div>
           <a class="btn primary" href="./fracture/">open fracture guide →</a>
+        </div>
+      </div>
+      <div class="card feat" data-c="lilac">
+        <div class="titlebar"><span>╭─ standard bo1 ────</span><span class="st">new ●</span></div>
+        <div class="cardbody">
+          <div class="glyph">▤</div>
+          <div class="name">standard best-of-one</div>
+          <h3>meta report</h3>
+          <p>Best-of-one Standard eight days after Reality Fracture — a tier list from 564,000 ladder matches and 24 decklists you can paste into Arena, with matchup and mulligan notes.</p>
+          <div class="meta">researched oct 7 · ladder data stops at platinum</div>
+          <a class="btn primary" href="./standard-bo1-2026-10-07/">open meta report →</a>
         </div>
       </div>
       <div class="card" data-c="amber">
@@ -158,14 +171,14 @@ h1 .amber{color:var(--amber)}
         </div>
       </div>
       <div class="card" data-c="lilac">
-        <div class="titlebar"><span>╭─ standard bo1 ────</span><span class="st">meta</span></div>
+        <div class="titlebar"><span>╭─ standard bo1 · aug ────</span><span class="st">archive</span></div>
         <div class="cardbody">
           <div class="glyph">▤</div>
-          <div class="name">standard best-of-one</div>
+          <div class="name">standard best-of-one · aug 13</div>
           <h3>meta report</h3>
           <p>Best-of-one Standard two days after The Hobbit and the Aug 10 bans — eight decklists you can paste into Arena, with matchup and mulligan notes.</p>
           <div class="meta">archive · snapshot of aug 13, the meta has moved on</div>
-          <a class="btn ghost" href="./standard-bo1-2026-08-13/">open meta report</a>
+          <a class="btn ghost" href="./standard-bo1-2026-08-13/">open aug 13 report</a>
         </div>
       </div>
     </div>
@@ -180,7 +193,7 @@ h1 .amber{color:var(--amber)}
       <li><span class="n">02</span><div><b>check</b> — mechanics are quoted from official reminder text and the archetype count is matched to Wizards' own list. The first Hobbit draft, scaffolded before the research came back, guessed ten archetypes; the set has five. That's why this step exists.</div></li>
       <li><span class="n">03</span><div><b>style</b> — a second pass reads the set's official art direction, so each guide wears its own palette and type. No Wizards art is copied.</div></li>
       <li><span class="n">04</span><div><b>build</b> — one self-contained page with Draft and Sealed paths, search, a prerelease checklist, and every card linked to Scryfall with a hover preview.</div></li>
-      <li><span class="n">05</span><div><b>flag</b> — launch-week tier rankings are marked provisional until real win-rate data exists.</div></li>
+      <li><span class="n">05</span><div><b>flag</b> — launch-week tier rankings are marked provisional until real win-rate data exists, then re-graded against it about a week later.</div></li>
     </ol>
     <p class="lede">It's AI-assisted, not AI-certified: every guide lists its sources so you can check the claims, and early tiers are educated guesses. The full recipe the agent follows is <a href="https://github.com/dweeb11/mtg-guides/blob/main/skills/mtg-guide/SKILL.md">skills/mtg-guide/SKILL.md</a> — read it as a reference, not a plug-and-play tool; it leans on my own research setup.</p>
   </div>

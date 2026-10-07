@@ -8,11 +8,12 @@ I love playing Magic. As an experiment, I wanted to see whether an AI agent coul
 
 | Guide | Format | As of |
 |---|---|---|
-| [Reality Fracture](https://dweeb11.github.io/mtg-guides/fracture/) | Draft & Sealed | Sep 29, 2026 |
+| [Reality Fracture](https://dweeb11.github.io/mtg-guides/fracture/) | Draft & Sealed | Sep 29, 2026 · updated Oct 7 with win rates |
+| [Standard Best-of-One](https://dweeb11.github.io/mtg-guides/standard-bo1-2026-10-07/) | Constructed | Oct 7, 2026 |
 | [The Hobbit](https://dweeb11.github.io/mtg-guides/hobbit/) | Draft & Sealed | Aug 12, 2026 · archive |
-| [Standard Best-of-One](https://dweeb11.github.io/mtg-guides/standard-bo1-2026-08-13/) | Constructed | Aug 13, 2026 · archive |
+| [Standard Best-of-One, August](https://dweeb11.github.io/mtg-guides/standard-bo1-2026-08-13/) | Constructed | Aug 13, 2026 · archive |
 
-Each guide is a single HTML page: nothing to install, works offline, prints to PDF. Card names link to Scryfall with hover previews. Launch-week tier rankings are marked provisional until real win-rate data exists.
+Each guide is a single HTML page: nothing to install, works offline, prints to PDF. Card names link to Scryfall with hover previews. Launch-week tier rankings are marked provisional until real win-rate data exists, then re-graded against it.
 
 ## How they're made
 
