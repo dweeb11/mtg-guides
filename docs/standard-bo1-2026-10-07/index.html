@@ -1,0 +1,622 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>MTG Arena Standard Best-of-One — Oct 7 2026 meta report (after Reality Fracture)</title>
+<meta name="description" content="Standard best-of-one on MTG Arena eight days after Reality Fracture: tier list from ladder win rates, 24 Arena-importable decklists, matchup and mulligan notes."/>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<style>:root{--fra-midnight:#0B1024;--fra-tower:#17171D;--fra-jace:#173F78;--fra-cyan:#22B9D1;--fra-violet:#6A55A5;--fra-silver:#CAD7DB;--fra-shard:#F4F7F2;--bg:var(--fra-midnight);--panel:color-mix(in srgb,var(--fra-jace) 24%,var(--fra-midnight));--parchment:var(--fra-silver);--gold:var(--fra-cyan);--gold2:var(--fra-shard);--ink:var(--fra-midnight);--dim:color-mix(in srgb,var(--fra-silver) 68%,var(--fra-midnight));--faint:color-mix(in srgb,var(--fra-silver) 46%,var(--fra-midnight));--cyargb:34,185,209;--violargb:106,85,165;--shadow:0 12px 40px rgba(0,0,0,.55)}
+*{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:70px}body{margin:0;background:var(--bg);color:var(--parchment);font-family:Inter,system-ui,sans-serif;line-height:1.6}
+::selection{background:rgba(var(--cyargb),.35)}a{color:var(--gold)}
+.topbar{position:sticky;top:0;z-index:50;background:rgba(11,16,36,.92);backdrop-filter:blur(10px);border-bottom:1px solid rgba(var(--cyargb),.3)}
+.topbar-inner{max-width:1180px;margin:0 auto;display:flex;align-items:center;gap:14px;padding:10px 16px;flex-wrap:wrap}
+.brand{display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--parchment)}
+.rune{width:40px;height:40px;background:linear-gradient(145deg,var(--fra-jace),var(--fra-tower));display:grid;place-items:center;font-family:'Space Grotesk',sans-serif;font-size:22px;color:var(--fra-shard);clip-path:polygon(50% 0,100% 22%,100% 78%,50% 100%,0 78%,0 22%)}
+.brand h1{margin:0;font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:14px;letter-spacing:.06em;line-height:1}
+.brand h1 span{display:block;font-size:10px;letter-spacing:.18em;color:var(--gold);margin-top:3px}
+.nav{display:flex;gap:6px;margin-left:auto;flex-wrap:wrap}
+.nav a{border:1px solid rgba(var(--cyargb),.3);background:rgba(var(--cyargb),.06);color:var(--parchment);padding:6px 10px;border-radius:6px;font-size:11px;letter-spacing:.08em;text-transform:uppercase;font-weight:600;text-decoration:none}
+.nav a:hover{background:var(--gold);color:var(--ink)}
+.wrap{max-width:1180px;margin:0 auto;padding:16px}
+.hero{padding:26px 20px;border:1px solid rgba(var(--cyargb),.3);border-radius:14px;margin-bottom:14px;background:radial-gradient(520px 300px at 85% -10%,rgba(var(--violargb),.35),transparent 70%),linear-gradient(135deg,color-mix(in srgb,var(--fra-jace) 50%,var(--fra-midnight)),var(--fra-midnight))}
+.hero .eyebrow{font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--gold2);font-weight:700}
+.hero h2{font-family:'Space Grotesk',sans-serif;font-size:30px;line-height:1.15;margin:8px 0 8px;color:var(--fra-shard)}
+.hero h2 span{color:var(--gold)}
+.hero p{max-width:68ch;margin:0;color:var(--parchment);font-size:14px}
+.kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:16px}
+@media(max-width:760px){.kpis{grid-template-columns:repeat(2,1fr)}.hero h2{font-size:24px}}
+.kpi{background:rgba(11,16,36,.55);border:1px solid rgba(var(--cyargb),.2);border-radius:10px;padding:10px 12px}
+.kpi b{display:block;font-family:'Space Grotesk',sans-serif;font-size:20px;color:var(--fra-shard)}
+.kpi span{font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--dim)}
+.card{background:var(--panel);border:1px solid rgba(var(--cyargb),.2);border-radius:12px;box-shadow:var(--shadow);overflow:hidden;margin-bottom:14px}
+.card-head{padding:12px 16px 10px;border-bottom:1px solid rgba(var(--cyargb),.15);display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.card-head h2{margin:0;font-family:'Space Grotesk',sans-serif;font-size:16px;color:var(--fra-shard)}
+.card-head .stat{margin-left:auto;font-size:11px;color:var(--dim);letter-spacing:.04em}
+.card-body{padding:14px 16px}
+.badge{font-size:10px;letter-spacing:.12em;text-transform:uppercase;font-weight:800;padding:5px 8px;border-radius:4px;background:rgba(var(--cyargb),.14);color:var(--gold2);border:1px solid rgba(var(--cyargb),.3);white-space:nowrap}
+.prose{font-size:13.5px;line-height:1.65}.prose p{margin:0 0 8px}.prose ul,.prose ol{margin:6px 0;padding-left:20px}.prose li{margin:4px 0}
+.prose b{color:var(--fra-shard)}.small{font-size:12px;color:var(--dim)}
+.grid2{display:grid;grid-template-columns:1fr 340px;gap:16px;align-items:start}@media(max-width:860px){.grid2{grid-template-columns:1fr}}
+.callout{border-left:3px solid var(--gold);background:rgba(var(--cyargb),.08);padding:9px 11px;border-radius:8px;margin:10px 0;font-size:13px;color:var(--fra-shard)}
+.callout.viol{border-left-color:var(--fra-violet);background:rgba(var(--violargb),.16)}
+.tier{display:inline-block;padding:2px 8px;border-radius:4px;font-weight:800;font-size:11px;font-family:'Space Grotesk',sans-serif}
+.tier.S{background:#22B9D1;color:#0B1024}.tier.A{background:#6A55A5;color:#F4F7F2}.tier.B{background:#CAD7DB;color:#0B1024}.tier.C{background:transparent;color:var(--dim);border:1px solid var(--faint)}
+.table-wrap{overflow:auto;border:1px solid rgba(var(--cyargb),.16);border-radius:8px}
+table{width:100%;border-collapse:collapse;font-size:13px;min-width:720px}
+th{text-align:left;font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--gold);background:rgba(var(--cyargb),.1);padding:8px 10px}
+td{padding:8px 10px;border-top:1px solid rgba(var(--cyargb),.12);vertical-align:top}td a{text-decoration:none}td a:hover{text-decoration:underline}
+.deckbox{background:rgba(5,8,20,.7);border:1px solid rgba(var(--cyargb),.22);border-radius:10px;overflow:hidden}
+.deckbar{display:flex;gap:8px;align-items:center;padding:8px 10px;border-bottom:1px solid rgba(var(--cyargb),.15);background:rgba(var(--cyargb),.06)}
+.deckbar b{font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--gold);margin-right:auto}
+.srcline{font-size:11px;color:var(--dim);padding:6px 10px;border-bottom:1px solid rgba(var(--cyargb),.1)}
+.deckbox pre{margin:0;padding:10px;max-height:380px;overflow:auto;font-family:'JetBrains Mono',ui-monospace,Menlo,monospace;font-size:12px;line-height:1.5;white-space:pre-wrap;color:var(--fra-shard)}
+.btn{appearance:none;border:0;background:var(--gold);color:var(--ink);padding:5px 12px;border-radius:6px;font-weight:800;font-size:11px;cursor:pointer;font-family:inherit}
+.btn:hover{background:var(--fra-shard)}.src{font-size:11px}
+details.detail,details.alt{border:1px solid rgba(var(--cyargb),.18);border-radius:10px;padding:0 12px;margin:8px 0;background:rgba(11,16,36,.4)}
+details summary{cursor:pointer;padding:10px 0;font-weight:700;color:var(--fra-shard);font-size:13px}
+details[open]{padding-bottom:12px}details .deckbox{max-width:420px;margin-top:8px}
+.foot{max-width:1180px;margin:0 auto;padding:16px;color:var(--faint);font-size:11px;text-align:center;border-top:1px solid rgba(var(--cyargb),.15)}
+@media print{.topbar,.btn{display:none!important}body{background:#fff;color:#111}.card,.hero,.deckbox,.callout,.kpi,details{background:#fff!important;color:#111!important;border-color:#999!important;box-shadow:none!important}.prose b,.card-head h2,.hero h2,.hero h2 span,.deckbox pre,td,th,.kpi b,details summary,.callout{color:#111!important}.deckbox pre{max-height:none}a{color:#111}}</style>
+</head>
+<body>
+<header class="topbar"><div class="topbar-inner">
+<a class="brand" href="#top"><div class="rune">◈</div><h1>MTG ARENA — STANDARD BEST-OF-ONE<span>META REPORT • RESEARCHED OCT 7 2026 • AFTER REALITY FRACTURE</span></h1></a>
+<div class="nav"><a href="#tiers">Tiers</a><a href="#auras">Decks</a><a href="#bo3">BO3 decks</a><a href="#brews">Brews</a><a href="#legal">Legality</a></div>
+</div></header>
+<div class="wrap" id="top">
+
+<div class="hero">
+<div class="eyebrow">Standard • best-of-one • Sep 29 – Oct 7, 2026</div>
+<h2>Eight days of Reality Fracture:<br><span>what wins when there is no game two</span></h2>
+<p>A tier list built from 564,000 Arena ladder matches played since the set arrived, checked against a week of Magic Online tournaments, with a decklist you can paste into Arena for every deck.</p>
+<div class="kpis">
+<div class="kpi"><b>564k</b><span>Ladder matches (Bronze–Platinum)</span></div>
+<div class="kpi"><b>285</b><span>Tournament lists checked</span></div>
+<div class="kpi"><b>24</b><span>Decklists, each counted to 60</span></div>
+<div class="kpi"><b>Oct 12</b><span>Next ban announcement</span></div>
+</div>
+</div>
+
+<section class="card"><div class="card-head"><h2>Read this first</h2><span class="badge">How far to trust it</span></div><div class="card-body prose">
+<ul>
+<li><b>The ladder numbers stop at Platinum.</b> Win rates come from Untapped.gg&#x27;s free data, which covers Bronze through Platinum only. Diamond and Mythic are not in it. The top deck already gets weaker from Gold to Platinum, so the order may differ higher up.</li>
+<li><b>Tournament results are best-of-three.</b> They come from Magic Online Challenges and Leagues, where sideboards exist. They show what strong players choose, not what wins best-of-one — and the two pictures barely overlap. The most-played ladder deck has zero tournament entries.</li>
+<li><b>Tiers are a reading of that evidence</b>, weighted to the ladder because this is a best-of-one report. Game plans and mulligan notes are worked out from the lists and card text; no source publishes them for these builds.</li>
+</ul>
+<div class="callout viol"><b>Bans:</b> nothing has changed since Aug 10, 2026. The next Banned &amp; Restricted announcement is <b>Oct 12, 2026</b>, five days after this was written — check it before crafting anything expensive.</div>
+</div></section>
+
+<section class="card" id="tiers"><div class="card-head"><h2>Tier list</h2><span class="badge">Best-of-one ladder first</span></div><div class="card-body prose">
+<div class="table-wrap"><table><thead><tr><th>Tier</th><th>Deck</th><th>Ladder share</th><th>Ladder win rate</th><th>Best-of-three tournaments</th><th>Verdict</th></tr></thead><tbody>
+<tr><td><span class="tier S">S</span></td><td><a href="#auras"><b>Mono-White Auras</b></a></td><td>13.3%</td><td>57.6%</td><td>Absent — not one list in 285</td><td>Most played and near the top by win rate. Loses ground as rank rises</td></tr><tr><td><span class="tier A">A</span></td><td><a href="#reanimator"><b>Reanimator (Sultai)</b></a></td><td>5.0%</td><td>58.7%</td><td>3.3% of Challenge decks · 4 top 8s</td><td>Best win rate of any deck with real volume</td></tr><tr><td><span class="tier A">A</span></td><td><a href="#artifacts"><b>Jeskai Artifacts</b></a></td><td>3.9%</td><td>57.3%</td><td>2.8% · won both big Challenges (Oct 5, Oct 6)</td><td>Beats the two most-played decks</td></tr><tr><td><span class="tier A">A</span></td><td><a href="#lifegain"><b>Lifegain (Orzhov, Mono-White, Abzan)</b></a></td><td>14.0% combined</td><td>54–55%</td><td>5.6% · 4 top 8s · 15 League 5-0s</td><td>The biggest winner from the new set</td></tr><tr><td><span class="tier B">B</span></td><td><a href="#landfall"><b>Mono-Green Landfall</b></a></td><td>5.5%</td><td>54.1%</td><td>3.3% · 3 top 8s</td><td>Still solid, but Auras is a terrible matchup</td></tr><tr><td><span class="tier B">B</span></td><td><a href="#control"><b>Azorius Control (Jace)</b></a></td><td>3.9%</td><td>53.7%</td><td>4.2% · 2 top 8s</td><td>The Auras-killer; loses to the decks that go under or around it</td></tr><tr><td><span class="tier B">B</span></td><td><a href="#lizards"><b>Rakdos Lizards</b></a></td><td>2.7%</td><td>53.8%</td><td>5.6% · 3 top 8s</td><td>Fast, with new tools — but poor against both white decks</td></tr><tr><td><span class="tier B">B</span></td><td><a href="#burn"><b>Mono-Red Burn</b></a></td><td>1.9%</td><td>54.6%</td><td>Absent</td><td>Cheap, quick ladder deck</td></tr><tr><td><span class="tier B">B</span></td><td><a href="#dimir"><b>Dimir Midrange</b></a></td><td>1.1%</td><td>55.8%</td><td>7.9% · 7 top 8s</td><td>Tournament staple; small ladder sample</td></tr><tr><td><span class="tier C">C</span></td><td><a href="#bo3"><b>Jund Sacrifice · Izzet Spellementals · Izzet Prowess · Boros Dragons</b></a></td><td>0.5–1.5% each</td><td>52–53%</td><td>7–10% each; most of the Challenge top 8s</td><td>Best-of-three decks. Fine, not favoured, in best-of-one</td></tr>
+</tbody></table></div>
+<p class="small" style="margin-top:8px">Ladder: <a href="https://mtga.untapped.gg/constructed/standard/tier-list">Untapped.gg</a>, Arena ranked Standard, Bronze–Platinum, Sep 29–Oct 7, 563,828 matches. Tournaments: seven Magic Online Standard Challenges (215 decks) and nine Leagues (70 undefeated lists), Sep 29–Oct 7, via <a href="https://www.mtggoldfish.com/tournaments/standard">MTGGoldfish</a>. Win rates include mirror matches.</p>
+<div class="callout"><b>What to queue:</b> Mono-White Auras if you want the cheapest strong deck and are below Diamond. Reanimator or Jeskai Artifacts if you would rather beat it. Orzhov Lifegain if you want to play the new cards and still win. Azorius Control only if your queue is full of Auras.</div>
+</div></section>
+
+<section class="card"><div class="card-head"><h2>What changed since the Aug 13 report</h2><span class="badge">Seven weeks, one set</span></div><div class="card-body prose">
+<ul>
+<li><b>Neither August top deck leads any more.</b> Mono-Green Landfall and Izzet Spellementals were the S tier then. On the ladder they now sit at 54.1% and 53.2%; in tournaments Landfall fell from 12.0% of winning decks in September to 3.3% of Challenge decks, and Spellementals from 16.5% to 9.8%.</li>
+<li><b>Lifegain took the most from Reality Fracture.</b> Ajani Resolute, Liliana the Faultless and Enlightened Confidant went straight into nearly every Orzhov list, and the lifegain family is now 14% of the ladder.</li>
+<li><b>Two decks rose without new cards.</b> Jeskai Artifacts and Reanimator were fringe in September (under 3% each); both are now among the best-performing decks because they beat what the format became.</li>
+<li><b>Gone:</b> Izzet Prowess with Bilbo, Azorius Tempo and Four-Colour Legends from the August list have no meaningful presence. Izzet Prowess survives as a different build around Pompous Battlemage.</li>
+</ul>
+</div></section>
+
+<section class="card" id="import"><div class="card-head"><h2>Importing a list</h2><span class="badge">60 cards, no sideboard</span></div><div class="card-body prose">
+<p>Press <b>Copy</b>, then in Arena go to <b>Decks → Import</b>. Every box is a 60-card main deck that was downloaded from its source and counted by script, and checked against the Standard ban list including Leyline of Resonance (banned in Arena best-of-one only).</p>
+<p class="small">Lists marked "Arena ladder list" are the most-played version of that deck on the ladder, with no named pilot. Lists from Magic Online were built for best-of-three; they import fine, but their sideboards are on the linked source page. If Arena rejects a card name from a Magic Online list, the card has a different name on Arena.</p>
+</div></section>
+
+<section class="card" id="auras"><div class="card-head"><span class="tier S">S</span><h2>Mono-White Auras</h2><span class="stat">13.3% of ladder · 57.6% wins</span></div><div class="card-body prose"><div class="grid2"><div><p><b>Plan:</b> One-mana creatures that grow whenever an enchantment enters (Optimistic Scavenger, Skyward Spider), stacked with Ethereal Armor and Sheltered by Ghosts. Shardmage&#x27;s Rescue protects the creature you have invested in. Everything costs one or two mana.</p><p><b>Good against:</b> Mono-Green Landfall, Rakdos Lizards, Boros Dwarves, sacrifice decks, Orzhov Lifegain.</p><p><b>Struggles against:</b> Azorius Control, Jeskai Artifacts, Golgari removal decks — anything with cheap sweepers or a pile of removal.</p><p><b>Keep / mulligan:</b> 20 lands. Keep two lands with a one-drop creature and at least one Aura. Auras with no creature, or creatures with no Aura, is a mulligan. Save Shardmage&#x27;s Rescue for the turn the opponent has removal mana up.</p><p><b>Reality Fracture cards:</b> None. The best best-of-one deck in the data did not change with the set.</p><div class="callout">This is a best-of-one deck only: it has no entries in eight days of Magic Online tournaments. Its win rate also falls from 57.2% in Gold to 55.6% in Platinum, and there is no public data above that, so expect it to be weaker at Diamond and Mythic.</div></div><div class="deckbox"><div class="deckbar"><b>Arena import</b><button class="btn" onclick="copyDeck(this)">Copy</button><a class="src" href="https://mtga.untapped.gg/constructed/standard/decks" target="_blank" rel="noopener">Source</a></div><div class="srcline">Most-played Arena ladder list · 19,399 matches · 58.2% wins (Bronze–Platinum)</div><pre>Deck
+20 Plains
+4 Ethereal Armor
+4 Feather of Flight
+4 Optimistic Scavenger
+4 Origin of Spider-Man
+4 Seam Rip
+4 Shardmage's Rescue
+4 Sheltered by Ghosts
+4 Skyward Spider
+4 Spellbook Vendor
+4 Veteran Survivor</pre></div></div></div></section><section class="card" id="reanimator"><div class="card-head"><span class="tier A">A</span><h2>Reanimator (Sultai)</h2><span class="stat">5.0% of ladder · 58.7% wins</span></div><div class="card-body prose"><div class="grid2"><div><p><b>Plan:</b> Fill the graveyard with Cache Grab, Overlord of the Balemurk and Formidable Speaker, then cast Superior Spider-Man as a copy of the biggest creature there — ideally Bringer of the Last Gift. Terror of the Peaks and Deceit are the fair backup plan.</p><p><b>Good against:</b> Control of every kind, Jeskai Artifacts, Boros Superfriends, Izzet Spellementals.</p><p><b>Struggles against:</b> Fast sacrifice and Lizard decks; slightly behind against Mono-White Auras.</p><p><b>Keep / mulligan:</b> 24 lands across three or four colours. Keep hands with a turn-two or turn-three enabler and the colours to cast it. A hand of expensive creatures with no way to discard or mill them is a mulligan. Nobody plays graveyard hate in game one of best-of-one, which is much of why this deck does so well here.</p><p><b>Reality Fracture cards:</b> Seasoned Cryomancer in most tournament lists (draw two, discard two, tap blockers). The most-played ladder list does not run it.</p><details class="alt"><summary>Tournament version with Seasoned Cryomancer</summary><div class="deckbox"><div class="deckbar"><b>Arena import</b><button class="btn" onclick="copyDeck(this)">Copy</button><a class="src" href="https://www.mtggoldfish.com/deck/7987028" target="_blank" rel="noopener">Source</a></div><div class="srcline">Martin_Dominguez · 3rd · Magic Online Challenge Oct 5 (best-of-three)</div><pre>Deck
+2 Ardyn, the Usurper
+1 Awaken the Honored Dead
+4 Breeding Pool
+4 Bringer of the Last Gift
+4 Cache Grab
+3 Cavern of Souls
+2 Deceit
+1 Forest
+4 Formidable Speaker
+1 Island
+4 Oblivious Bookworm
+4 Overgrown Tomb
+2 Overlord of the Balemurk
+2 Rapid Rescue
+4 Seasoned Cryomancer
+3 Starting Town
+4 Superior Spider-Man
+2 Terror of the Peaks
+2 Wastewood Verge
+3 Watery Grave
+2 Willowrush Verge
+2 Wistfulness</pre></div></details></div><div class="deckbox"><div class="deckbar"><b>Arena import</b><button class="btn" onclick="copyDeck(this)">Copy</button><a class="src" href="https://mtga.untapped.gg/constructed/standard/decks" target="_blank" rel="noopener">Source</a></div><div class="srcline">Most-played Arena ladder list · 3,324 matches · 58.4% wins (Bronze–Platinum)</div><pre>Deck
+4 Awaken the Honored Dead
+4 Breeding Pool
+4 Bringer of the Last Gift
+4 Formidable Speaker
+4 Gloomlake Verge
+4 Overgrown Tomb
+4 Overlord of the Balemurk
+4 Superior Spider-Man
+4 Town Greeter
+4 Watery Grave
+4 Willowrush Verge
+4 Wistfulness
+2 Ardyn, the Usurper
+2 Cavern of Souls
+2 Deceit
+2 Kiora, the Rising Tide
+2 Terror of the Peaks
+2 Wastewood Verge</pre></div></div></div></section><section class="card" id="artifacts"><div class="card-head"><span class="tier A">A</span><h2>Jeskai Artifacts</h2><span class="stat">3.9% of ladder · 57.3% wins</span></div><div class="card-body prose"><div class="grid2"><div><p><b>Plan:</b> Simulacrum Synthesizer makes a Construct each time a three-mana-or-more artifact enters; United Battlefront and Repurposing Bay keep them coming. The interaction is all artifacts too: Pinnacle Starcage sweeps away everything costing two or less, and Authority of the Consuls makes opposing creatures enter tapped.</p><p><b>Good against:</b> Mono-White Auras, all three lifegain decks, Boros Superfriends, Boros Dwarves.</p><p><b>Struggles against:</b> Reanimator and Azorius Control. About even with Mono-Green Landfall.</p><p><b>Keep / mulligan:</b> 22 lands. Against the ladder&#x27;s aggro decks you need an early Pinnacle Starcage, Authority of the Consuls or Sawblades, so keep those. Synthesizer with nothing to trigger it and no early interaction is too slow.</p><p><b>Reality Fracture cards:</b> Essentially none. It rose because it is well placed against what everyone else is playing.</p><details class="alt"><summary>Challenge-winning tournament version</summary><div class="deckbox"><div class="deckbar"><b>Arena import</b><button class="btn" onclick="copyDeck(this)">Copy</button><a class="src" href="https://www.mtggoldfish.com/deck/7988308" target="_blank" rel="noopener">Source</a></div><div class="srcline">-=Alfa=- · 1st · Magic Online Challenge Oct 6 (best-of-three)</div><pre>Deck
+2 Authority of the Consuls
+2 Boomerang Basics
+1 Braided Net
+3 Candy Trail
+4 Castle Doom
+1 Clay-Fired Bricks
+2 Cryogen Relic
+1 Day of Judgment
+1 Erode
+4 Floodfarm Verge
+1 Fomori Vault
+1 Gleaming Bastion
+3 Hallowed Fountain
+4 Island
+1 Meticulous Archive
+3 Perilous Snare
+3 Pinnacle Starcage
+5 Plains
+3 Repurposing Bay
+4 Simulacrum Synthesizer
+2 Spring-Loaded Sawblades
+1 The Fire Crystal
+1 The Irencrag
+2 The Mind Stone
+4 United Battlefront
+1 White Auracite</pre></div></details></div><div class="deckbox"><div class="deckbar"><b>Arena import</b><button class="btn" onclick="copyDeck(this)">Copy</button><a class="src" href="https://mtga.untapped.gg/constructed/standard/decks" target="_blank" rel="noopener">Source</a></div><div class="srcline">Most-played Arena ladder list · 2,523 matches · 57.4% wins (Bronze–Platinum)</div><pre>Deck
+5 Island
+5 Plains
+4 Authority of the Consuls
+4 Clay-Fired Bricks
+4 Cryogen Relic
+4 Floodfarm Verge
+4 Perilous Snare
+4 Pinnacle Starcage
+4 Repurposing Bay
+4 Simulacrum Synthesizer
+4 Spring-Loaded Sawblades
+4 Starting Town
+4 United Battlefront
+2 Meticulous Archive
+1 Adagia, Windswept Bastion
+1 Fomori Vault
+1 The Enigma Jewel
+1 The Fire Crystal</pre></div></div></div></section><section class="card" id="lifegain"><div class="card-head"><span class="tier A">A</span><h2>Orzhov Lifegain</h2><span class="stat">5.4% of ladder · 53.9% wins (lifegain family 14.0%)</span></div><div class="card-body prose"><div class="grid2"><div><p><b>Plan:</b> Every creature entering gains life (Hinterland Sanctifier, Haliya, Liliana the Faultless), and every life gain pays you: Ajani Resolute gains loyalty, Starscape Cleric and Lunar Convocation drain, Enlightened Confidant draws, and Amalia eventually clears the board.</p><p><b>Good against:</b> Control decks (Azorius, four-colour, Golgari) and Boros Dwarves.</p><p><b>Struggles against:</b> Jeskai Artifacts, Mono-White Auras, Reanimator, Mono-Green Landfall.</p><p><b>Keep / mulligan:</b> 20–22 lands, curve of one to three. Keep two lands with a one-drop life source and a payoff. Hands that are all payoffs with no creatures to trigger them are weak.</p><p><b>Reality Fracture cards:</b> Ajani Resolute, Liliana the Faultless and Enlightened Confidant — four copies of each in the most-played list. No archetype took more from the set.</p><p class="small">Tournament players use nearly the same 60: <a href="https://www.mtggoldfish.com/deck/7988322">Gxs3v3n&#x27;s 2nd-place list, Oct 6</a>.</p><details class="alt"><summary>Budget alternative: Mono-White Lifegain, no new cards (6.2% of ladder, 54.4% wins)</summary><div class="deckbox"><div class="deckbar"><b>Arena import</b><button class="btn" onclick="copyDeck(this)">Copy</button><a class="src" href="https://mtga.untapped.gg/constructed/standard/decks" target="_blank" rel="noopener">Source</a></div><div class="srcline">Most-played Arena ladder list · 4,149 matches · 58.0% wins (Bronze–Platinum)</div><pre>Deck
+20 Plains
+4 Ajani's Pridemate
+4 Essence Channeler
+4 Haliya, Guided by Light
+4 Healer's Hawk
+4 Hinterland Sanctifier
+4 Leonin Vanguard
+4 Leyline of Hope
+4 Ruin-Lurker Bat
+4 Sheltered by Ghosts
+2 Banishing Light
+2 Exemplar of Light</pre></div></details></div><div class="deckbox"><div class="deckbar"><b>Arena import</b><button class="btn" onclick="copyDeck(this)">Copy</button><a class="src" href="https://mtga.untapped.gg/constructed/standard/decks" target="_blank" rel="noopener">Source</a></div><div class="srcline">Most-played Arena ladder list · 1,587 matches · 55.3% wins (Bronze–Platinum)</div><pre>Deck
+4 Ajani Resolute
+4 Amalia Benavides Aguirre
+4 Case of the Uneaten Feast
+4 Concealed Courtyard
+4 Enlightened Confidant
+4 Godless Shrine
+4 Haliya, Guided by Light
+4 Hinterland Sanctifier
+4 Liliana the Faultless
+4 Lunar Convocation
+4 Multiversal Passage
+4 Starscape Cleric
+4 Starting Town
+2 Aunt May
+2 Moseo, Vein's New Dean
+2 Plains
+1 Bleachbone Verge
+1 Swamp</pre></div></div></div></section><section class="card" id="landfall"><div class="card-head"><span class="tier B">B</span><h2>Mono-Green Landfall</h2><span class="stat">5.5% of ladder · 54.1% wins</span></div><div class="card-body prose"><div class="grid2"><div><p><b>Plan:</b> Llanowar Elves into Icetill Explorer and Earthbender Ascension, with Fabled Passage and Escape Tunnel producing several landfall triggers a turn. Sazh&#x27;s Chocobo grows per land and Mightform Harmonizer doubles a creature&#x27;s power for the kill.</p><p><b>Good against:</b> Four-colour control, lifegain decks, Boros Superfriends.</p><p><b>Struggles against:</b> Mono-White Auras, heavily — the most-played deck on the ladder is its worst matchup. Also behind against Rakdos Lizards.</p><p><b>Keep / mulligan:</b> 26 lands. Keep hands with Llanowar Elves or a three-mana engine plus a land that fetches. No landfall creature is a mulligan.</p><p><b>Reality Fracture cards:</b> Hexhaven Invigorator in a minority of lists; most are unchanged.</p><div class="callout">This is the tournament build. The most-played ladder list under the same name is a cheaper, different deck (Mossborn Hydra, Tifa Lockhart, Ordeal of Nylea), so the ladder win rate above is not a measurement of this exact 60.</div></div><div class="deckbox"><div class="deckbar"><b>Arena import</b><button class="btn" onclick="copyDeck(this)">Copy</button><a class="src" href="https://www.mtggoldfish.com/deck/7988294" target="_blank" rel="noopener">Source</a></div><div class="srcline">xfile · 4th · Magic Online Challenge Oct 6 (best-of-three)</div><pre>Deck
+3 Ba Sing Se
+4 Earthbender Ascension
+4 Escape Tunnel
+2 Esper Origins
+4 Fabled Passage
+15 Forest
+3 Glimpse the Core
+4 Icetill Explorer
+2 Keen-Eyed Curator
+4 Llanowar Elves
+1 Lumbering Worldwagon
+2 Meltstrider's Resolve
+4 Mightform Harmonizer
+3 Sapling Nursery
+4 Sazh's Chocobo
+1 Surrak, Elusive Hunter</pre></div></div></div></section><section class="card" id="control"><div class="card-head"><span class="tier B">B</span><h2>Azorius Control (Jace)</h2><span class="stat">3.9% of ladder · 53.7% wins</span></div><div class="card-body prose"><div class="grid2"><div><p><b>Plan:</b> Counter and remove (Countersculpt, No More Lies, Get Lost, Day of Judgment) until The Theorist, Jace Beleren sticks; it draws an extra card every opposing draw step and makes blockers. Countersculpt, Fatehold Charm and Jace&#x27;s Machinations all add loyalty to Jace.</p><p><b>Good against:</b> Mono-White Auras and Mono-White Lifegain, by a wide margin; also Jeskai Artifacts and Boros Superfriends.</p><p><b>Struggles against:</b> Reanimator, Rakdos Lizards, sacrifice decks, Boros Dwarves, Orzhov Lifegain.</p><p><b>Keep / mulligan:</b> 25–26 lands. Keep three or four lands with cheap interaction. Most of the ladder is creature decks, so a hand of counterspells with no removal or sweeper is the risky keep.</p><p><b>Reality Fracture cards:</b> Built on them: The Theorist, Jace Beleren; Countersculpt; Jace&#x27;s Machinations; Fatehold Charm; Theorist&#x27;s Sanctum; plus Chandra, Chill of Compliance in the ladder list.</p><details class="alt"><summary>Tournament version (5th place, Oct 5)</summary><div class="deckbox"><div class="deckbar"><b>Arena import</b><button class="btn" onclick="copyDeck(this)">Copy</button><a class="src" href="https://www.mtggoldfish.com/deck/7987029" target="_blank" rel="noopener">Source</a></div><div class="srcline">oOMegaGenesis · 5th · Magic Online Challenge Oct 5 (best-of-three)</div><pre>Deck
+4 Consult the Star Charts
+4 Countersculpt
+1 Day of Judgment
+3 Demolition Field
+4 Deserted Beach
+2 Erode
+2 Fatehold Charm
+4 Floodfarm Verge
+4 Get Lost
+4 Hallowed Fountain
+3 Island
+4 Jace's Machinations
+3 No More Lies
+2 Petrified Hamlet
+2 Pinnacle Starcage
+2 Plains
+2 Restless Anchorage
+3 Seam Rip
+4 The Theorist, Jace Beleren
+2 Theorist's Sanctum
+1 Three Steps Ahead</pre></div></details></div><div class="deckbox"><div class="deckbar"><b>Arena import</b><button class="btn" onclick="copyDeck(this)">Copy</button><a class="src" href="https://mtga.untapped.gg/constructed/standard/decks" target="_blank" rel="noopener">Source</a></div><div class="srcline">Most-played Arena ladder list · 1,396 matches · 57.1% wins (Bronze–Platinum)</div><pre>Deck
+5 Island
+4 Countersculpt
+4 Day of Judgment
+4 Deserted Beach
+4 Floodfarm Verge
+4 Get Lost
+4 Hallowed Fountain
+4 Jace's Machinations
+4 No More Lies
+4 The Theorist, Jace Beleren
+3 Chandra, Chill of Compliance
+3 Fatehold Charm
+3 Plains
+2 Meticulous Archive
+2 Settle the Wreckage
+2 Theorist's Sanctum
+1 Consult the Star Charts
+1 Jace, Reality Sculptor
+1 Mistrise Village
+1 Plan for All Outcomes</pre></div></div></div></section><section class="card" id="lizards"><div class="card-head"><span class="tier B">B</span><h2>Rakdos Lizards</h2><span class="stat">2.7% of ladder · 53.8% wins</span></div><div class="card-body prose"><div class="grid2"><div><p><b>Plan:</b> Cheap Lizards that ping (Hired Claw, Iridescent Vinelasher) switch on the cards that care whether an opponent lost life this turn. Master of Barbs pumps the team whenever an opponent takes noncombat damage; Ingris Stingerquill makes every attacker deal an extra point.</p><p><b>Good against:</b> Azorius Control, Reanimator, Mono-Green Landfall.</p><p><b>Struggles against:</b> Mono-White Auras and Mono-White Lifegain — the two most-played decks on the ladder.</p><p><b>Keep / mulligan:</b> 23 lands, curve stops at three. Keep any two-lander with a one-drop Lizard and a two-drop. Without a play on turn one or two the deck loses the race it is built for.</p><p><b>Reality Fracture cards:</b> Master of Barbs, Ingris Stingerquill and Stingerquill Charm, in nearly every list.</p></div><div class="deckbox"><div class="deckbar"><b>Arena import</b><button class="btn" onclick="copyDeck(this)">Copy</button><a class="src" href="https://www.mtggoldfish.com/deck/7979925" target="_blank" rel="noopener">Source</a></div><div class="srcline">PedraStone · 6th · Magic Online Challenge Oct 2 (best-of-three)</div><pre>Deck
+4 Blazemire Verge
+4 Blood Crypt
+4 Burst Lightning
+2 Cavern of Souls
+4 Fireglass Mentor
+4 Flamecache Gecko
+3 Gev, Scaled Scorch
+3 Haunted Ridge
+4 Hired Claw
+3 Ingris Stingerquill
+4 Iridescent Vinelasher
+4 Master of Barbs
+4 Mountain
+2 Rockface Village
+4 Stingerquill Charm
+4 Swamp
+3 Valley Flamecaller</pre></div></div></div></section><section class="card" id="burn"><div class="card-head"><span class="tier B">B</span><h2>Mono-Red Burn</h2><span class="stat">1.9% of ladder · 54.6% wins</span></div><div class="card-body prose"><div class="grid2"><div><p><b>Plan:</b> Twenty Mountains and forty cards costing one or two: hasty creatures (Slickshot Show-Off, Emberheart Challenger, Hired Claw) and burn (Boltwave, Burst Lightning, Lightning Strike, Shock).</p><p><b>Keep / mulligan:</b> Keep two or three lands with at least one creature. All-burn hands are fine on the play.</p><p><b>Reality Fracture cards:</b> None.</p><p class="small">No matchup data was available for this deck, and it does not appear in tournament results.</p></div><div class="deckbox"><div class="deckbar"><b>Arena import</b><button class="btn" onclick="copyDeck(this)">Copy</button><a class="src" href="https://mtga.untapped.gg/constructed/standard/decks" target="_blank" rel="noopener">Source</a></div><div class="srcline">Most-played Arena ladder list · 3,692 matches · 56.3% wins (Bronze–Platinum)</div><pre>Deck
+20 Mountain
+4 Boltwave
+4 Burst Lightning
+4 Emberheart Challenger
+4 Fleeting Effigy
+4 Hired Claw
+4 Impractical Joke
+4 Lightning Strike
+4 Shock
+4 Slickshot Show-Off
+4 Tectonic Hazard</pre></div></div></div></section><section class="card" id="dimir"><div class="card-head"><span class="tier B">B</span><h2>Dimir Midrange</h2><span class="stat">1.1% of ladder · 55.8% wins</span></div><div class="card-body prose"><div class="grid2"><div><p><b>Plan:</b> Cheap evasive creatures (Spyglass Siren, Floodpits Drowner) connect to enable Kaito, Bane of Nightmares and Enduring Curiosity, backed by one- and two-mana removal and counterspells.</p><p><b>Good against:</b> Slightly ahead against Mono-White Auras on a small sample.</p><p><b>Keep / mulligan:</b> 23–24 lands. Keep a one- or two-mana flyer with interaction; the deck&#x27;s card advantage depends on having a creature in play by turn three.</p><p><b>Reality Fracture cards:</b> Yuriko, Hope from the Shadows and Theorix Charm in about half of lists.</p><p class="small">Seven Challenge top 8s, second only to Jund Sacrifice — but only about 4,200 ladder matches, so treat the win rate as approximate.</p></div><div class="deckbox"><div class="deckbar"><b>Arena import</b><button class="btn" onclick="copyDeck(this)">Copy</button><a class="src" href="https://www.mtggoldfish.com/deck/7988304" target="_blank" rel="noopener">Source</a></div><div class="srcline">Strongmind · 3rd · Magic Online Challenge Oct 6 (best-of-three)</div><pre>Deck
+2 Bitter Triumph
+4 Dream Beavers
+4 Enduring Curiosity
+4 Floodpits Drowner
+4 Gloomlake Verge
+2 Hidden Lair
+4 Island
+4 Kaito, Bane of Nightmares
+1 Preacher of the Schism
+3 Requiting Hex
+2 Restless Reef
+2 Shipwreck Marsh
+2 Shoot the Sheriff
+2 Soulstone Sanctuary
+1 Spell Snare
+3 Spyglass Siren
+1 Strategic Betrayal
+3 Swamp
+2 The Wondrous Wasp
+1 Theorix Charm
+1 Tishana's Tidebinder
+1 Wan Shi Tong, Librarian
+4 Watery Grave
+2 We Say Thee Nay!
+1 Yuriko, Hope from the Shadows</pre></div></div></div></section>
+
+<section class="card" id="bo3"><div class="card-head"><h2>Strong in best-of-three, ordinary here</h2><span class="tier C">C</span><span class="badge">Tournament decks</span></div><div class="card-body prose">
+<p>These four fill the Magic Online top 8s and each is 1.5% or less of the best-of-one ladder, with win rates a point or two below the decks above. They lean on sideboards, and two of them fold to the ladder&#x27;s most-played deck or its best one. Play them if you also play best-of-three.</p>
+<details class="detail"><summary>Izzet Spellementals — 9.8% of Challenge decks, 1.5% of ladder (53.2%)</summary><p>Cantrips fill the graveyard so Hearth Elemental and Eddymurk Crab cost almost nothing, then Sunderflock bounces every non-Elemental. It was the top deck in August and through September; it has lost the most ground since. Good against Auras, very poor against Reanimator. Faria_Limer won the Oct 2 Challenge with this list.</p><div class="deckbox"><div class="deckbar"><b>Arena import</b><button class="btn" onclick="copyDeck(this)">Copy</button><a class="src" href="https://www.mtggoldfish.com/deck/7980857" target="_blank" rel="noopener">Source</a></div><div class="srcline">Faria_Limer · 1st · Magic Online Challenge Oct 2 (best-of-three)</div><pre>Deck
+4 Burst Lightning
+4 Eddymurk Crab
+4 Flow State
+2 Get Out
+4 Hearth Elemental
+2 Impractical Joke
+6 Island
+4 Opt
+4 Prismari Charm
+4 Riverpyre Verge
+4 Sleight of Hand
+2 Spell Snare
+4 Spirebluff Canal
+4 Steam Vents
+2 Stormcarved Coast
+4 Sunderflock
+2 Traumatic Critique</pre></div></details><details class="detail"><summary>Jund Sacrifice — 9.8% of Challenge decks, 1.1% of ladder (51.8%)</summary><p>Cheap fodder feeds The Sackville-Bagginses and Umbral Collar Zealot while Biotech Specialist and Obsessive Pursuit turn the churn into damage. Most Challenge top 8s of any deck (eight), and a very bad matchup against Mono-White Auras. No new cards.</p><div class="deckbox"><div class="deckbar"><b>Arena import</b><button class="btn" onclick="copyDeck(this)">Copy</button><a class="src" href="https://www.mtggoldfish.com/deck/7979152" target="_blank" rel="noopener">Source</a></div><div class="srcline">pizzangry · 1st · Magic Online Challenge Oct 1 (best-of-three)</div><pre>Deck
+4 Biotech Specialist
+3 Blazemire Verge
+1 Blood Crypt
+4 Blooming Marsh
+2 Callous Inspector
+1 Forest
+4 Gene Pollinator
+4 Greedy Freebooter
+4 Lively Dirge
+1 Mountain
+4 Obsessive Pursuit
+4 Overgrown Tomb
+2 Requiting Hex
+2 Rottenmouth Viper
+1 Smaug the Magnificent
+4 Starting Town
+2 Stir Up Trouble
+3 Stomping Ground
+1 Swamp
+2 The Misty Mountains Cold
+4 The Sackville-Bagginses
+2 Umbral Collar Zealot
+1 Wolverine, Fierce Fighter</pre></div></details><details class="detail"><summary>Izzet Prowess — 7.4% of Challenge decks, two wins</summary><p>One-mana prowess creatures and Slickshot Show-Off, grown with cantrips and burn. Pompous Battlemage from the new set is in nearly every list. Both Challenge wins belong to the same pilot. The Bilbo build from the August report is gone.</p><div class="deckbox"><div class="deckbar"><b>Arena import</b><button class="btn" onclick="copyDeck(this)">Copy</button><a class="src" href="https://www.mtggoldfish.com/deck/7979904" target="_blank" rel="noopener">Source</a></div><div class="srcline">_IlNano_ · 1st · Magic Online Challenge Oct 2 (best-of-three)</div><pre>Deck
+2 Bounce Off
+4 Burst Lightning
+2 Eddymurk Crab
+4 Elusive Otter
+4 Flow State
+2 Impractical Joke
+4 Island
+1 Mountain
+2 Multiversal Passage
+4 Opt
+4 Pompous Battlemage
+4 Riverpyre Verge
+2 Secret Identity
+4 Sleight of Hand
+4 Slickshot Show-Off
+1 Spell Snare
+4 Spirebluff Canal
+1 Starting Town
+4 Steam Vents
+1 Stock Up
+1 Vibrant Outburst
+1 Wild Ride</pre></div></details><details class="detail"><summary>Boros Dragons — 7.9% of Challenge decks, 0.5% of ladder (53.2%)</summary><p>Voice of Victory and Clarion Conqueror as early disruption into hasty Dragons. Five Challenge top 8s without a single new card.</p><div class="deckbox"><div class="deckbar"><b>Arena import</b><button class="btn" onclick="copyDeck(this)">Copy</button><a class="src" href="https://www.mtggoldfish.com/deck/7988336" target="_blank" rel="noopener">Source</a></div><div class="srcline">4FunNoWin · 3rd · Magic Online Challenge Oct 6 (best-of-three)</div><pre>Deck
+4 Burst Lightning
+2 Cavern of Souls
+4 Clarion Conqueror
+2 Erode
+4 Inspiring Vantage
+4 Maelstrom of the Spirit Dragon
+4 Magmatic Hellkite
+4 Momo, Friendly Flier
+1 Mountain
+4 Multiversal Passage
+4 Nova Hellkite
+1 Plains
+4 Sacred Foundry
+4 Sarkhan, Dragon Ascendant
+4 Smaug the Magnificent
+4 Sunbillow Verge
+2 Twinmaw Stormbrood
+4 Voice of Victory</pre></div></details>
+</div></section>
+
+<section class="card" id="brews"><div class="card-head"><h2>New-card decks to watch</h2><span class="badge">Too little data to rank</span></div><div class="card-body prose">
+<p>Decks built around Reality Fracture cards, with small samples, one pilot, or results that do not yet match their popularity.</p>
+<details class="detail"><summary>Orzhov Sacrifice with Darklight Phoenix — 2.3% of ladder, 54.9%</summary><p>The best-performing new-card deck on the ladder: Darklight Phoenix and Dark Matter Manipulator in a sacrifice shell. Beats Reanimator and Azorius Control, loses badly to Mono-White Auras. Ladder list only; no tournament results.</p><div class="deckbox"><div class="deckbar"><b>Arena import</b><button class="btn" onclick="copyDeck(this)">Copy</button><a class="src" href="https://mtga.untapped.gg/constructed/standard/decks" target="_blank" rel="noopener">Source</a></div><div class="srcline">Most-played Arena ladder list · 1,393 matches · 57.5% wins (Bronze–Platinum)</div><pre>Deck
+4 Bleachbone Verge
+4 Concealed Courtyard
+4 Dark Matter Manipulator
+4 Darklight Phoenix
+4 Godless Shrine
+4 Infestation Sage
+4 Lake-town Lookout
+4 Multiversal Passage
+4 Plains
+4 Raise the Past
+4 Snarling Gorehound
+4 The Sackville-Bagginses
+4 Umbral Collar Zealot
+4 Vengeful Bloodwitch
+4 Voice of Victory</pre></div></details><details class="detail"><summary>Golgari Vraska — 8 tournament lists, one top 8</summary><p>Midrange built on Vraska, the Cutting Glare and Simulacrum Shaper. The ladder&#x27;s Golgari decks are only break-even overall (50.2%) but beat Mono-White Auras comfortably.</p><div class="deckbox"><div class="deckbar"><b>Arena import</b><button class="btn" onclick="copyDeck(this)">Copy</button><a class="src" href="https://www.mtggoldfish.com/deck/7979136" target="_blank" rel="noopener">Source</a></div><div class="srcline">oosunq · 6th · Magic Online Challenge Oct 1 (best-of-three)</div><pre>Deck
+2 Ba Sing Se
+4 Blooming Marsh
+2 Deadly Cover-Up
+3 Duress
+3 Emeritus of Abundance
+3 Environmental Scientist
+3 Forest
+1 Maelstrom Pulse
+1 Nowhere to Run
+4 Overgrown Tomb
+2 Professor Dellian Fel
+2 Ral Zarek, Guest Lecturer
+3 Requiting Hex
+4 Restless Cottage
+2 Shoot the Sheriff
+4 Simulacrum Shaper
+1 Strategic Betrayal
+4 Swamp
+4 Vraska, the Cutting Glare
+4 Wastewood Verge
+4 Witherbloom Charm</pre></div></details><details class="detail"><summary>Simic Landfall — won the Oct 6 Challenge</summary><p>Landfall with Avatar of Burgeoning Echoes. All three tournament entries are one pilot (unagieel), so this is one player&#x27;s result, not an archetype&#x27;s.</p><div class="deckbox"><div class="deckbar"><b>Arena import</b><button class="btn" onclick="copyDeck(this)">Copy</button><a class="src" href="https://www.mtggoldfish.com/deck/7988285" target="_blank" rel="noopener">Source</a></div><div class="srcline">unagieel · 1st · Magic Online Challenge Oct 6 (best-of-three)</div><pre>Deck
+4 Avatar of Burgeoning Echoes
+1 Ba Sing Se
+2 Botanical Sanctum
+4 Breeding Pool
+4 Earthbender Ascension
+1 Elven Passage
+3 Escape Tunnel
+4 Fabled Passage
+10 Forest
+4 Icetill Explorer
+1 Island
+4 Llanowar Elves
+2 Meltstrider's Resolve
+4 Mightform Harmonizer
+4 Mossborn Hydra
+1 Sapling Nursery
+4 Sazh's Chocobo
+3 Shared Roots</pre></div></details><details class="detail"><summary>Dimir Reanimator — 2nd place, Oct 5</summary><p>A two-colour take on Reanimator with Uldaros Theorix, Seasoned Cryomancer and Theorix Charm. Two lists in the window.</p><div class="deckbox"><div class="deckbar"><b>Arena import</b><button class="btn" onclick="copyDeck(this)">Copy</button><a class="src" href="https://www.mtggoldfish.com/deck/7987037" target="_blank" rel="noopener">Source</a></div><div class="srcline">TheSandwichKing · 2nd · Magic Online Challenge Oct 5 (best-of-three)</div><pre>Deck
+3 Bitter Triumph
+2 Cavern of Souls
+1 Deadly Cover-Up
+4 Deceit
+3 Duress
+4 Gloomlake Verge
+2 Multiversal Passage
+2 Overlord of the Balemurk
+4 Requiting Hex
+4 Restless Reef
+4 Seasoned Cryomancer
+4 Shipwreck Marsh
+1 Strategic Betrayal
+4 Superior Spider-Man
+4 Swamp
+3 Theorix Charm
+3 Uldaros Theorix
+2 Undercity Sewers
+4 Watery Grave
+2 Winternight Stories</pre></div></details><details class="detail"><summary>Mono-White Lifegain, new-card build — 8th place, Oct 2</summary><p>Unlike the budget ladder list, this one plays Enlightened Confidant, Liliana the Faultless and Germinate Recruits. One list.</p><div class="deckbox"><div class="deckbar"><b>Arena import</b><button class="btn" onclick="copyDeck(this)">Copy</button><a class="src" href="https://www.mtggoldfish.com/deck/7979910" target="_blank" rel="noopener">Source</a></div><div class="srcline">claudioh · 8th · Magic Online Challenge Oct 2 (best-of-three)</div><pre>Deck
+3 Abandoned Air Temple
+1 Ajani Resolute
+4 Case of the Uneaten Feast
+4 Enlightened Confidant
+3 Erode
+3 Germinate Recruits
+4 Haliya, Guided by Light
+4 Leonardo, Cutting Edge
+4 Liliana the Faultless
+20 Plains
+2 Practiced Offense
+4 Seam Rip
+4 Voice of Victory</pre></div></details><details class="detail"><summary>Mono-Blue Jace — 1.4% of ladder, 52.4%</summary><p>Almost entirely new cards: both Jaces, Countersculpt, Jace&#x27;s Machinations, Theorist&#x27;s Proxy. Popular, a little below average, and absent from tournaments.</p><div class="deckbox"><div class="deckbar"><b>Arena import</b><button class="btn" onclick="copyDeck(this)">Copy</button><a class="src" href="https://mtga.untapped.gg/constructed/standard/decks" target="_blank" rel="noopener">Source</a></div><div class="srcline">Most-played Arena ladder list · 1,385 matches · 54.4% wins (Bronze–Platinum)</div><pre>Deck
+20 Island
+4 Countersculpt
+4 Into the Flood Maw
+4 Jace's Machinations
+4 Long River's Pull
+4 Theorist's Proxy
+4 Theorist's Sanctum
+4 Three Steps Ahead
+3 Jace, Reality Sculptor
+3 The Theorist, Jace Beleren
+2 Aetherize
+2 Spell Snare
+2 Waterbending Scroll</pre></div></details><details class="detail"><summary>Boros Superfriends — 3.6% of ladder, 50.2%</summary><p>The planeswalker deck everyone wanted to try: Ajani Unrelenting, Gideon&#x27;s Memorial, Chandra, Torch of Defiance. Eighth most-played deck on the ladder and exactly break-even; it loses heavily to Reanimator and Jeskai Artifacts. Play it for fun, not for rank.</p><div class="deckbox"><div class="deckbar"><b>Arena import</b><button class="btn" onclick="copyDeck(this)">Copy</button><a class="src" href="https://www.mtggoldfish.com/deck/7987034" target="_blank" rel="noopener">Source</a></div><div class="srcline">Salty_Orange · 6th · Magic Online Challenge Oct 5 (best-of-three)</div><pre>Deck
+2 Aang's Iceberg
+3 Ajani Unrelenting
+4 Ajani, Outland Chaperone
+3 Caretaker's Talent
+2 Chandra, Torch of Defiance
+2 Cori Mountain Monastery
+3 Day of Judgment
+2 Demolition Field
+3 Elegant Parlor
+3 Elspeth, Storm Slayer
+4 Erode
+3 Fountainport
+3 Gideon's Memorial
+4 Lightning Helix
+1 Mountain
+3 Plains
+4 Sacred Foundry
+2 Solitary Cell
+2 Sunbillow Verge
+1 Sundown Pass
+4 Sunken Citadel
+2 Way of the Pyromancer</pre></div></details>
+<p class="small">Also on the ladder with good numbers but not examined here: Temur Kona (56.1%), Orzhov Skeletons (56.5%), Boros Dwarves (55.0%), Rakdos Fling (55.0%). Popular and losing: Mono-Black Discard (48.7%) and Jund Superfriends (46.0%).</p>
+</div></section>
+
+<section class="card"><div class="card-head"><h2>Which Reality Fracture cards are being played</h2><span class="badge">289 tournament lists</span></div><div class="card-body prose">
+<p>Number of Magic Online lists (Sep 29–Oct 7) with the card in the main deck:</p>
+<div class="table-wrap"><table style="min-width:520px"><thead><tr><th>Card</th><th>Lists</th><th>Where</th></tr></thead><tbody>
+<tr><td>Liliana the Faultless</td><td>27</td><td>Lifegain</td></tr>
+<tr><td>Ajani Resolute</td><td>25</td><td>Lifegain</td></tr>
+<tr><td>Pompous Battlemage</td><td>23</td><td>Izzet Prowess</td></tr>
+<tr><td>Seasoned Cryomancer</td><td>19</td><td>Reanimator, Izzet Spellementals</td></tr>
+<tr><td>The Theorist, Jace Beleren</td><td>17</td><td>Azorius Control</td></tr>
+<tr><td>Enlightened Confidant</td><td>16</td><td>Lifegain</td></tr>
+<tr><td>Master of Barbs · Ingris Stingerquill · Stingerquill Charm</td><td>13–14</td><td>Rakdos Lizards</td></tr>
+<tr><td>Theorix Charm · Yuriko, Hope from the Shadows</td><td>11–12</td><td>Dimir Midrange</td></tr>
+<tr><td>Vraska, the Cutting Glare</td><td>9</td><td>Golgari</td></tr>
+</tbody></table></div>
+<p class="small" style="margin-top:8px">Boros Dragons, Boros Dwarves, Jund Sacrifice and Jeskai Artifacts registered essentially no new cards. Mono-White Auras and Mono-Red Burn, on the ladder, run none at all.</p>
+</div></section>
+
+<section class="card"><div class="card-head"><h2>Why best-of-one is its own format</h2></div><div class="card-body prose">
+<ul>
+<li><b>No sideboard.</b> Graveyard decks, Aura decks and artifact decks never face the cards that punish them. That is the main reason Reanimator and Mono-White Auras top this list and not the tournament one.</li>
+<li><b>Fast, linear decks are over-represented.</b> Most of the ladder is creature decks. Flexible removal earns its slot; narrow answers sit in hand.</li>
+<li><b>The hand smoother helps land count, not colours.</b> Arena&#x27;s best-of-one opening-hand algorithm favours a normal land-to-spell ratio. It will not fix a three-colour mana base, so do not trim lands from Reanimator or control. <a href="https://mtgazone.com/mtg-arenas-opening-hand-algorithm-and-smoothing/">MTG Arena Zone on hand smoothing</a>.</li>
+<li><b>Leyline of Resonance is banned in Arena best-of-one only.</b> A Magic Online list can legally contain it; none of the lists here do.</li>
+</ul>
+</div></section>
+
+<section class="card" id="legal"><div class="card-head"><h2>Legality, bans and what is next</h2><span class="badge">As of Oct 7 2026</span></div><div class="card-body prose">
+<ul>
+<li><b>Reality Fracture</b> arrived on Arena and Magic Online on Sep 29, 2026 and in stores on Oct 2. All 285 cards are Standard-legal. The set reprints Tarmogoyf and Chandra, Torch of Defiance into Standard. <a href="https://magic.wizards.com/en/news/mtg-arena/announcements-september-28-2026">Arena announcement, Sep 28</a></li>
+<li><b>Banned in Standard:</b> Abuelo&#x27;s Awakening, Badgermole Cub, Cori-Steel Cutter, Gran-Gran, Heartfire Hero, Hopeless Nightmare, Monstrous Rage, Proft&#x27;s Eidetic Memory, Screaming Nemesis, Stormchaser&#x27;s Talent, This Town Ain&#x27;t Big Enough, Up the Beanstalk, Vivi Ornitier — plus Leyline of Resonance in Arena best-of-one. <a href="https://magic.wizards.com/en/banned-restricted-list">Live list</a></li>
+<li><b>Last change:</b> Aug 10, 2026 (Badgermole Cub, Stormchaser&#x27;s Talent, Gran-Gran). <b>Next announcement: Oct 12, 2026.</b> <a href="https://magic.wizards.com/en/news/announcements/banned-and-restricted-august-10-2026">Aug 10 announcement</a></li>
+<li><b>Rotation:</b> none in autumn 2026. The next one comes in early 2027 with the Nauctis: The Sunken Realm prerelease. Legal sets run from Wilds of Eldraine through Reality Fracture. <a href="https://magic.wizards.com/en/formats/standard">Standard format page</a></li>
+<li><b>Coming up:</b> Arena Qualifier Play-In (best-of-one) Oct 24; Magic Spotlight: Fracture in Hartford Oct 23–25 and Beijing Oct 31–Nov 1. Those will be the first large Standard events with the new set. <a href="https://magic.wizards.com/en/news/mtg-arena/announcements-october-5-2026">Arena announcement, Oct 5</a></li>
+</ul>
+</div></section>
+
+<section class="card"><div class="card-head"><h2>Gaps — why this is a snapshot</h2></div><div class="card-body prose">
+<ol>
+<li>No best-of-one data above Platinum was available. Every ladder number here describes Bronze through Platinum.</li>
+<li>No major Standard tournament has been played with the set. Tournament evidence is seven Magic Online Challenges over eight days, with the same pilots appearing repeatedly — both Izzet Prowess wins are one player, as are all three Simic Landfall entries.</li>
+<li>Deck names do not always mean the same 60 cards. The ladder&#x27;s Mono-Green Landfall and Reanimator lists differ from the tournament ones, so a ladder win rate is not a measurement of a tournament list.</li>
+<li>Decks under roughly 5,000 ladder matches (Dimir Midrange, Jund Sacrifice, Izzet Spellementals, Boros Dragons) carry a point or two of noise.</li>
+<li>MTGGoldfish&#x27;s headline metagame percentages cover 30 days and are mostly pre-set; they were not used. Shares were recounted from individual events.</li>
+<li>Matchup notes give direction only, drawn from ladder results; pairs with few games were left out.</li>
+</ol>
+</div></section>
+
+<section class="card"><div class="card-head"><h2>Sources</h2></div><div class="card-body prose small">
+<p><a href="https://mtga.untapped.gg/constructed/standard/tier-list">Untapped.gg Standard tier list</a> and <a href="https://mtga.untapped.gg/constructed/standard/decks">decks</a> (Arena ladder, Bronze–Platinum) · MTGGoldfish Magic Online results: Challenges <a href="https://www.mtggoldfish.com/tournament/66950">Sep 29</a>, <a href="https://www.mtggoldfish.com/tournament/66972">Oct 1</a>, <a href="https://www.mtggoldfish.com/tournament/66988">Oct 2</a>, <a href="https://www.mtggoldfish.com/tournament/66994">Oct 2 (second)</a>, <a href="https://www.mtggoldfish.com/tournament/67064">Oct 5</a>, <a href="https://www.mtggoldfish.com/tournament/67083">Oct 6 (16)</a>, <a href="https://www.mtggoldfish.com/tournament/67084">Oct 6 (32)</a> · <a href="https://magic.gg/news/metagame-mentor-hottest-standard-decks-winning-september-2026-rcqs">Metagame Mentor, Sep 24</a> (September baseline) · <a href="https://magic.gg/news/metagame-mentor-ten-exciting-reality-fracture-callbacks-for-standard-pioneer-and-modern">Metagame Mentor, Oct 1</a> · <a href="https://aetherhub.com/Metagame/Standard-BO1/7">AetherHub best-of-one, 7 days</a> (small sample, used only as a cross-check) · Wizards pages linked above.</p>
+<p>Researched Oct 7, 2026 by an AI agent working from the sources above. <a href="../#how">How these guides are made</a> · <a href="../">More guides</a> · <a href="../standard-bo1-2026-08-13/">Previous report (Aug 13)</a></p>
+</div></section>
+
+</div>
+<footer class="foot">MTG Arena Standard Best-of-One meta report • Researched Oct 7 2026<br>Unofficial Fan Content permitted under the <a href="https://company.wizards.com/en/legal/fancontentpolicy">Fan Content Policy</a>. Not approved/endorsed by Wizards. Portions of the materials used are property of Wizards of the Coast. ©Wizards of the Coast LLC.</footer>
+<script>
+function copyDeck(btn){
+ const pre=btn.closest('.deckbox').querySelector('pre');
+ navigator.clipboard.writeText(pre.textContent).then(()=>{const o=btn.textContent;btn.textContent='Copied!';setTimeout(()=>btn.textContent=o,1200)});
+}
+</script>
+</body>
+</html>
